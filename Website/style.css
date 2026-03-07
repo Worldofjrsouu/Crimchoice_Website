@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#3E513E;
+}
+
+/* NAVBAR */
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  color:white;
+}
+
+nav ul {
+  display:flex;
+  gap:20px;
+  list-style:none;
+  padding:0;
+}
+
+.nav-btn {
+  background:#b12a2a;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero {
+  height:350px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  background: linear-gradient(rgba(150,0,0,0.6), rgba(150,0,0,0.6)),
+              url("school.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+.start-btn {
+  padding:10px 25px;
+  border-radius:20px;
+  border:none;
+  background:white;
+  color:#b12a2a;
+  font-weight:bold;
+  margin-top:10px;
+  cursor:pointer;
+}
+
+/* SECTIONS */
+section {
+  background:#f3e9e9;
+  margin:20px;
+  padding:30px;
+  border-radius:15px;
+}
+
+/* HOW IT WORKS */
+.cards {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.card {
+  background:#e7d0d0;
+  padding:20px;
+  border-radius:15px;
+  flex:1;
+  min-width:200px;
+}
+
+/* COURSES */
+.course-box {
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.course-card {
+  height:150px;
+  background:#e7d0d0;
+  border-radius:15px;
+  flex:1;
+  min-width:200px;
+}
+
+/* TESTIMONIALS */
+.test-box {
+  background:#e7d0d0;
+  padding:10px;
+  border-radius:20px;
+  width:300px;
+  margin-bottom:10px;
+}
+
+.test-row {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.test-small {
+  background:#e7d0d0;
+  padding:10px;
+  border-radius:20px;
+}
+
+/* QUIZ */
+.quiz-box {
+  background:#e7d0d0;
+  padding:20px;
+  border-radius:15px;
+  width:300px;
+}
+
+.quiz-option {
+  display:block;
+  margin:8px 0;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.quiz-option input {
+  margin-right:8px;
+}
+
+.quiz-btn {
+  margin-top:10px;
+  padding:8px 15px;
+  border:none;
+  border-radius:15px;
+  background:#b12a2a;
+  color:white;
+  cursor:pointer;
+}
