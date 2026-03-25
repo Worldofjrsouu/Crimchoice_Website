@@ -1,11 +1,10 @@
 
-/* RESET */
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family: Arial, Helvetica, sans-serif;
+transition: all 0.3s ease;
 }
 
 body{
@@ -13,9 +12,7 @@ background:#f6f2f2;
 color:#333;
 }
 
-
 /* NAVBAR */
-
 nav{
 display:flex;
 justify-content:space-between;
@@ -23,6 +20,7 @@ align-items:center;
 padding:15px 60px;
 background:white;
 border-bottom:1px solid #eee;
+animation: slideDown 0.8s ease forwards;
 }
 
 nav ul{
@@ -45,9 +43,7 @@ border-radius:6px;
 cursor:pointer;
 }
 
-
 /* HERO SECTION */
-
 .hero{
 height:500px;
 background-image: url("images/university.jpg"); 
@@ -59,6 +55,7 @@ justify-content:center;
 text-align:center;
 color:white;
 position:relative;
+animation: bgZoom 10s ease-in-out infinite alternate;
 }
 
 .hero::before{
@@ -74,6 +71,8 @@ background:rgba(150,0,0,0.6);
 .hero-content{
 position:relative;
 max-width:700px;
+animation: fadeUp 1.2s ease forwards;
+opacity:0;
 }
 
 .hero h1{
@@ -93,11 +92,26 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 font-weight:bold;
+position:relative;
+overflow:hidden;
 }
 
+.start-btn::after{
+content:"";
+position:absolute;
+width:100%;
+height:0%;
+top:0;
+left:0;
+background:rgba(255,255,255,0.2);
+transition: all 0.4s ease;
+}
 
+.start-btn:hover::after{
+height:100%;
+}
 
-
+/* WORKS SECTION */
 .works{
 padding:60px;
 text-align:center;
@@ -116,16 +130,26 @@ padding:30px;
 border-radius:12px;
 width:250px;
 border:1px solid #e4bcbc;
+opacity:0;
+transform:translateY(30px);
+animation: cardFade 1s ease forwards;
 }
+
+.card:nth-child(1){ animation-delay:0.2s; }
+.card:nth-child(2){ animation-delay:0.4s; }
+.card:nth-child(3){ animation-delay:0.6s; }
 
 .card h3{
 color:#b31313;
 margin-bottom:10px;
 }
 
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
 
-
-
+/* FEATURED */
 .featured{
 padding:60px;
 text-align:center;
@@ -145,15 +169,16 @@ border:1px solid #d8a1a1;
 border-radius:8px;
 cursor:pointer;
 font-size:14px;
+opacity:0;
+transform:scale(0.9);
+animation: popIn 0.6s ease forwards;
 }
 
 .college:hover{
 background:#f8eaea;
 }
 
-
-
-
+/* TESTIMONIALS */
 .testimonials{
 padding:60px;
 text-align:center;
@@ -172,7 +197,14 @@ padding:20px;
 border-radius:10px;
 width:260px;
 border:1px solid #e0bcbc;
+opacity:0;
+transform:translateY(20px);
+animation: fadeUp 1s ease forwards;
 }
+
+.testimonial:nth-child(1){ animation-delay:0.3s; }
+.testimonial:nth-child(2){ animation-delay:0.5s; }
+.testimonial:nth-child(3){ animation-delay:0.7s; }
 
 .testimonial span{
 display:block;
@@ -181,9 +213,7 @@ font-size:13px;
 color:#777;
 }
 
-
-
-
+/* QUIZ */
 .quiz{
 padding:60px;
 text-align:center;
@@ -207,10 +237,26 @@ color:white;
 border:none;
 border-radius:6px;
 cursor:pointer;
+position:relative;
+overflow:hidden;
 }
 
+.quiz-btn::after{
+content:"";
+position:absolute;
+width:100%;
+height:0%;
+top:0;
+left:0;
+background:rgba(255,255,255,0.2);
+transition: all 0.4s ease;
+}
 
+.quiz-btn:hover::after{
+height:100%;
+}
 
+/* CONTACT */
 .contact{
 padding:60px;
 }
@@ -252,10 +298,26 @@ color:white;
 border:none;
 border-radius:6px;
 cursor:pointer;
+position:relative;
+overflow:hidden;
 }
 
+.contact-form button::after{
+content:"";
+position:absolute;
+width:100%;
+height:0%;
+top:0;
+left:0;
+background:rgba(255,255,255,0.2);
+transition: all 0.4s ease;
+}
 
+.contact-form button:hover::after{
+height:100%;
+}
 
+/* CTA */
 .cta{
 background:#a50f0f;
 color:white;
@@ -272,14 +334,15 @@ color:#7a0000;
 border-radius:8px;
 font-weight:bold;
 cursor:pointer;
+position:relative;
+overflow:hidden;
 }
 
 .cta-btn:hover{
 background:white;
 }
 
-
-
+/* FOOTER */
 footer{
 background:#8d0c0c;
 color:white;
@@ -287,4 +350,50 @@ display:flex;
 justify-content:space-between;
 padding:30px 60px;
 font-size:14px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+from {
+opacity:0;
+transform:translateY(40px);
+}
+to {
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideDown {
+from {
+transform:translateY(-100%);
+opacity:0;
+}
+to {
+transform:translateY(0);
+opacity:1;
+}
+}
+
+@keyframes cardFade {
+to {
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes popIn {
+to {
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes bgZoom {
+from {
+background-size:100%;
+}
+to {
+background-size:110%;
+}
 }
