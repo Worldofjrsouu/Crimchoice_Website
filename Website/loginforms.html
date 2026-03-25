@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CrimChoice - Login</title>
+<title>Pathly - Login</title>
 
 <style>
 
@@ -83,7 +83,7 @@ a:hover{
 
 <div class="login-box">
 
-<h1>CrimChoice</h1>
+<h1>Pathly</h1>
 <p class="subtitle">Course Recommendation System</p>
 
 <form action = "main.html">
@@ -92,7 +92,12 @@ a:hover{
 
 <input type="password" placeholder="Password">
 
-<input type="role" placeholder="Role">
+<label for="role">Role:</label>
+
+<select id="role" placeholder = "">
+    <option value="Student"></option>
+    <option value="Teacher"></option>
+</select> 
 
 <button type="submit">Login</button>
 

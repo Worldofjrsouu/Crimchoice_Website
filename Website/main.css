@@ -50,7 +50,7 @@ cursor:pointer;
 
 .hero{
 height:500px;
-background-image: url("university.jpg"); 
+background-image: url("images/university.jpg"); 
 background-size:cover;
 background-position:center;
 display:flex;
