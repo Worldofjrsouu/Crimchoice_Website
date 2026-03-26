@@ -399,6 +399,122 @@ opacity:1;
 }
 }
 
+/* RESPONSIVE DESIGN */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  nav ul li {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .logo-container {
+    order: -1;
+    margin-bottom: 10px;
+  }
+
+  .nav-btn {
+    order: 1;
+    margin-top: 10px;
+  }
+
+  .hero {
+    height: 400px;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .works, .featured, .testimonials, .quiz, .contact, .cta {
+    padding: 40px 20px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .college-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .quiz-box {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info, .contact-form {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px 15px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .college-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 @keyframes cardFade {
 to {
 opacity:1;
