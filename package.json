@@ -1,0 +1,19 @@
+{
+  "homepage":
+    "https://github.com/Worldofjrsouu/Crimchoice_Website.git",
+
+  "dependencies": {
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
+  },
+    "scripts":{
+    "dev": "vite",
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
