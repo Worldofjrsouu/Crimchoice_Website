@@ -1,31 +1,16 @@
 {
-<<<<<<< HEAD
-  "homepage":
-    "https://github.com/Worldofjrsouu/Crimchoice_Website.git",
-
-  "dependencies": {
-    "recharts": "^3.8.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2"
-  },
-    "scripts":{
-    "dev": "vite",
-    "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-=======
   "name": "my-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Worldofjrsouu.github.io/Crimchoice_Website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.2.4",
@@ -37,17 +22,14 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "autoprefixer": "^10.4.27",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^6.0.0",
     "globals": "^17.4.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
     "vite": "^8.0.1"
-  },
-  "script": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
->>>>>>> bb6ca93685aeed2a70100733a52b3442f970911b
   }
 }
