@@ -1,0 +1,125 @@
+body{
+    background-color: #fff7ed;
+}
+
+.sidebar{
+    width: 190px;
+    height: 1000px;
+    background-color:#8B0000;
+    color:#ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar h2{
+    text-align: center;
+}
+
+.sidebar ul{
+    list-style: none;
+    margin-left:0;
+    padding:0;
+}
+
+.sidebar ul li{
+    margin: 15px 0;
+
+}
+
+.sidebar ul li a{
+    color:#ffffff;
+    font-weight: bold;
+    border:none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: start;
+    text-decoration: none;
+}
+
+button{  
+    width:198px;
+    height:40px;
+    background-color:#A64B47; 
+    border: 2px solid #A64B47;
+    border-radius:5px;
+    
+}
+
+
+.sidebar ul li button:hover{
+    background-color:#8B0000
+}
+
+h1{
+    font-family: Arial;
+    color:#8B0000;
+    margin-left:240px;
+    padding:20px;
+}
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f3f1f1;
+}
+
+.container{
+  margin-left: 300px;
+  padding:30px 40px;
+}
+
+.title{
+  color:#8B0000;
+  text-align: center;
+  font-size:40px;
+  font-weight:bold;
+  margin-left:50px;
+  margin-right: 300px;
+  margin-top: 20px;
+}
+
+.dashboard-cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+  width:fit-content;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.card{
+  width:300px;
+  height:100px;
+  flex:1;
+  background:#ead6d6;
+  flex-direction:column;
+  justify-content:center;
+  padding:40px 50px;
+  border-radius:10px;
+  border: 2px solid #8b00005c;
+  text-align:center;
+  margin-top: 50px;
+  margin-left:50px;
+  margin:0 auto;
+}
+
+.label{
+  color:#8B0000;
+  font-weight:600;
+  margin-top: 20px;
+  margin-bottom:20px;
+  font-size: 30px;
+}
+
+.card h2{
+  color:#8B0000;
+  margin:0;
+  font-size: 20px;
+  font-weight: 15px;
+}

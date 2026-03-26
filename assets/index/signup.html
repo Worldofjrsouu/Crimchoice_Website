@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pathly - Sign Up</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top,#5E0A2C,#cc0000);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* SignUp Box */
+
+.sign-box{
+    background:rgb(252, 246, 246);
+    width:420px;
+    padding:40px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(75, 14, 14, 0.3);
+}
+
+/* Title */
+
+h1{
+    color:#be1b1b;
+}
+
+.subtitle{
+    color:gray;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+/* Inputs */
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+/* Button */
+
+button{
+    width:100%;
+    padding:10px;
+    background:#8b0000;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:15px;
+    box-shadow:0 5px 15px rgba(75, 14, 14, 0.3);
+}
+
+button:hover{
+    background:#660000;
+}
+
+/* Links */
+
+a{
+    font-size:12px;
+    color:#8b0000;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sign-box">
+
+<h1>Pathly</h1>
+<p class="subtitle">Create an Account</p>
+
+<form action="../index/main.html">
+
+<!-- Name Fields -->
+<input type="text" placeholder="First Name" required>
+<input type="text" placeholder="Middle Name">
+<input type="text" placeholder="Last Name" required>
+
+<select>
+    <option value="">Suffix (Optional)</option>
+    <option>Jr.</option>
+    <option>Sr.</option>
+    <option>II</option>
+    <option>III</option>
+</select>
+
+<!-- Birthday -->
+<input type="date" required>
+
+<!-- Account Info -->
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+<input type="password" placeholder="Confirm Password" required>
+
+<button type="submit">Submit</button>
+
+<br><br>
+<a href="../index/loginforms.html">Already Have an Account?</a>
+
+</form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,579 @@
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+transition: all 0.3s ease;
+}
+
+body{
+background:#f6f2f2;
+color:#333;
+}
+
+/* NAVBAR */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap: 10px;
+padding:15px 60px;
+background:white;
+border-bottom:1px solid #eee;
+animation: slideDown 0.8s ease forwards;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li{
+cursor:pointer;
+font-weight:600;
+border: #7a0000 2px solid;
+border-radius:6px;
+padding: 5px 8px;
+}
+
+.profile-container {
+  position: relative;
+  margin-left: 15px;
+}
+
+.profile-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  background: white;
+  min-width: 140px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown a:hover {
+  background: #f5f5f5;
+}
+
+.show {
+  display: block;
+}
+
+.hero-logo{
+height:70px;
+width: auto;
+}
+
+.logo{
+height:40px;
+width: auto;
+}
+
+
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+border: solid 2px #b31313;
+border-radius:8px;
+padding:5px 5px;
+}
+
+.nav-btn{
+background:#b31313;
+color:white;
+border:none;
+padding:12px 16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* HERO SECTION */
+.hero{
+height:500px;
+background-image: url("../images/university.jpg"); 
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
+animation: bgZoom 10s ease-in-out infinite alternate;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(150,0,0,0.6);
+}
+
+.hero-content{
+position:relative;
+max-width:700px;
+animation: fadeUp 1.2s ease forwards;
+opacity:0;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.hero p{
+margin-bottom:20px;
+}
+
+.start-btn{
+padding:12px 30px;
+background:white;
+color:#8b0000;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+position:relative;
+overflow:hidden;
+}
+
+.start-btn::after{
+content:"";
+position:absolute;
+width:100%;
+height:0%;
+top:0;
+left:0;
+background:rgba(255,255,255,0.2);
+transition: all 0.4s ease;
+}
+
+.start-btn:hover::after{
+height:100%;
+}
+
+/* WORKS SECTION */
+.works{
+padding:60px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+width:250px;
+border:1px solid #e4bcbc;
+opacity:0;
+transform:translateY(30px);
+animation: cardFade 1s ease forwards;
+}
+
+.card:nth-child(1){ animation-delay:0.2s; }
+.card:nth-child(2){ animation-delay:0.4s; }
+.card:nth-child(3){ animation-delay:0.6s; }
+
+.card h3{
+color:#b31313;
+margin-bottom:10px;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* FEATURED */
+.featured{
+padding:60px;
+text-align:center;
+}
+
+.college-grid{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.college{
+padding:12px;
+background:white;
+border:1px solid #d8a1a1;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+opacity:0;
+transform:scale(0.9);
+animation: popIn 0.6s ease forwards;
+}
+
+.college:hover{
+background:#f8eaea;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+padding:60px;
+text-align:center;
+}
+
+.testimonial-grid{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:30px;
+}
+
+.testimonial{
+background:white;
+padding:20px;
+border-radius:10px;
+width:260px;
+border:1px solid #e0bcbc;
+opacity:0;
+transform:translateY(20px);
+animation: fadeUp 1s ease forwards;
+}
+
+.testimonial:nth-child(1){ animation-delay:0.3s; }
+.testimonial:nth-child(2){ animation-delay:0.5s; }
+.testimonial:nth-child(3){ animation-delay:0.7s; }
+
+.testimonial span{
+display:block;
+margin-top:10px;
+font-size:13px;
+color:#777;
+}
+
+/* QUIZ */
+.quiz{
+padding:60px;
+text-align:center;
+}
+
+.quiz-box{
+background:white;
+padding:30px;
+width:450px;
+margin:auto;
+border-radius:10px;
+border:1px solid #e0bcbc;
+text-align:left;
+}
+
+.quiz-btn{
+margin-top:15px;
+padding:10px 20px;
+background:#b31313;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.quiz-btn::after{
+content:"";
+position:absolute;
+width:100%;
+height:0%;
+top:0;
+left:0;
+background:rgba(255,255,255,0.2);
+transition: all 0.4s ease;
+}
+
+.quiz-btn:hover::after{
+height:100%;
+}
+
+/* CONTACT */
+.contact{
+padding:60px;
+}
+
+.contact-container{
+display:flex;
+justify-content:space-between;
+gap:40px;
+margin-top:20px;
+}
+
+.contact-info{
+width:40%;
+}
+
+.contact-form{
+width:60%;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.contact-form textarea{
+height:100px;
+}
+
+.contact-form button{
+width:120px;
+padding:10px;
+background:#b31313;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.contact-form button::after{
+content:"";
+position:absolute;
+width:100%;
+height:0%;
+top:0;
+left:0;
+background:rgba(255,255,255,0.2);
+transition: all 0.4s ease;
+}
+
+.contact-form button:hover::after{
+height:100%;
+}
+
+/* CTA */
+.cta{
+background:#a50f0f;
+color:white;
+text-align:center;
+padding:60px;
+}
+
+.cta-btn{
+margin-top:20px;
+padding:12px 30px;
+border:none;
+background:#f0c1c1;
+color:#7a0000;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.cta-btn:hover{
+background:white;
+}
+
+/* FOOTER */
+footer{
+background:#8d0c0c;
+color:white;
+display:flex;
+justify-content:space-between;
+padding:30px 60px;
+font-size:14px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+from {
+opacity:0;
+transform:translateY(40px);
+}
+to {
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideDown {
+from {
+transform:translateY(-100%);
+opacity:0;
+}
+to {
+transform:translateY(0);
+opacity:1;
+}
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  nav ul li {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .logo-container {
+    order: -1;
+    margin-bottom: 10px;
+  }
+
+  .nav-btn {
+    order: 1;
+    margin-top: 10px;
+  }
+
+  .hero {
+    height: 400px;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .works, .featured, .testimonials, .quiz, .contact, .cta {
+    padding: 40px 20px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .college-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .quiz-box {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info, .contact-form {
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px 15px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .college-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@keyframes cardFade {
+to {
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes popIn {
+to {
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes bgZoom {
+from {
+background-size:100%;
+}
+to {
+background-size:110%;
+}
+}
