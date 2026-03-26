@@ -34,6 +34,16 @@ cursor:pointer;
 font-weight:500;
 }
 
+.hero-logo{
+height:70px;
+width: auto;
+}
+
+.logo{
+height:40px;
+width: auto;
+}
+
 .nav-btn{
 background:#b31313;
 color:white;
