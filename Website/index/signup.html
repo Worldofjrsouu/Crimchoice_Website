@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Pathly - Login</title>
+<title>Pathly - Sign Up</title>
 
 <style>
 
@@ -9,29 +9,26 @@ body{
     font-family: Arial, sans-serif;
     background: linear-gradient(to top,#5E0A2C,#cc0000);
     height:100vh;
-    display: flex;
+    display:flex;
     justify-content:center;
     align-items:center;
 }
-
 
 /* SignUp Box */
 
 .sign-box{
     background:rgb(252, 246, 246);
-    width: 420px;
-    padding:70px;
+    width:420px;
+    padding:40px;
     border-radius:10px;
-    text-align: center;
+    text-align:center;
     box-shadow:0 5px 15px rgba(75, 14, 14, 0.3);
-    
 }
 
 /* Title */
 
 h1{
     color:#be1b1b;
-    
 }
 
 .subtitle{
@@ -42,7 +39,7 @@ h1{
 
 /* Inputs */
 
-input{
+input, select{
     width:100%;
     padding:10px;
     margin:8px 0;
@@ -84,28 +81,40 @@ a:hover{
 </head>
 
 <body>
+
 <div class="sign-box">
-
-
 
 <h1>Pathly</h1>
 <p class="subtitle">Create an Account</p>
 
-<form action = "../index/main.html">
+<form action="../index/main.html">
 
-<input type="email" placeholder="Email">
+<!-- Name Fields -->
+<input type="text" placeholder="First Name" required>
+<input type="text" placeholder="Middle Name">
+<input type="text" placeholder="Last Name" required>
 
-<input type="text" placeholder="Username">
+<select>
+    <option value="">Suffix (Optional)</option>
+    <option>Jr.</option>
+    <option>Sr.</option>
+    <option>II</option>
+    <option>III</option>
+</select>
 
-<input type="password" placeholder="Password">
+<!-- Birthday -->
+<input type="date" required>
 
-<input type="password" placeholder="Confirm Password">
+<!-- Account Info -->
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Username" required>
+<input type="password" placeholder="Password" required>
+<input type="password" placeholder="Confirm Password" required>
 
-<button type="Submit">Submit</button>
+<button type="submit">Submit</button>
 
-
-<a href="../index/loginforms.html">Already Have an Account?</a><br>
-
+<br><br>
+<a href="../index/loginforms.html">Already Have an Account?</a>
 
 </form>
 
