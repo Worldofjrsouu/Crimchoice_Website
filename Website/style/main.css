@@ -1,4 +1,4 @@
-
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -46,7 +46,7 @@ cursor:pointer;
 /* HERO SECTION */
 .hero{
 height:500px;
-background-image: url("images/university.jpg"); 
+background-image: url("../images/university.jpg"); 
 background-size:cover;
 background-position:center;
 display:flex;

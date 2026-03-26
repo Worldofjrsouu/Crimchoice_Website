@@ -9,26 +9,29 @@ body{
     font-family: Arial, sans-serif;
     background: linear-gradient(to top,#5E0A2C,#cc0000);
     height:100vh;
-    display:flex;
+    display: flex;
     justify-content:center;
     align-items:center;
 }
 
-/* Login Box */
 
-.login-box{
+/* SignUp Box */
+
+.sign-box{
     background:rgb(252, 246, 246);
-    width:400px;
-    padding:40px;
+    width: 420px;
+    padding:70px;
     border-radius:10px;
-    text-align:center;
+    text-align: center;
     box-shadow:0 5px 15px rgba(75, 14, 14, 0.3);
+    
 }
 
 /* Title */
 
 h1{
     color:#be1b1b;
+    
 }
 
 .subtitle{
@@ -52,12 +55,13 @@ input{
 button{
     width:100%;
     padding:10px;
-    background:#962020;
+    background:#8b0000;
     color:white;
     border:none;
-    border-radius:7px;
+    border-radius:5px;
     cursor:pointer;
     font-size:15px;
+    box-shadow:0 5px 15px rgba(75, 14, 14, 0.3);
 }
 
 button:hover{
@@ -80,31 +84,28 @@ a:hover{
 </head>
 
 <body>
+<div class="sign-box">
 
-<div class="login-box">
+
 
 <h1>Pathly</h1>
-<p class="subtitle">Course Recommendation System</p>
+<p class="subtitle">Create an Account</p>
 
-<form action = "main.html">
+<form action = "../index/main.html">
+
+<input type="email" placeholder="Email">
 
 <input type="text" placeholder="Username">
 
 <input type="password" placeholder="Password">
 
-<label for="role">Role:</label>
+<input type="password" placeholder="Confirm Password">
 
-<select id="role" placeholder = "">
-    <option value="Student"></option>
-    <option value="Teacher"></option>
-</select> 
+<button type="Submit">Submit</button>
 
-<button type="submit">Login</button>
 
-<br><br>
+<a href="../index/loginforms.html">Already Have an Account?</a><br>
 
-<a href="#">Forgot Password?</a><br>
-<a href="signup.html">Create Account</a>
 
 </form>
 
