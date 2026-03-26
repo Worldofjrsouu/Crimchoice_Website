@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pathly - Login</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.login-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(870deg, #abaaaa, #a10303f5);
+}
+
+.login-side::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: 120px;
+    background: 
+        linear-gradient(#5e0000, #8b0000),
+        url('../images/wmsulogo.JPG') no-repeat center;
+    background-size: contain;
+    background-blend-mode: lighten;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.login-box {
+    width: 80%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #8b0000;
+    margin-bottom: 10px;
+}
+.subtitle {
+    color: #4d0000;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 7px;
+    background: rgba(255,255,255,0.5);
+    color: #000;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #8b0000;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+button:hover {
+    background: #5e0000;
+}
+
+a {
+    font-size: 12px;
+    color: #8b0000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.slideshow-side {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-slide {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fade 25s infinite;
+}
+
+.bg1 { background-image: url('../images/wmsu(1).jpg'); animation-delay: 0s; }
+.bg2 { background-image: url('../images/wmsu(2).jpg'); animation-delay: 2s; }
+.bg3 { background-image: url('../images/wmsu(3).jpg'); animation-delay: 4s; }
+.bg4 { background-image: url('../images/wmsu(4).jpg'); animation-delay: 6s; }
+.bg5 { background-image: url('../images/wmsu(5).jpg'); animation-delay: 8s; }
+.bg6 { background-image: url('../images/wmsu(6).jpg'); animation-delay: 10s; }
+.bg7 { background-image: url('../images/wmsu(7).jpg'); animation-delay: 12s; }
+.bg8 { background-image: url('../images/wmsu(8).jpg'); animation-delay: 14s; }
+.bg9 { background-image: url('../images/wmsu(9).jpg'); animation-delay: 16s; }
+
+@keyframes fade {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    15% { opacity: 1; }
+    20% { opacity: 0; }
+    100% { opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="login-side">
+        <div class="login-box">
+            <h1>Pathly</h1>
+            <p class="subtitle">Course Recommendation System</p>
+            <form action="../index/main.html">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <br><br>
+                <a href="#">Forgot Password?</a><br>
+                <a href="../index/signup.html">Create Account</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="slideshow-side">
+        <div class="bg-slide bg1"></div>
+        <div class="bg-slide bg2"></div>
+        <div class="bg-slide bg3"></div>
+        <div class="bg-slide bg4"></div>
+        <div class="bg-slide bg5"></div>
+        <div class="bg-slide bg6"></div>
+        <div class="bg-slide bg7"></div>
+        <div class="bg-slide bg8"></div>
+        <div class="bg-slide bg9"></div>
+    </div>
+</div>
+
+</body>
+</html>
