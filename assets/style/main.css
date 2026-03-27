@@ -491,3 +491,12 @@ footer {
   .college-grid { grid-template-columns: 1fr;}
   .cta-btn { width:100%; max-width:300px;}
 }
+/* PROFILE FIXES FOR DROPDOWN */
+.profile-container {
+  position: relative;
+  z-index: 200; 
+}
+
+.dropdown {
+  z-index: 300; 
+}

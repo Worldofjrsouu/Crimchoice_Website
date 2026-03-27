@@ -18,13 +18,15 @@
     <li>Contact</li>
   </ul>
   <button class="nav-btn">Get Recommendations</button>
+  
+  <!-- PROFILE -->
   <div class="profile-container" id="profileNav">
     <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
     <div id="dropdownMenu" class="dropdown">
       <a href="#">Settings</a>
       <a href="#">Help & Support</a>
       <a href="#">Display & Accessibility</a>
-      <a href="../index/loginforms.html" id="logoutBtn">Log out</a>
+      <a href="login.html">Log out</a>
     </div>
   </div>
   <div class="side-boxes"></div>
@@ -157,6 +159,7 @@
   const profileNav = document.getElementById('profileNav');
   const dropdown = document.getElementById('dropdownMenu');
   const profileImg = document.getElementById('profileImg');
+  const logoutBtn = document.getElementById('logoutBtn');
 
   if (loggedIn) {
     ctaSection.style.display = 'none';
@@ -173,6 +176,11 @@
 
   window.addEventListener('click', () => {
     dropdown.classList.remove('show');
+  });
+
+  logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'login.html';
   });
 </script>
 
