@@ -296,6 +296,8 @@
   // Start testimonial rotation after initial delay
   setTimeout(() => {
     console.log('3 seconds passed - starting testimonial carousel');
+    // Set initial testimonials to match the first set
+    updateTestimonials(0);
     rotateTestimonials();
   }, 3000); // Wait 3 seconds before first rotation
 </script>
