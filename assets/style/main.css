@@ -274,6 +274,12 @@ nav ul li {
   display: flex;
   justify-content: center;
   gap: 30px;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.testimonial-grid.fade-out {
+  opacity: 0;
 }
 
 .testimonial {
@@ -281,10 +287,14 @@ nav ul li {
   padding: 20px;
   border-radius: 10px;
   width: 260px;
+  height: 200px;
   border: 1px solid #e0bcbc;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1s ease forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
 }
 
 .testimonial:nth-child(1) { animation-delay: 0.3s; }
@@ -442,6 +452,16 @@ footer {
 @keyframes fadeUp {
   from { opacity:0; transform: translateY(40px);}
   to { opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideDown {

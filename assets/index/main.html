@@ -26,7 +26,7 @@
       <a href="#">Settings</a>
       <a href="#">Help & Support</a>
       <a href="#">Display & Accessibility</a>
-      <a href="loginforms.html">Log out</a>
+      <a href="loginforms.html" id="logoutBtn">Log out</a>
     </div>
   </div>
   <div class="side-boxes"></div>
@@ -69,9 +69,7 @@
     <a href="../Colleges/college_computing_studies.html">
       <button class="college">College of Computing Studies</button>
     </a>
-    <a href = "../Colleges/index/college_of_engineering.html">
     <button class="college">College of Engineering</button>
-    </a>
     <button class="college">College of Science and Mathematics</button>
     <button class="college">College of Criminology</button>
     <button class="college">College of Public Administration</button>
@@ -88,7 +86,7 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <h2>What Students are Saying</h2>
-  <div class="testimonial-grid">
+  <div class="testimonial-grid" id="testimonialGrid">
     <div class="testimonial">
       <p>“CrimChoice helped me realize that Computer Science is the perfect course for me.”</p>
       <span>Lowell Antonio S. Malinis</span>
@@ -156,6 +154,7 @@
 
 <!-- JS -->
 <script>
+  // Profile dropdown functionality
   const loggedIn = true; // Change to false if user not logged in
   const ctaSection = document.getElementById('ctaSection');
   const profileNav = document.getElementById('profileNav');
@@ -184,6 +183,108 @@
     e.preventDefault();
     window.location.href = 'login.html';
   });
+
+  // Testimonials rotation functionality
+  const testimonialSets = [
+    [
+      {
+        text: '"CrimChoice helped me realize that Computer Science is the perfect course for me."',
+        author: 'Lowell Antonio S. Malinis'
+      },
+      {
+        text: '"I saved so much time compared to searching on my own."',
+        author: 'Mary Grace D. Cabato'
+      },
+      {
+        text: '"The recommendation system made choosing a course easier."',
+        author: 'Arsenio S. Serito'
+      }
+    ],
+    [
+      {
+        text: '"I am so grateful I found this platform! It made my decision so much easier."',
+        author: 'Alexis B. Jumani'
+      },
+      {
+        text: '"I found a course in WMSU that matched my interests. Highly recommend!"',
+        author: 'Abdul Kareem S. Ajijul'
+      },
+      {
+        text: '"Best decision I made was using this system for guidance."',
+        author: 'Michael C. Rodriguez'
+      }
+    ],
+    [
+      {
+        text: '"Great stuff! It made me choose a course that I am really passionate about."',
+        author: 'Thomas Francis B. Catulad'
+      },
+      {
+        text: '"I was about to enroll into Architecture but this system showed me that Computer Science is a better fit for me."',
+        author: 'Datu Abdullah M. Sinsuat'
+      },
+      {
+        text: '"I am an artist at heart. This system helped me find a course that allows me to express myself creatively."',
+        author: 'Chadwick P. Perez'
+      }
+    ]
+  ];
+
+  let currentSetIndex = 0;
+  const testimonialGrid = document.getElementById('testimonialGrid');
+  const transitionDuration = 5000; // Duration between testimonial changes in ms
+  let isTransitioning = false;
+  
+  console.log('Testimonials setup - testimonialGrid element:', testimonialGrid);
+
+  function updateTestimonials(setIndex) {
+    const testimonials = testimonialSets[setIndex];
+    const testimonialCards = testimonialGrid.querySelectorAll('.testimonial');
+    
+    console.log('Updating to set:', setIndex, 'Cards found:', testimonialCards.length);
+    
+    testimonialCards.forEach((card, index) => {
+      card.querySelector('p').textContent = testimonials[index].text;
+      card.querySelector('span').textContent = testimonials[index].author;
+    });
+  }
+
+  function rotateTestimonials() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    console.log('Rotating testimonials - current index before:', currentSetIndex);
+
+    // Fade out (1 second)
+    testimonialGrid.classList.add('fade-out');
+    console.log('Added fade-out class, opacity should be transitioning');
+    
+    // After fade-out completes, update and fade in
+    setTimeout(() => {
+      // Update testimonials while invisible
+      currentSetIndex = (currentSetIndex + 1) % testimonialSets.length;
+      console.log('Current index after increment:', currentSetIndex);
+      updateTestimonials(currentSetIndex);
+      
+      // Fade back in
+      testimonialGrid.classList.remove('fade-out');
+      console.log('Removed fade-out class, should fade in now');
+      
+      // Schedule next rotation after fade-in (1s) + display duration (5s) = 6s from now
+      setTimeout(() => {
+        isTransitioning = false;
+        console.log('Rotation cycle complete, starting next');
+        rotateTestimonials();
+      }, transitionDuration + 1000); // 5s display + 1s fade-in = 6s
+      
+    }, 1000); // Wait for fade-out (1s)
+  }
+
+  // Start testimonial rotation after initial delay
+  setTimeout(() => {
+    console.log('3 seconds passed - starting testimonial carousel');
+    rotateTestimonials();
+  }, 3000); // Wait 3 seconds before first rotation
 </script>
 
 </body>
