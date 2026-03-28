@@ -89,15 +89,18 @@
   <div class="testimonial-grid" id="testimonialGrid">
     <div class="testimonial">
       <p>“CrimChoice helped me realize that Computer Science is the perfect course for me.”</p>
-      <span>Lowell Antonio S. Malinis</span>
+      <img src="../images/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Lowell Antonio S. Malinis</span>
     </div>
     <div class="testimonial">
-      <p>“I saved so much time compared to searching on my own.”</p>
-      <span>Mary Grace D. Cabato</span>
+      <p>"I saved so much time compared to searching on my own."</p>
+      <img src="../images/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Mary Grace D. Cabato</span>
     </div>
     <div class="testimonial">
-      <p>“The recommendation system made choosing a course easier.”</p>
-      <span>Arsenio S. Serito</span>
+      <p>"The recommendation system made choosing a course easier."</p>
+      <img src="../images/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Arsenio S. Serito</span>
     </div>
   </div>
 </section>
@@ -189,43 +192,52 @@
     [
       {
         text: '"CrimChoice helped me realize that Computer Science is the perfect course for me."',
-        author: 'Lowell Antonio S. Malinis'
+        author: 'Lowell Antonio S. Malinis',
+        image: '../images/profile1.jpg'
       },
       {
         text: '"I saved so much time compared to searching on my own."',
-        author: 'Mary Grace D. Cabato'
+        author: 'Mary Grace D. Cabato',
+        image: '../images/profile2.jpg'
       },
       {
         text: '"The recommendation system made choosing a course easier."',
-        author: 'Arsenio S. Serito'
+        author: 'Arsenio S. Serito',
+        image: '../images/profile3.jpg'
       }
     ],
     [
       {
         text: '"I am so grateful I found this platform! It made my decision so much easier."',
-        author: 'Alexis B. Jumani'
+        author: 'Alexis B. Jumani',
+        image: '../images/profile4.jpg'
       },
       {
         text: '"I found a course in WMSU that matched my interests. Highly recommend!"',
-        author: 'Abdul Kareem S. Ajijul'
+        author: 'Abdul Kareem S. Ajijul',
+        image: '../images/profile5.jpg'
       },
       {
         text: '"Best decision I made was using this system for guidance."',
-        author: 'Michael C. Rodriguez'
+        author: 'Michael C. Rodriguez',
+        image: '../images/profile6.jpg'
       }
     ],
     [
       {
         text: '"Great stuff! It made me choose a course that I am really passionate about."',
-        author: 'Thomas Francis B. Catulad'
+        author: 'Thomas Francis B. Catulad',
+        image: '../images/profile7.jpg'
       },
       {
         text: '"I was about to enroll into Architecture but this system showed me that Computer Science is a better fit for me."',
-        author: 'Datu Abdullah M. Sinsuat'
+        author: 'Datu Abdullah M. Sinsuat',
+        image: '../images/profile8.jpg'
       },
       {
         text: '"I am an artist at heart. This system helped me find a course that allows me to express myself creatively."',
-        author: 'Chadwick P. Perez'
+        author: 'Chadwick P. Perez',
+        image: '../images/profile9.jpg'
       }
     ]
   ];
@@ -245,7 +257,8 @@
     
     testimonialCards.forEach((card, index) => {
       card.querySelector('p').textContent = testimonials[index].text;
-      card.querySelector('span').textContent = testimonials[index].author;
+      card.querySelector('.author-name').textContent = testimonials[index].author;
+      card.querySelector('.author-image').src = testimonials[index].image;
     });
   }
 
