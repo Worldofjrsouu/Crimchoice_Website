@@ -1,4 +1,4 @@
- import './Dashboard.css';
+import './Dashboard.css';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid,
   BarChart, Bar, PieChart, Pie, Cell
@@ -28,7 +28,7 @@ const pieData = [
 export default function AdminDashboard() {
   return (
     <div className="dashboard-container">
-      
+
       {/* Sidebar */}
       <div className="sidebar">
         <h1 className="sidebar-title">Pathly</h1>
@@ -41,6 +41,17 @@ export default function AdminDashboard() {
           <li>Recommendations</li>
           <li>Feedback</li>
           <li>Settings</li>
+          <li
+  className="logout-btn"
+  onClick={() => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    sessionStorage.clear();
+    window.location.href = "http://127.0.0.1:3000/Dashboard/Website/main.html";
+  }}
+>
+  Logout
+</li>
         </ul>
       </div>
 
@@ -80,7 +91,7 @@ export default function AdminDashboard() {
         {/* Bottom Section */}
         <div className="charts-bottom">
 
-          {/* Quiz Attempts */}
+          {/* Total Courses */}
           <div className="bottom-card">
             <div>
               <h3>Total Courses</h3>
@@ -107,14 +118,12 @@ export default function AdminDashboard() {
               <h3>Recommendation</h3>
               <p className="stat-number">350</p>
             </div>
-
             <div className="progress-bar">
               <div className="progress-fill" style={{ width: "85%" }}></div>
             </div>
           </div>
 
         </div>
-
       </div>
     </div>
   );
