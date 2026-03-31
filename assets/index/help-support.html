@@ -11,20 +11,21 @@
 <!-- NAVBAR -->
 <nav>
   <div class="side-boxes"></div>
-  <a href="../index/main.html"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
+  <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
   <ul>
-    <li><a href="../index/main.html">Home</a></li>
-    <li><a href="../index/main.html#" onclick="event.preventDefault();">Courses</a></li>
-    <li><a href="../index/main.html#" onclick="event.preventDefault();">Contact</a></li>
-    <li class="active"><a href="help-support.html">Help & Support</a></li>
+    <li><a href="./main.html">Home</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="./help-support.html">Help & Support</a></li>
   </ul>
-  <button class="nav-btn" onclick="window.location.href='../index/loginforms.html'">Get Recommendations</button>
-
+  <button class="nav-btn">Get Recommendations</button>
+  
+  <!-- PROFILE -->
   <div class="profile-container" id="profileNav">
     <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
     <div id="dropdownMenu" class="dropdown">
-      <a href="../index/help-support.html">Help & Support</a>
       <a href="#">Settings</a>
+      <a href="./help-support.html">Help & Support</a>
       <a href="#">Display & Accessibility</a>
       <a href="loginforms.html" id="logoutBtn">Log out</a>
     </div>
@@ -32,263 +33,320 @@
   <div class="side-boxes"></div>
 </nav>
 
-<!-- HELP HERO -->
+<!-- HELP HERO SECTION -->
 <section class="help-hero">
+  <div class="hero::before"></div>
   <div class="help-hero-content">
-    <h1>Help & Support</h1>
-    <p>Need assistance? Our dedicated support team is ready to help you with course matching, account setup, and general guidance.</p>
-    <a class="btn-support" href="#supportForm">Submit a request now</a>
+    <h1>We're Here to Help</h1>
+    <p>Get support from our dedicated team. We're available 24/7 to assist you with any questions or concerns.</p>
+    <button class="btn-support" onclick="document.querySelector('.support-form-section').scrollIntoView({ behavior: 'smooth' });">Contact Support</button>
   </div>
 </section>
 
 <!-- SUPPORT CHANNELS -->
 <section class="support-channels">
-  <h2>Support Channels</h2>
-  <p>Choose your preferred way to connect with us.</p>
+  <h2>How Can We Help?</h2>
   <div class="support-cards">
-    <article class="support-card">
-      <h3>Email Support</h3>
-      <p>Fast response within 24 hours for detailed inquiries.</p>
+    <div class="support-card">
+      <h3>📧 Email Support</h3>
+      <p>Send us an email and we'll get back to you as soon as possible.</p>
       <p><strong>support@pathly.com</strong></p>
-    </article>
-    <article class="support-card">
-      <h3>Phone Support</h3>
-      <p>Talk with an agent Monday–Friday, 8am–6pm.</p>
-      <p><strong>+63 912 345 6789</strong></p>
-    </article>
-    <article class="support-card">
-      <h3>Live Chat</h3>
-      <p>Instant chat available 24/7 on this page.</p>
-      <p><strong>Click “Chat Now” at the bottom right</strong></p>
-    </article>
-    <article class="support-card">
-      <h3>FAQ</h3>
-      <p>Find quick answers for common questions.</p>
-      <p><strong>Scroll to FAQ below</strong></p>
-    </article>
+    </div>
+    <div class="support-card">
+      <h3>📞 Phone Support</h3>
+      <p>Call us during business hours for immediate assistance.</p>
+      <p><strong>+1 (555) 123-4567</strong></p>
+    </div>
+    <div class="support-card">
+      <h3>💬 Live Chat</h3>
+      <p>Chat with our support team in real-time for quick answers.</p>
+      <p><strong>Available 24/7</strong></p>
+    </div>
+    <div class="support-card">
+      <h3>❓ FAQ</h3>
+      <p>Browse our frequently asked questions to find instant answers.</p>
+      <p><a href="#faq-section" style="color: #b31313; text-decoration: none;">View FAQ</a></p>
+    </div>
   </div>
 </section>
 
-<!-- SUPPORT FORM -->
-<section class="support-form-section" id="supportForm">
+<!-- SUBMIT A HELP REQUEST FORM -->
+<section class="support-form-section">
   <h2>Submit a Help Request</h2>
-  <div class="support-form-container">
-    <form id="helpSupportForm" class="support-form" novalidate>
-      <div class="form-group">
-        <label for="surname">Family/Surname*</label>
-        <input type="text" id="surname" name="surname" placeholder="Doe" required>
-        <small class="error-message"></small>
-      </div>
+  <form class="support-form" id="supportForm">
+    
+    <!-- Name Fields (HCI-Compliant) -->
+    <div class="form-group">
+      <label for="surname">Family/Surname*</label>
+      <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+      <span class="form-error" id="surnameError"></span>
+    </div>
 
-      <div class="form-group">
-        <label for="firstName">Given/First Name*</label>
-        <input type="text" id="firstName" name="firstName" placeholder="John" required>
-        <small class="error-message"></small>
-      </div>
+    <div class="form-group">
+      <label for="firstName">Given/First Name*</label>
+      <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+      <span class="form-error" id="firstNameError"></span>
+    </div>
 
-      <div class="form-group">
-        <label for="middleName">Maiden/Middle Name</label>
-        <input type="text" id="middleName" name="middleName" placeholder="(Optional)">
-        <small class="error-message"></small>
-      </div>
+    <div class="form-group">
+      <label for="middleName">Maiden/Middle Name</label>
+      <input type="text" id="middleName" name="middleName" placeholder="Enter your middle name (optional)">
+    </div>
 
-      <div class="form-group">
-        <label for="suffix">Suffix</label>
-        <select id="suffix" name="suffix">
-          <option value="">Select suffix (optional)</option>
-          <option value="jr">Jr.</option>
-          <option value="sr">Sr.</option>
-          <option value="ii">II</option>
-          <option value="iii">III</option>
-          <option value="iv">IV</option>
-        </select>
-        <small class="error-message"></small>
-      </div>
+    <div class="form-group">
+      <label for="suffix">Suffix</label>
+      <select id="suffix" name="suffix">
+        <option value="">-- Select Suffix --</option>
+        <option value="Jr.">Jr.</option>
+        <option value="Sr.">Sr.</option>
+        <option value="II">II</option>
+        <option value="III">III</option>
+        <option value="IV">IV</option>
+      </select>
+    </div>
 
-      <div class="form-group">
-        <label for="email">Email Address*</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-        <small class="error-message"></small>
-      </div>
+    <!-- Contact Information -->
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <span class="form-error" id="emailError"></span>
+    </div>
 
-      <div class="form-group">
-        <label for="subject">Subject*</label>
-        <input type="text" id="subject" name="subject" placeholder="Issue title" required>
-        <small class="error-message"></small>
-      </div>
+    <!-- Support Details -->
+    <div class="form-group">
+      <label for="subject">Subject*</label>
+      <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+      <span class="form-error" id="subjectError"></span>
+    </div>
 
-      <div class="form-group">
-        <label for="issueType">Issue Type*</label>
-        <select id="issueType" name="issueType" required>
-          <option value="">Select issue type</option>
-          <option value="account">Account/Login</option>
-          <option value="recommendation">Course Recommendation</option>
-          <option value="bug">Bug/Technical</option>
-          <option value="other">Other</option>
-        </select>
-        <small class="error-message"></small>
-      </div>
+    <div class="form-group">
+      <label for="issueType">Issue Type*</label>
+      <select id="issueType" name="issueType" required>
+        <option value="">-- Select Issue Type --</option>
+        <option value="course">Course Related</option>
+        <option value="account">Account Issue</option>
+        <option value="recommendation">Recommendation Issue</option>
+        <option value="technical">Technical Problem</option>
+        <option value="other">Other</option>
+      </select>
+      <span class="form-error" id="issueTypeError"></span>
+    </div>
 
-      <div class="form-group">
-        <label for="priority">Priority*</label>
-        <select id="priority" name="priority" required>
-          <option value="">Select priority</option>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-        <small class="error-message"></small>
-      </div>
+    <div class="form-group">
+      <label for="priority">Priority*</label>
+      <select id="priority" name="priority" required>
+        <option value="">-- Select Priority --</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="urgent">Urgent</option>
+      </select>
+      <span class="form-error" id="priorityError"></span>
+    </div>
 
-      <div class="form-group">
-        <label for="message">Message*</label>
-        <textarea id="message" name="message" rows="5" placeholder="Briefly explain your issue" required></textarea>
-        <small class="error-message"></small>
-      </div>
+    <!-- Message -->
+    <div class="form-group">
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" placeholder="Describe your issue in detail..." rows="6" required></textarea>
+      <span class="form-error" id="messageError"></span>
+    </div>
 
-      <button class="cta-btn" type="submit">Send Request</button>
-      <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
-    </form>
-  </div>
+    <button type="submit" class="btn-support">Submit Request</button>
+    <span class="form-success" id="successMessage" style="display: none;">✓ Your request has been submitted successfully! We'll get back to you shortly.</span>
+  </form>
 </section>
 
-<!-- FAQ -->
-<section class="faq-section">
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq-section">
   <h2>Frequently Asked Questions</h2>
-  <div class="accordion-item">
-    <button class="accordion-question" aria-expanded="false">How do I reset my password?</button>
-    <div class="accordion-answer">
-      <p>Click the “Forgot Password” link on the login form, enter your email, and follow the instructions in the email we send.</p>
+  <div class="faq-container">
+    
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        How do I create an account?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>To create an account, click the "Sign Up" button on the login page, fill in your details, and follow the verification steps. You'll receive a confirmation email to verify your account.</p>
+      </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-question" aria-expanded="false">How are course recommendations generated?</button>
-    <div class="accordion-answer">
-      <p>Recommendations are based on your profile, interests, and preferred career goals. We use a scoring algorithm to match you with fitting courses.</p>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        How are my course recommendations generated?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>Our AI-powered system analyzes your interests, career goals, academic background, and preferences to generate personalized course recommendations. The more information you provide, the more accurate your recommendations.</p>
+      </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-question" aria-expanded="false">Can I update my profile later?</button>
-    <div class="accordion-answer">
-      <p>Yes. You can edit your profile at any time from the dashboard to refine recommendations.</p>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        Can I change my password?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>Yes! Go to your account settings and select "Change Password". You'll need to verify your identity with your current password before setting a new one.</p>
+      </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <button class="accordion-question" aria-expanded="false">How long does support take to respond?</button>
-    <div class="accordion-answer">
-      <p>Email requests typically receive a response within 24 business hours. Priority requests are handled sooner.</p>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        What if I don't like my recommendations?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>You can retake the recommendation quiz and update your profile information. Our system will generate new recommendations based on your updated preferences and goals.</p>
+      </div>
     </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        How do I contact the college directly?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>You can find contact information for each college on their respective pages. We also provide email and phone support to help direct your inquiries to the right department.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        Is my data secure and private?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>Yes! We use industry-standard encryption and security protocols to protect your data. Your information is never shared with third parties without your consent. See our Privacy Policy for more details.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-left">
-    <h3>Pathly</h3>
-    <p>© 2026 Pathly. All rights reserved.</p>
-  </div>
-  <div class="footer-right">
-    <p>Email: support@pathly.com</p>
-    <p>Phone: +63 912 345 6789</p>
-    <p>Location: Zamboanga City, Philippines</p>
+  <div>&copy; 2026 Pathly. All rights reserved.</div>
+  <div>
+    <a href="#" style="color: white; margin-right: 20px; text-decoration: none;">Privacy Policy</a>
+    <a href="#" style="color: white; text-decoration: none;">Terms of Service</a>
   </div>
 </footer>
 
 <script>
-  // Profile dropdown functionality
-  const profileNav = document.getElementById('profileNav');
-  const dropdown = document.getElementById('dropdownMenu');
+  // Profile Dropdown
   const profileImg = document.getElementById('profileImg');
-  const logoutBtn = document.getElementById('logoutBtn');
+  const dropdownMenu = document.getElementById('dropdownMenu');
 
-  profileImg.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdown.classList.toggle('show');
+  profileImg.addEventListener('click', function() {
+    dropdownMenu.classList.toggle('show');
   });
 
-  window.addEventListener('click', () => {
-    dropdown.classList.remove('show');
+  window.addEventListener('click', function(event) {
+    if (!event.target.matches('.profile-img')) {
+      if (dropdownMenu.classList.contains('show')) {
+        dropdownMenu.classList.remove('show');
+      }
+    }
   });
 
-  logoutBtn.addEventListener('click', (e) => {
+  // FAQ Accordion Toggle
+  function toggleAccordion(button) {
+    const answer = button.nextElementSibling;
+    const toggle = button.querySelector('.accordion-toggle');
+    const isOpen = answer.style.display === 'block';
+    
+    // Close all other accordions
+    document.querySelectorAll('.accordion-answer').forEach(item => {
+      item.style.display = 'none';
+      item.previousElementSibling.querySelector('.accordion-toggle').textContent = '+';
+    });
+    
+    // Toggle current accordion
+    if (!isOpen) {
+      answer.style.display = 'block';
+      toggle.textContent = '−';
+    }
+  }
+
+  // Form Validation and Submission
+  const supportForm = document.getElementById('supportForm');
+  const successMessage = document.getElementById('successMessage');
+
+  supportForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    window.location.href = 'loginforms.html';
-  });
 
-  // FAQ accordion
-  const accordionQuestions = document.querySelectorAll('.accordion-question');
+    // Get form elements
+    const surname = document.getElementById('surname');
+    const firstName = document.getElementById('firstName');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const issueType = document.getElementById('issueType');
+    const priority = document.getElementById('priority');
+    const message = document.getElementById('message');
 
-  accordionQuestions.forEach((question) => {
-    question.addEventListener('click', () => {
-      const isExpanded = question.getAttribute('aria-expanded') === 'true';
-      accordionQuestions.forEach((other) => {
-        other.setAttribute('aria-expanded', 'false');
-        other.nextElementSibling.style.maxHeight = null;
-      });
+    // Clear previous errors
+    document.querySelectorAll('.form-error').forEach(error => error.textContent = '');
 
-      if (!isExpanded) {
-        question.setAttribute('aria-expanded', 'true');
-        const answer = question.nextElementSibling;
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-    });
-  });
+    let isValid = true;
 
-  // Form validation and submission simulation
-  const helpSupportForm = document.getElementById('helpSupportForm');
-  const formSuccess = document.getElementById('formSuccess');
-
-  function setError(input, message) {
-    const group = input.closest('.form-group');
-    const error = group.querySelector('.error-message');
-    error.textContent = message;
-    input.classList.add('input-error');
-  }
-
-  function clearError(input) {
-    const group = input.closest('.form-group');
-    const error = group.querySelector('.error-message');
-    error.textContent = '';
-    input.classList.remove('input-error');
-  }
-
-  function isValidEmail(email) {
-    return /^\S+@\S+\.\S+$/.test(email);
-  }
-
-  helpSupportForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    let isFormValid = true;
-    const requiredFields = ['surname', 'firstName', 'email', 'subject', 'issueType', 'priority', 'message'];
-
-    requiredFields.forEach((fieldName) => {
-      const field = document.getElementById(fieldName);
-      if (!field.value.trim()) {
-        setError(field, 'This field is required.');
-        isFormValid = false;
-      } else {
-        clearError(field);
-      }
-
-      if (fieldName === 'email' && field.value.trim() && !isValidEmail(field.value.trim())) {
-        setError(field, 'Please enter a valid email address.');
-        isFormValid = false;
-      }
-    });
-
-    if (!isFormValid) {
-      formSuccess.textContent = '';
-      return;
+    // Validate required fields
+    if (!surname.value.trim()) {
+      document.getElementById('surnameError').textContent = 'Surname is required';
+      isValid = false;
     }
 
-    // Simulate successful submission
-    formSuccess.textContent = 'Your support request has been sent successfully. Our team will contact you shortly.';
-    helpSupportForm.reset();
+    if (!firstName.value.trim()) {
+      document.getElementById('firstNameError').textContent = 'First name is required';
+      isValid = false;
+    }
 
-    setTimeout(() => {
-      formSuccess.textContent = '';
-    }, 8000);
+    if (!email.value.trim()) {
+      document.getElementById('emailError').textContent = 'Email is required';
+      isValid = false;
+    } else if (!email.value.includes('@')) {
+      document.getElementById('emailError').textContent = 'Please enter a valid email';
+      isValid = false;
+    }
+
+    if (!subject.value.trim()) {
+      document.getElementById('subjectError').textContent = 'Subject is required';
+      isValid = false;
+    }
+
+    if (!issueType.value) {
+      document.getElementById('issueTypeError').textContent = 'Please select an issue type';
+      isValid = false;
+    }
+
+    if (!priority.value) {
+      document.getElementById('priorityError').textContent = 'Please select a priority';
+      isValid = false;
+    }
+
+    if (!message.value.trim()) {
+      document.getElementById('messageError').textContent = 'Message is required';
+      isValid = false;
+    }
+
+    // If valid, show success message and reset form
+    if (isValid) {
+      supportForm.style.display = 'none';
+      successMessage.style.display = 'block';
+      
+      // Reset form after 3 seconds
+      setTimeout(function() {
+        supportForm.reset();
+        supportForm.style.display = 'block';
+        successMessage.style.display = 'none';
+      }, 3000);
+    }
+  });
+
+  // Nav button navigation
+  const navBtn = document.querySelector('.nav-btn');
+  navBtn.addEventListener('click', function() {
+    window.location.href = 'loginforms.html';
   });
 </script>
 
