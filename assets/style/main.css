@@ -121,334 +121,6 @@ nav ul li a {
   display: block;
 }
 
-/* HERO SECTION */
-.hero {
-  height: 500px;
-  background-image: url("../images/university.jpg"); 
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-  animation: bgZoom 10s ease-in-out infinite alternate;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(150, 0, 0, 0.6);
-}
-
-.hero-content {
-  position: relative;
-  max-width: 700px;
-  animation: fadeUp 1.2s ease forwards;
-  opacity: 0;
-}
-
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  margin-bottom: 20px;
-}
-
-.start-btn {
-  padding: 12px 30px;
-  background: white;
-  color: #8b0000;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  position: relative;
-  overflow: hidden;
-}
-
-.start-btn::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 0%;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.4s ease;
-}
-
-.start-btn:hover::after {
-  height: 100%;
-}
-
-/* WORKS SECTION */
-.works {
-  padding: 60px;
-  text-align: center;
-}
-
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 250px;
-  border: 1px solid #e4bcbc;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: cardFade 1s ease forwards;
-}
-
-.card:nth-child(1) { animation-delay: 0.2s; }
-.card:nth-child(2) { animation-delay: 0.4s; }
-.card:nth-child(3) { animation-delay: 0.6s; }
-
-.card h3 {
-  color: #b31313;
-  margin-bottom: 10px;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* FEATURED COLLEGES */
-.featured {
-  padding: 60px;
-  text-align: center;
-}
-
-.college-grid {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-.college-grid a {
-  display: block;
-}
-
-.college {
-  padding: 20px;
-  height: 80px;             
-  width: 100%;              
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: white;
-  border: 1px solid #d8a1a1;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  opacity: 0;
-  transform: scale(0.9);
-  animation: popIn 0.6s ease forwards;
-  white-space: normal;       
-  line-height: 1.2;          
-}
-
-.college:hover {
-  background: #f8eaea;
-}
-
-/* TESTIMONIALS */
-.testimonials {
-  padding: 60px;
-  text-align: center;
-}
-
-.testimonial-grid {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
-.testimonial-grid.fade-out {
-  opacity: 0;
-}
-
-.testimonial {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 260px;
-  height: 200px;
-  border: 1px solid #e0bcbc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.author-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 10px 0;
-  border: 2px solid #b31313;
-}
-
-.author-name {
-  display: block;
-  margin-top: 8px;
-  font-size: 13px;
-  color: #777;
-  font-weight: 600;
-}
-
-/* QUIZ */
-.quiz {
-  padding: 60px;
-  text-align: center;
-}
-
-.quiz-box {
-  background: white;
-  padding: 30px;
-  width: 450px;
-  margin: auto;
-  border-radius: 10px;
-  border: 1px solid #e0bcbc;
-  text-align: left;
-}
-
-.quiz-btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #b31313;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.quiz-btn::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 0%;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.4s ease;
-}
-
-.quiz-btn:hover::after {
-  height: 100%;
-}
-
-/* CONTACT */
-.contact {
-  padding: 60px;
-}
-
-.contact-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.contact-info {
-  width: 40%;
-}
-
-.contact-form {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.contact-form textarea {
-  height: 100px;
-}
-
-.contact-form button {
-  width: 120px;
-  padding: 10px;
-  background: #b31313;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-form button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 0%;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.4s ease;
-}
-
-.contact-form button:hover::after {
-  height: 100%;
-}
-
-/* CTA */
-.cta {
-  background: #a50f0f;
-  color: white;
-  text-align: center;
-  padding: 60px;
-}
-
-.cta-btn {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: none;
-  background: #f0c1c1;
-  color: #7a0000;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-btn:hover {
-  background: white;
-}
-
 /* FOOTER */
 footer {
   background: #8d0c0c;
@@ -457,266 +129,6 @@ footer {
   justify-content: space-between;
   padding: 30px 60px;
   font-size: 14px;
-}
-
-/* HELP & SUPPORT PAGE */
-.help-hero {
-  height: 500px;
-  background-image: url("../images/university.jpg"); 
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  position: relative;
-  animation: bgZoom 10s ease-in-out infinite alternate;
-}
-
-.help-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(150, 0, 0, 0.6);
-}
-
-.help-hero-content {
-  position: relative;
-  max-width: 700px;
-  animation: fadeUp 1.2s ease forwards;
-  opacity: 0;
-}
-
-.help-hero h1 {
-  font-size: 48px;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.help-hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
-}
-
-/* SUPPORT CHANNELS */
-.support-channels {
-  padding: 60px;
-  text-align: center;
-  background: #fff;
-}
-
-.support-channels h2 {
-  color: #7a0000;
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-.support-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.support-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #e4bcbc;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.support-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.support-card h3 {
-  color: #b31313;
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.support-card p {
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-/* SUPPORT FORM SECTION */
-.support-form-section {
-  padding: 60px;
-  background: #f9f5f5;
-  max-width: 700px;
-  margin: 40px auto;
-  border-radius: 12px;
-}
-
-.support-form-section h2 {
-  color: #7a0000;
-  font-size: 32px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.support-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #b31313;
-  box-shadow: 0 0 5px rgba(179, 19, 19, 0.2);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-error {
-  color: #d9534f;
-  font-size: 12px;
-  margin-top: 5px;
-  display: block;
-}
-
-.form-success {
-  background: #d4edda;
-  color: #155724;
-  padding: 15px;
-  border-radius: 6px;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.btn-support {
-  padding: 12px 30px;
-  background: #b31313;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-  position: relative;
-  overflow: hidden;
-  align-self: flex-start;
-}
-
-.btn-support::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 0%;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.2);
-  transition: all 0.4s ease;
-}
-
-.btn-support:hover::after {
-  height: 100%;
-}
-
-/* FAQ SECTION */
-.faq-section {
-  padding: 60px;
-  background: white;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.faq-section h2 {
-  color: #7a0000;
-  font-size: 32px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.faq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.accordion-item {
-  border: 1px solid #e4bcbc;
-  border-radius: 8px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.accordion-question {
-  width: 100%;
-  padding: 16px;
-  background: #f9f5f5;
-  border: none;
-  text-align: left;
-  font-weight: 600;
-  color: #7a0000;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  transition: background 0.3s ease;
-}
-
-.accordion-question:hover {
-  background: #f0e6e6;
-}
-
-.accordion-toggle {
-  font-size: 20px;
-  font-weight: bold;
-  color: #b31313;
-}
-
-.accordion-answer {
-  display: none;
-  padding: 16px;
-  background: white;
-  color: #555;
-  line-height: 1.6;
-  border-top: 1px solid #e4bcbc;
-}
-
-.accordion-answer p {
-  margin: 0;
 }
 
 /* ANIMATIONS */
@@ -753,6 +165,455 @@ footer {
   to { background-size:110%;}
 }
 
+/* THEME STYLES */
+.theme-dark {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.theme-dark body {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.theme-dark nav {
+  background: #2a2a2a;
+  border-bottom: 1px solid #444;
+}
+
+.theme-dark nav ul li a {
+  color: #e0e0e0;
+}
+
+.theme-dark nav ul li a:hover {
+  color: #b31313;
+}
+
+.theme-dark .nav-btn {
+  background: #b31313;
+  color: #e0e0e0;
+}
+
+.theme-dark .nav-btn:hover {
+  background: #8a0f0f;
+}
+
+.theme-dark .hero {
+  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('../images/wmsu(1)jpg.jpg');
+}
+
+.theme-dark .hero-content h1,
+.theme-dark .hero-content p {
+  color: #e0e0e0;
+}
+
+.theme-dark .settings-hero {
+  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('../images/wmsu(1)jpg.jpg');
+}
+
+.theme-dark .settings-hero-content h1,
+.theme-dark .settings-hero-content p {
+  color: #e0e0e0;
+}
+
+.theme-dark .help-hero {
+  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('../images/wmsu(1)jpg.jpg');
+}
+
+.theme-dark .help-hero-content h1,
+.theme-dark .help-hero-content p {
+  color: #e0e0e0;
+}
+
+.theme-dark .settings-section {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.theme-dark .settings-content {
+  background: #1a1a1a;
+}
+
+.theme-dark .form-group label {
+  color: #e0e0e0;
+}
+
+.theme-dark .form-group input,
+.theme-dark .form-group select,
+.theme-dark .form-group textarea {
+  background: #333;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.theme-dark .form-group input:focus,
+.theme-dark .form-group select:focus,
+.theme-dark .form-group textarea:focus {
+  border-color: #b31313;
+  box-shadow: 0 0 0 3px rgba(179, 19, 19, 0.2);
+}
+
+.theme-dark .support-channels,
+.theme-dark .support-cards,
+.theme-dark .support-card {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.theme-dark .support-form-section {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.theme-dark .support-form-section h2 {
+  color: #ff6b6b;
+}
+
+.theme-dark .support-card h3,
+.theme-dark .support-card p {
+  color: #e0e0e0;
+}
+
+.theme-dark .faq-section,
+.theme-dark .accordion-item {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.theme-dark .accordion-question {
+  color: #e0e0e0;
+}
+
+.theme-dark .accordion-answer {
+  color: #e0e0e0;
+}
+
+.theme-dark footer {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.theme-dark footer h3,
+.theme-dark footer p {
+  color: #e0e0e0;
+}
+
+.theme-dark footer a {
+  color: #e0e0e0;
+}
+
+/* FONT SIZE STYLES */
+.font-size-small {
+  font-size: 14px;
+}
+
+.font-size-small .settings-section h2 {
+  font-size: 24px;
+}
+
+.font-size-large {
+  font-size: 18px;
+}
+
+.font-size-large .settings-section h2 {
+  font-size: 32px;
+}
+
+.font-size-extra-large {
+  font-size: 20px;
+}
+
+.font-size-extra-large .settings-section h2 {
+  font-size: 36px;
+}
+
+/* COLOR SCHEME STYLES */
+.color-scheme-blue .btn-settings {
+  background: #0066cc;
+}
+
+.color-scheme-blue .btn-settings:hover {
+  background: #004499;
+}
+
+.color-scheme-green .btn-settings {
+  background: #28a745;
+}
+
+.color-scheme-green .btn-settings:hover {
+  background: #1e7e34;
+}
+
+.color-scheme-purple .btn-settings {
+  background: #6f42c1;
+}
+
+.color-scheme-purple .btn-settings:hover {
+  background: #5a359a;
+}
+
+/* ACCESSIBILITY STYLES */
+.high-contrast {
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast * {
+  color: black !important;
+}
+
+.high-contrast .settings-section,
+.high-contrast .support-form-section,
+.high-contrast .faq-section,
+.high-contrast .help-hero,
+.high-contrast .hero {
+  background: white !important;
+  border: 2px solid black !important;
+  color: black !important;
+}
+
+.high-contrast .help-hero-content h1,
+.high-contrast .help-hero-content p,
+.high-contrast .settings-hero-content h1,
+.high-contrast .settings-hero-content p,
+.high-contrast .hero-content h1,
+.high-contrast .hero-content p {
+  color: black !important;
+}
+
+.high-contrast .form-group input,
+.high-contrast .form-group select,
+.high-contrast .form-group textarea,
+.high-contrast .contact-form input,
+.high-contrast .contact-form textarea,
+.high-contrast .contact-section input,
+.high-contrast .contact-section textarea {
+  border: 2px solid black !important;
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast .card,
+.high-contrast .college,
+.high-contrast .testimonial,
+.high-contrast .quiz-box,
+.high-contrast .support-card,
+.high-contrast .accordion-item,
+.high-contrast .settings-content {
+  background: white !important;
+  border: 2px solid black !important;
+  color: black !important;
+}
+
+.high-contrast .btn-settings,
+.high-contrast .btn-support,
+.high-contrast .start-btn,
+.high-contrast .quiz-btn,
+.high-contrast .nav-btn,
+.high-contrast .cta-btn,
+.high-contrast .btn {
+  background: black !important;
+  color: white !important;
+  border: 2px solid black !important;
+}
+
+.high-contrast .btn-settings:hover,
+.high-contrast .btn-support:hover,
+.high-contrast .start-btn:hover,
+.high-contrast .quiz-btn:hover,
+.high-contrast .nav-btn:hover,
+.high-contrast .cta-btn:hover,
+.high-contrast .btn:hover {
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast nav {
+  background: white !important;
+  border-bottom: 3px solid black !important;
+}
+
+.high-contrast nav ul li a {
+  color: black !important;
+}
+
+.high-contrast .support-channels,
+.high-contrast .support-cards,
+.high-contrast .support-card,
+.high-contrast .faq-section,
+.high-contrast .accordion-item,
+.high-contrast .settings-section,
+.high-contrast .settings-content {
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast .accordion-question,
+.high-contrast .accordion-answer,
+.high-contrast .faq-section h2,
+.high-contrast .support-card h3,
+.high-contrast .support-card p,
+.high-contrast .settings-section h2,
+.high-contrast .hero-content h1,
+.high-contrast .settings-hero-content h1,
+.high-contrast .help-hero-content h1 {
+  color: black !important;
+}
+
+.high-contrast footer {
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast .logo img, .high-contrast .logo {
+  filter: none !important;
+}
+
+
+/* High Contrast Dark Mode */
+.theme-dark.high-contrast {
+  background: black !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast * {
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .settings-section {
+  background: black !important;
+  border: 3px solid yellow !important;
+}
+
+.theme-dark.high-contrast .form-group input,
+.theme-dark.high-contrast .form-group select,
+.theme-dark.high-contrast .form-group textarea {
+  border: 3px solid yellow !important;
+  background: black !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .btn-settings {
+  background: yellow !important;
+  color: black !important;
+  border: 3px solid yellow !important;
+}
+
+.theme-dark.high-contrast .btn-settings:hover {
+  background: black !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast nav {
+  background: black !important;
+  border-bottom: 3px solid yellow !important;
+}
+
+.theme-dark.high-contrast nav ul li a {
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .hero,
+.theme-dark.high-contrast .settings-hero,
+.theme-dark.high-contrast .help-hero {
+  background: black !important;
+}
+
+.theme-dark.high-contrast .hero-content h1,
+.theme-dark.high-contrast .hero-content p,
+.theme-dark.high-contrast .settings-hero-content h1,
+.theme-dark.high-contrast .settings-hero-content p,
+.theme-dark.high-contrast .help-hero-content h1,
+.theme-dark.high-contrast .help-hero-content p {
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .support-channels,
+.theme-dark.high-contrast .support-cards,
+.theme-dark.high-contrast .support-card,
+.theme-dark.high-contrast .faq-section,
+.theme-dark.high-contrast .accordion-item {
+  background: black !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast footer {
+  background: black !important;
+  color: yellow !important;
+}
+
+/* Main page dark high contrast overrides */
+.theme-dark.high-contrast .card,
+.theme-dark.high-contrast .college,
+.theme-dark.high-contrast .testimonial,
+.theme-dark.high-contrast .quiz-box,
+.theme-dark.high-contrast .contact-container,
+.theme-dark.high-contrast .contact-info,
+.theme-dark.high-contrast .contact-form,
+.theme-dark.high-contrast .cta,
+.theme-dark.high-contrast .settings-section,
+.theme-dark.high-contrast .settings-content,
+.theme-dark.high-contrast .support-form-section,
+.theme-dark.high-contrast .faq-section,
+.theme-dark.high-contrast .help-hero,
+.theme-dark.high-contrast .hero,
+.theme-dark.high-contrast .settings-hero {
+  background: #000 !important;
+  color: yellow !important;
+  border-color: yellow !important;
+}
+
+.theme-dark.high-contrast .card h3,
+.theme-dark.high-contrast .author-name,
+.theme-dark.high-contrast .faq-section h2,
+.theme-dark.high-contrast .accordion-question,
+.theme-dark.high-contrast .accordion-answer,
+.theme-dark.high-contrast .support-card h3,
+.theme-dark.high-contrast .support-card p,
+.theme-dark.high-contrast .support-form-section h2,
+.theme-dark.high-contrast .settings-section h2 {
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .accordion-question {
+  background: #111 !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .accordion-answer,
+.theme-dark.high-contrast .accordion-answer[style*="display: block"],
+.theme-dark.high-contrast .accordion-answer p {
+  background: #111 !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .btn-support,
+.theme-dark.high-contrast .btn-settings,
+.theme-dark.high-contrast .start-btn,
+.theme-dark.high-contrast .quiz-btn,
+.theme-dark.high-contrast .nav-btn,
+.theme-dark.high-contrast .cta-btn {
+  background: yellow !important;
+  color: black !important;
+  border: 2px solid yellow !important;
+}
+
+.theme-dark.high-contrast .btn-support:hover,
+.theme-dark.high-contrast .btn-settings:hover,
+.theme-dark.high-contrast .start-btn:hover,
+.theme-dark.high-contrast .quiz-btn:hover,
+.theme-dark.high-contrast .nav-btn:hover,
+.theme-dark.high-contrast .cta-btn:hover {
+  background: black !important;
+  color: yellow !important;
+}
+
+.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav { flex-wrap: wrap-reverse; justify-content:center; padding:15px 20px;}
@@ -760,46 +621,19 @@ footer {
   nav ul li { padding: 5px 10px; font-size:14px;}
   .logo-container { order: -1; margin-bottom: 10px;}
   .nav-btn { order: 1; margin-top: 10px;}
-  .hero { height: 400px; padding: 20px;}
-  .hero h1 { font-size:32px;}
-  .hero p { font-size:16px;}
-  .works, .featured, .testimonials, .quiz, .contact, .cta { padding: 40px 20px;}
-  .cards { flex-direction: column; align-items: center;}
-  .card { width:100%; max-width:400px;}
-  .college-grid { grid-template-columns: repeat(auto-fit,minmax(200px,1fr));}
-  .testimonial-grid { flex-direction: column; align-items: center;}
-  .testimonial { width: 100%; max-width: 400px;}
-  .quiz-box { width:100%; max-width:400px;}
-  .contact-container { flex-direction: column;}
-  .contact-info, .contact-form { width:100%;}
   footer { flex-direction: column; text-align: center; padding: 20px;}
-  .help-hero { height: 350px;}
-  .help-hero h1 { font-size: 32px;}
-  .help-hero p { font-size: 16px;}
-  .support-cards { grid-template-columns: repeat(2, 1fr);}
-  .support-form-section { padding: 30px 20px; margin: 20px 15px;}
-  .faq-section { padding: 30px 20px;}
 }
 
 @media (max-width: 480px) {
   nav { padding: 10px 15px;}
-  .hero h1 { font-size:28px;}
-  .hero p { font-size:14px;}
-  .college-grid { grid-template-columns: 1fr;}
-  .cta-btn { width:100%; max-width:300px;}
-  .help-hero h1 { font-size: 24px;}
-  .help-hero p { font-size: 14px;}
-  .support-cards { grid-template-columns: 1fr;}
-  .support-form-section { padding: 20px 15px; margin: 15px 10px;}
-  .faq-section { padding: 20px 15px;}
-  .accordion-question { font-size: 14px; padding: 12px;}
 }
+
 /* PROFILE FIXES FOR DROPDOWN */
 .profile-container {
   position: relative;
-  z-index: 200; 
+  z-index: 200;
 }
 
 .dropdown {
-  z-index: 300; 
+  z-index: 300;
 }

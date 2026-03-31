@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pathly</title>
 <link rel="stylesheet" href="../style/main.css">
+<link rel="stylesheet" href="../style/main-page.css">
 </head>
 <body>
 
@@ -17,6 +18,7 @@
     <li><a href="#">Courses</a></li>
     <li><a href="#">Contact</a></li>
     <li><a href="./help-support.html">Help & Support</a></li>
+    <li><a href="./settings.html">Settings</a></li>
   </ul>
   <button class="nav-btn">Get Recommendations</button>
   
@@ -24,7 +26,7 @@
   <div class="profile-container" id="profileNav">
     <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
     <div id="dropdownMenu" class="dropdown">
-      <a href="#">Settings</a>
+      <a href="./settings.html">Settings</a>
       <a href="./help-support.html">Help & Support</a>
       <a href="#">Display & Accessibility</a>
       <a href="loginforms.html" id="logoutBtn">Log out</a>
@@ -158,6 +160,62 @@
 
 <!-- JS -->
 <script>
+// Apply user settings from localStorage
+function applyUserSettings() {
+  // Apply appearance settings
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  // Apply theme
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  // Update logo based on theme
+  const logoImg = document.querySelector('.logo');
+  if (logoImg) {
+    if (appearanceData.theme === 'dark') {
+      logoImg.src = '../images/Pathly_FullLogo_White_NoBG_PNG.png';
+    } else {
+      logoImg.src = '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+    }
+  }
+
+  // Apply font size
+  document.body.className = document.body.className.replace(/font-size-\w+/g, '');
+  if (appearanceData.fontSize && appearanceData.fontSize !== 'medium') {
+    document.body.classList.add(`font-size-${appearanceData.fontSize}`);
+  }
+
+  // Apply color scheme
+  document.body.className = document.body.className.replace(/color-scheme-\w+/g, '');
+  if (appearanceData.colorScheme && appearanceData.colorScheme !== 'default') {
+    document.body.classList.add(`color-scheme-${appearanceData.colorScheme}`);
+  }
+
+  // Apply accessibility settings
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+
+  // Apply high contrast
+  if (accessibilityData.highContrast) {
+    document.body.classList.add('high-contrast');
+  } else {
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Apply reduced motion
+  if (accessibilityData.reduceMotion) {
+    document.body.classList.add('reduce-motion');
+  } else {
+    document.body.classList.remove('reduce-motion');
+  }
+}
+
+// Apply settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+  applyUserSettings();
+});
+
   // Profile dropdown functionality
   const loggedIn = true; // Change to false if user not logged in
   const ctaSection = document.getElementById('ctaSection');

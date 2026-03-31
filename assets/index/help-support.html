@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pathly - Help & Support</title>
   <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/help-support.css">
 </head>
 <body>
 
@@ -234,6 +235,62 @@
 </footer>
 
 <script>
+// Apply user settings from localStorage
+function applyUserSettings() {
+  // Apply appearance settings
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  // Apply theme
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  // Update logo based on theme
+  const logoImg = document.querySelector('.logo');
+  if (logoImg) {
+    if (appearanceData.theme === 'dark') {
+      logoImg.src = '../images/Pathly_FullLogo_White_NoBG_PNG.png';
+    } else {
+      logoImg.src = '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+    }
+  }
+
+  // Apply font size
+  document.body.className = document.body.className.replace(/font-size-\w+/g, '');
+  if (appearanceData.fontSize && appearanceData.fontSize !== 'medium') {
+    document.body.classList.add(`font-size-${appearanceData.fontSize}`);
+  }
+
+  // Apply color scheme
+  document.body.className = document.body.className.replace(/color-scheme-\w+/g, '');
+  if (appearanceData.colorScheme && appearanceData.colorScheme !== 'default') {
+    document.body.classList.add(`color-scheme-${appearanceData.colorScheme}`);
+  }
+
+  // Apply accessibility settings
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+
+  // Apply high contrast
+  if (accessibilityData.highContrast) {
+    document.body.classList.add('high-contrast');
+  } else {
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Apply reduced motion
+  if (accessibilityData.reduceMotion) {
+    document.body.classList.add('reduce-motion');
+  } else {
+    document.body.classList.remove('reduce-motion');
+  }
+}
+
+// Apply settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+  applyUserSettings();
+});
+
   // Profile Dropdown
   const profileImg = document.getElementById('profileImg');
   const dropdownMenu = document.getElementById('dropdownMenu');
