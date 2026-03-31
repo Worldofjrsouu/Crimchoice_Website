@@ -45,6 +45,11 @@ nav ul li a {
   text-decoration: none;
 }
 
+nav ul li a.active {
+  color: #b31313;
+  font-weight: bold;
+}
+
 /* NAV BUTTON */
 .nav-btn {
   background: #b31313;
