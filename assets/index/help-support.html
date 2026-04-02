@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathly - Help & Support</title>
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/help-support.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="side-boxes"></div>
+  <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
+  <ul>
+    <li><a href="./main.html">Home</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="./help-support.html" class="active">Help & Support</a></li>
+  </ul>
+  <button class="nav-btn">Get Recommendations</button>
+  
+  <!-- PROFILE -->
+  <div class="profile-container" id="profileNav">
+    <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
+    <div id="dropdownMenu" class="dropdown">
+      <a href="./settings.html">Settings</a>
+      <a href="./help-support.html">Help & Support</a>
+      <a href="#">Display & Accessibility</a>
+      <a href="loginforms.html" id="logoutBtn">Log out</a>
+    </div>
+  </div>
+  <div class="side-boxes"></div>
+</nav>
+
+<!-- HELP HERO SECTION -->
+<section class="help-hero">
+  <div class="hero::before"></div>
+  <div class="help-hero-content">
+    <h1>We're Here to Help</h1>
+    <p>Get support from our dedicated team. We're available 24/7 to assist you with any questions or concerns.</p>
+    <button class="btn-support" onclick="document.querySelector('.support-form-section').scrollIntoView({ behavior: 'smooth' });">Contact Support</button>
+  </div>
+</section>
+
+<!-- SUPPORT CHANNELS -->
+<section class="support-channels">
+  <h2>How Can We Help?</h2>
+  <div class="support-cards">
+    <div class="support-card">
+      <h3>📧 Email Support</h3>
+      <p>Send us an email and we'll get back to you as soon as possible.</p>
+      <p><strong>support@pathly.com</strong></p>
+    </div>
+    <div class="support-card">
+      <h3>📞 Phone Support</h3>
+      <p>Call us during business hours for immediate assistance.</p>
+      <p><strong>+1 (555) 123-4567</strong></p>
+    </div>
+    <div class="support-card">
+      <h3>💬 Live Chat</h3>
+      <p>Chat with our support team in real-time for quick answers.</p>
+      <p><strong>Available 24/7</strong></p>
+    </div>
+    <div class="support-card">
+      <h3>❓ FAQ</h3>
+      <p>Browse our frequently asked questions to find instant answers.</p>
+      <p><a href="#faq-section" style="color: #b31313; text-decoration: none;">View FAQ</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT A HELP REQUEST FORM -->
+<section class="support-form-section">
+  <h2>Submit a Help Request</h2>
+  <form class="support-form" id="supportForm">
+    
+    <!-- Name Fields (HCI-Compliant) -->
+    <div class="form-group">
+      <label for="surname">Family/Surname*</label>
+      <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+      <span class="form-error" id="surnameError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Given/First Name*</label>
+      <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+      <span class="form-error" id="firstNameError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="middleName">Maiden/Middle Name</label>
+      <input type="text" id="middleName" name="middleName" placeholder="Enter your middle name (optional)">
+    </div>
+
+    <div class="form-group">
+      <label for="suffix">Suffix</label>
+      <select id="suffix" name="suffix">
+        <option value="">-- Select Suffix --</option>
+        <option value="Jr.">Jr.</option>
+        <option value="Sr.">Sr.</option>
+        <option value="II">II</option>
+        <option value="III">III</option>
+        <option value="IV">IV</option>
+      </select>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="form-group">
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <span class="form-error" id="emailError"></span>
+    </div>
+
+    <!-- Support Details -->
+    <div class="form-group">
+      <label for="subject">Subject*</label>
+      <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+      <span class="form-error" id="subjectError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="issueType">Issue Type*</label>
+      <select id="issueType" name="issueType" required>
+        <option value="">-- Select Issue Type --</option>
+        <option value="course">Course Related</option>
+        <option value="account">Account Issue</option>
+        <option value="recommendation">Recommendation Issue</option>
+        <option value="technical">Technical Problem</option>
+        <option value="other">Other</option>
+      </select>
+      <span class="form-error" id="issueTypeError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority*</label>
+      <select id="priority" name="priority" required>
+        <option value="">-- Select Priority --</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="urgent">Urgent</option>
+      </select>
+      <span class="form-error" id="priorityError"></span>
+    </div>
+
+    <!-- Message -->
+    <div class="form-group">
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" placeholder="Describe your issue in detail..." rows="6" required></textarea>
+      <span class="form-error" id="messageError"></span>
+    </div>
+
+    <button type="submit" class="btn-support">Submit Request</button>
+    <span class="form-success" id="successMessage" style="display: none;">✓ Your request has been submitted successfully! We'll get back to you shortly.</span>
+  </form>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-container">
+    
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        How do I create an account?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>To create an account, click the "Sign Up" button on the login page, fill in your details, and follow the verification steps. You'll receive a confirmation email to verify your account.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        How are my course recommendations generated?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>Our AI-powered system analyzes your interests, career goals, academic background, and preferences to generate personalized course recommendations. The more information you provide, the more accurate your recommendations.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        Can I change my password?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>Yes! Go to your account settings and select "Change Password". You'll need to verify your identity with your current password before setting a new one.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        What if I don't like my recommendations?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>You can retake the recommendation quiz and update your profile information. Our system will generate new recommendations based on your updated preferences and goals.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        How do I contact the college directly?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>You can find contact information for each college on their respective pages. We also provide email and phone support to help direct your inquiries to the right department.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-question" onclick="toggleAccordion(this)">
+        Is my data secure and private?
+        <span class="accordion-toggle">+</span>
+      </button>
+      <div class="accordion-answer">
+        <p>Yes! We use industry-standard encryption and security protocols to protect your data. Your information is never shared with third parties without your consent. See our Privacy Policy for more details.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>&copy; 2026 Pathly. All rights reserved.</div>
+  <div>
+    <a href="#" style="color: white; margin-right: 20px; text-decoration: none;">Privacy Policy</a>
+    <a href="#" style="color: white; text-decoration: none;">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+// Apply user settings from localStorage
+function applyUserSettings() {
+  // Apply appearance settings
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  // Apply theme
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  // Update logo based on theme
+  const logoImg = document.querySelector('.logo');
+  if (logoImg) {
+    if (appearanceData.theme === 'dark') {
+      logoImg.src = '../images/Pathly_FullLogo_White_NoBG_PNG.png';
+    } else {
+      logoImg.src = '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+    }
+  }
+
+  // Apply font size
+  document.body.className = document.body.className.replace(/font-size-\w+/g, '');
+  if (appearanceData.fontSize && appearanceData.fontSize !== 'medium') {
+    document.body.classList.add(`font-size-${appearanceData.fontSize}`);
+  }
+
+  // Apply color scheme
+  document.body.className = document.body.className.replace(/color-scheme-\w+/g, '');
+  if (appearanceData.colorScheme && appearanceData.colorScheme !== 'default') {
+    document.body.classList.add(`color-scheme-${appearanceData.colorScheme}`);
+  }
+
+  // Apply accessibility settings
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+
+  // Apply high contrast
+  if (accessibilityData.highContrast) {
+    document.body.classList.add('high-contrast');
+  } else {
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Apply reduced motion
+  if (accessibilityData.reduceMotion) {
+    document.body.classList.add('reduce-motion');
+  } else {
+    document.body.classList.remove('reduce-motion');
+  }
+}
+
+// Apply settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+  applyUserSettings();
+});
+
+  // Profile Dropdown
+  const profileImg = document.getElementById('profileImg');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+  profileImg.addEventListener('click', function() {
+    dropdownMenu.classList.toggle('show');
+  });
+
+  window.addEventListener('click', function(event) {
+    if (!event.target.matches('.profile-img')) {
+      if (dropdownMenu.classList.contains('show')) {
+        dropdownMenu.classList.remove('show');
+      }
+    }
+  });
+
+  // FAQ Accordion Toggle
+  function toggleAccordion(button) {
+    const answer = button.nextElementSibling;
+    const toggle = button.querySelector('.accordion-toggle');
+    const isOpen = answer.style.display === 'block';
+    
+    // Close all other accordions
+    document.querySelectorAll('.accordion-answer').forEach(item => {
+      item.style.display = 'none';
+      item.previousElementSibling.querySelector('.accordion-toggle').textContent = '+';
+    });
+    
+    // Toggle current accordion
+    if (!isOpen) {
+      answer.style.display = 'block';
+      toggle.textContent = '−';
+    }
+  }
+
+  // Form Validation and Submission
+  const supportForm = document.getElementById('supportForm');
+  const successMessage = document.getElementById('successMessage');
+
+  supportForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form elements
+    const surname = document.getElementById('surname');
+    const firstName = document.getElementById('firstName');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const issueType = document.getElementById('issueType');
+    const priority = document.getElementById('priority');
+    const message = document.getElementById('message');
+
+    // Clear previous errors
+    document.querySelectorAll('.form-error').forEach(error => error.textContent = '');
+
+    let isValid = true;
+
+    // Validate required fields
+    if (!surname.value.trim()) {
+      document.getElementById('surnameError').textContent = 'Surname is required';
+      isValid = false;
+    }
+
+    if (!firstName.value.trim()) {
+      document.getElementById('firstNameError').textContent = 'First name is required';
+      isValid = false;
+    }
+
+    if (!email.value.trim()) {
+      document.getElementById('emailError').textContent = 'Email is required';
+      isValid = false;
+    } else if (!email.value.includes('@')) {
+      document.getElementById('emailError').textContent = 'Please enter a valid email';
+      isValid = false;
+    }
+
+    if (!subject.value.trim()) {
+      document.getElementById('subjectError').textContent = 'Subject is required';
+      isValid = false;
+    }
+
+    if (!issueType.value) {
+      document.getElementById('issueTypeError').textContent = 'Please select an issue type';
+      isValid = false;
+    }
+
+    if (!priority.value) {
+      document.getElementById('priorityError').textContent = 'Please select a priority';
+      isValid = false;
+    }
+
+    if (!message.value.trim()) {
+      document.getElementById('messageError').textContent = 'Message is required';
+      isValid = false;
+    }
+
+    // If valid, show success message and reset form
+    if (isValid) {
+      supportForm.style.display = 'none';
+      successMessage.style.display = 'block';
+      
+      // Reset form after 3 seconds
+      setTimeout(function() {
+        supportForm.reset();
+        supportForm.style.display = 'block';
+        successMessage.style.display = 'none';
+      }, 3000);
+    }
+  });
+
+  // Nav button navigation
+  const navBtn = document.querySelector('.nav-btn');
+  navBtn.addEventListener('click', function() {
+    window.location.href = 'loginforms.html';
+  });
+</script>
+
+</body>
+</html>

@@ -5,18 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pathly</title>
 <link rel="stylesheet" href="../style/main.css">
+<link rel="stylesheet" href="../style/main-page.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav>
   <div class="side-boxes"></div>
-  <a href="/"><div class="logo-container"><img src="../images/official_Logo.jpeg" alt="Pathly Logo" class="logo"></div></a>
+  <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
   <ul>
     <li>Dashboard</li>
     <li><button onclick="document.getElementById('target-quiz').scrollIntoView({ behavior: 'smooth' });">Take Quiz</button></li>
     <li>Recommendations</li>
     <li>Programs</li>
+    <li><a href="./main.html" class="active">Home</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="./help-support.html">Help & Support</a></li>
   </ul>
   <button class="nav-btn">Get Recommendations</button>
   
@@ -24,11 +28,10 @@
   <div class="profile-container" id="profileNav">
     <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
     <div id="dropdownMenu" class="dropdown">
-      <a href="#">Settings</a>
-      <a href="#">Help & Support</a>
+      <a href="./settings.html">Settings</a>
+      <a href="./help-support.html">Help & Support</a>
       <a href="#">Display & Accessibility</a>
-      <a href="../index/loginforms.html" id="logoutBtn">Log out</a>
-      <a href="loginforms.html">Log out</a>
+      <a href="loginforms.html" id="logoutBtn">Log out</a>
     </div>
   </div>
   <div class="side-boxes"></div>
@@ -37,10 +40,10 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Find the Right Course for You at WMSU</h1>
-    <a href="/"><img src="../images/" alt="Pathly Logo" class="hero-logo"></a>
-    <p>Take a quick assessment and get personalized course recommendations based on your skills and interests.</p>
-    <button class="start-btn">Start  Quiz</button>
+    <h1>Unlock your Future with</h1>
+    <a href="/"><img src="../images/Pathly_FullLogo_White_NoBG_PNG.png" alt="Pathly Logo" class="hero-logo"></a>
+    <p>Personalized course recommendations designed to help you rise above and stand out.</p>
+    <button class="start-btn">Start Now</button>
   </div>
 </section>
 
@@ -49,29 +52,31 @@
   <h2>How It Works</h2>
   <div class="cards">
     <div class="card">
-      <h3>Take the Quiz</h3>
-      <p>  Answer a few questions about your interests and skills.</p>
+      <h3>Tell us about you</h3>
+      <p>Fill out forms and a quick quiz about your interests and career goals.</p>
     </div>
     <div class="card">
-      <h3>Get Recommendations</h3>
-      <p>Receive courses that match your profile.</p>
+      <h3>Get Personalized Matches</h3>
+      <p>Our system recommends courses tailored to your profile.</p>
     </div>
     <div class="card">
-      <h3>Explore Programs</h3>
-      <p> View details and career paths for each course.</p>
+      <h3>Learn more about your course</h3>
+      <p>Explore more details about each recommended course.</p>
     </div>
   </div>
 </section>
 
 <!-- FEATURED COLLEGES -->
 <section class="featured">
-  <h2>Programs Offered at WMSU</h2>
+  <h2>Featured Colleges</h2>
   <p>Select a College to view available courses</p>
   <div class="college-grid">
     <a href="../Colleges/index/college_of_computing_studies.html">
       <button class="college">College of Computing Studies</button>
     </a>
+    <a href = "../Colleges/index/college_of_engineering.html">
     <button class="college">College of Engineering</button>
+    </a>
     <button class="college">College of Science and Mathematics</button>
     <button class="college">College of Criminology</button>
     <button class="college">College of Public Administration</button>
@@ -88,18 +93,21 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials">
   <h2>What Students are Saying</h2>
-  <div class="testimonial-grid">
+  <div class="testimonial-grid" id="testimonialGrid">
     <div class="testimonial">
       <p>“CrimChoice helped me realize that Computer Science is the perfect course for me.”</p>
-      <span>Lowell Antonio S. Malinis</span>
+      <img src="../images/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Lowell Antonio S. Malinis</span>
     </div>
     <div class="testimonial">
-      <p>“I saved so much time compared to searching on my own.”</p>
-      <span>Mary Grace D. Cabato</span>
+      <p>"I saved so much time compared to searching on my own."</p>
+      <img src="../images/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Mary Grace D. Cabato</span>
     </div>
     <div class="testimonial">
-      <p>“The recommendation system made choosing a course easier.”</p>
-      <span>Arsenio S. Serito</span>
+      <p>"The recommendation system made choosing a course easier."</p>
+      <img src="../images/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Arsenio S. Serito</span>
     </div>
   </div>
 </section>
@@ -156,6 +164,63 @@
 
 <!-- JS -->
 <script>
+// Apply user settings from localStorage
+function applyUserSettings() {
+  // Apply appearance settings
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  // Apply theme
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  // Update logo based on theme
+  const logoImg = document.querySelector('.logo');
+  if (logoImg) {
+    if (appearanceData.theme === 'dark') {
+      logoImg.src = '../images/Pathly_FullLogo_White_NoBG_PNG.png';
+    } else {
+      logoImg.src = '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+    }
+  }
+
+  // Apply font size
+  document.body.className = document.body.className.replace(/font-size-\w+/g, '');
+  if (appearanceData.fontSize && appearanceData.fontSize !== 'medium') {
+    document.body.classList.add(`font-size-${appearanceData.fontSize}`);
+  }
+
+  // Apply color scheme
+  document.body.className = document.body.className.replace(/color-scheme-\w+/g, '');
+  if (appearanceData.colorScheme && appearanceData.colorScheme !== 'default') {
+    document.body.classList.add(`color-scheme-${appearanceData.colorScheme}`);
+  }
+
+  // Apply accessibility settings
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+
+  // Apply high contrast
+  if (accessibilityData.highContrast) {
+    document.body.classList.add('high-contrast');
+  } else {
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Apply reduced motion
+  if (accessibilityData.reduceMotion) {
+    document.body.classList.add('reduce-motion');
+  } else {
+    document.body.classList.remove('reduce-motion');
+  }
+}
+
+// Apply settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+  applyUserSettings();
+});
+
+  // Profile dropdown functionality
   const loggedIn = true; // Change to false if user not logged in
   const ctaSection = document.getElementById('ctaSection');
   const profileNav = document.getElementById('profileNav');
