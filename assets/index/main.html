@@ -14,6 +14,10 @@
   <div class="side-boxes"></div>
   <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
   <ul>
+    <li>Dashboard</li>
+    <li><button onclick="document.getElementById('target-quiz').scrollIntoView({ behavior: 'smooth' });">Take Quiz</button></li>
+    <li>Recommendations</li>
+    <li>Programs</li>
     <li><a href="./main.html" class="active">Home</a></li>
     <li><a href="#">Courses</a></li>
     <li><a href="./help-support.html">Help & Support</a></li>
@@ -108,18 +112,18 @@
   </div>
 </section>
 
-<!-- QUIZ -->
-<section class="quiz">
-  <h2>Our Quiz Preview</h2>
-  <div class="quiz-box">
-    <p><b>What type of activities do you enjoy the most?</b></p>
-    <label><input type="checkbox"> Solving technical problems</label><br>
-    <label><input type="checkbox"> Investigating crimes</label><br>
-    <label><input type="checkbox"> Managing businesses</label><br>
-    <label><input type="checkbox"> Teaching others</label><br><br>
-    <button class="quiz-btn">Submit Answer</button>
-  </div>
-</section>
+<!-- QUIZ --> 
+  <section class="quiz" id="target-quiz">
+    <h2>Our Quiz Preview</h2>
+    <div class="quiz-box">
+      <p><b>What type of activities do you enjoy the most?</b></p>
+      <label><input type="checkbox"> Solving technical problems</label><br>
+      <label><input type="checkbox"> Investigating crimes</label><br>
+      <label><input type="checkbox"> Managing businesses</label><br>
+      <label><input type="checkbox"> Teaching others</label><br><br>
+      <button class="quiz-btn">Submit Answer</button>
+    </div>
+  </section>
 
 <!-- CONTACT -->
 <section class="contact">
