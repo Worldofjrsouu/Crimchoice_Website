@@ -9,10 +9,55 @@
 </head>
 <body>
 
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <a href="/">
+      <div class="logo-container">
+        <img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo">
+      </div>
+    </a>
+  </div>
+  <ul>
+    <li><a href="./main.html">Home</a></li>
+    <li><a href="#">Programs</a></li>
+    <li><a href="./help-support.html" class="active">Help & Support</a></li>
+    <li><a href="./settings.html">Settings</a></li>
+  </ul>
+  <button class="nav-btn">Get Recommendations</button>
+  
+  <div class="sidebar-footer">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+      <span>Dark / Light</span>
+    </button>
+  </div>
+  
+  <!-- PROFILE -->
+  <div class="profile-container" id="profileNav">
+    <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
+    <div id="dropdownMenu" class="dropdown">
+      <a href="./settings.html">Settings</a>
+      <a href="./help-support.html">Help & Support</a>
+      <a href="#">Display & Accessibility</a>
+      <a href="loginforms.html" id="logoutBtn">Log out</a>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
+
 <!-- NAVBAR -->
 <nav>
-  <div class="side-boxes"></div>
-  <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
+  <div class="nav-left">
+    <button class="sidebar-toggle" id="sidebarToggle">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
+  </div>
   <ul>
     <li><a href="./main.html">Home</a></li>
     <li><a href="#">Courses</a></li>
@@ -30,7 +75,6 @@
       <a href="loginforms.html" id="logoutBtn">Log out</a>
     </div>
   </div>
-  <div class="side-boxes"></div>
 </nav>
 
 <!-- HELP HERO SECTION -->
@@ -245,15 +289,15 @@ function applyUserSettings() {
     document.body.classList.add('theme-dark');
   }
 
-  // Update logo based on theme
-  const logoImg = document.querySelector('.logo');
-  if (logoImg) {
+  // Update all logo images based on theme
+  const logoImgs = document.querySelectorAll('.logo');
+  logoImgs.forEach((logoImg) => {
     if (appearanceData.theme === 'dark') {
       logoImg.src = '../images/Pathly_FullLogo_White_NoBG_PNG.png';
     } else {
       logoImg.src = '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
     }
-  }
+  });
 
   // Apply font size
   document.body.className = document.body.className.replace(/font-size-\w+/g, '');
@@ -404,6 +448,44 @@ document.addEventListener('DOMContentLoaded', function() {
   navBtn.addEventListener('click', function() {
     window.location.href = 'loginforms.html';
   });
+
+  // Sidebar toggle functionality
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('sidebar');
+
+  sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('show');
+  });
+
+  // Close sidebar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+      sidebar.classList.remove('show');
+    }
+  });
+
+  const themeToggle = document.getElementById('themeToggle');
+  const themeToggleFixed = document.getElementById('themeToggleFixed');
+
+  function updateThemeButton() {
+    const isDark = document.body.classList.contains('theme-dark');
+    document.querySelectorAll('.theme-icon').forEach(el => {
+      el.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+
+  function toggleTheme() {
+    const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+    const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+    appearanceData.theme = nextTheme;
+    localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+    applyUserSettings();
+    updateThemeButton();
+  }
+
+  themeToggle?.addEventListener('click', toggleTheme);
+  themeToggleFixed?.addEventListener('click', toggleTheme);
+  document.addEventListener('DOMContentLoaded', updateThemeButton);
 </script>
 
 </body>
