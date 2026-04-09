@@ -1,0 +1,61 @@
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 30px;
+  top: 0;
+  position: sticky;
+  justify-content: space-between;
+}
+
+/* BUTTON CONTAINER */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* LOGIN + SIGNUP (shared styles) */
+.buttons a {
+  text-decoration: none;
+  color: rgb(125, 3, 3);
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* LOGIN BUTTON */
+.login {
+  border: 1px solid rgb(110, 0, 0);
+  background: transparent;
+}
+
+/* SIGNUP BUTTON */
+.signup {
+   border: 1px solid rgb(110, 0, 0);
+   background: transparent; /* red text to match theme */
+}
+
+/* HOVER EFFECT (optional but nice 👀) */
+.buttons a:hover {
+  opacity: 0.8;
+}
+
+.start-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  color:rgb(110, 0, 0);
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none; /* remove underline */
+  cursor: pointer;
+  transition: transform 0.02s;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
