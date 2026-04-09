@@ -47,6 +47,21 @@ input, select{
     border-radius:5px;
 }
 
+/* Checkbox */
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    margin-top:10px;
+    text-align:left;
+}
+
+.checkbox input{
+    width:auto;
+}
+
 /* Button */
 
 button{
@@ -110,6 +125,14 @@ a:hover{
 <input type="text" placeholder="Username" required>
 <input type="password" placeholder="Password" required>
 <input type="password" placeholder="Confirm Password" required>
+
+<!-- Terms Checkbox -->
+<div class="checkbox">
+<input type="checkbox" required>
+<label>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+</div>
+
+<br>
 
 <button type="submit">Submit</button>
 
