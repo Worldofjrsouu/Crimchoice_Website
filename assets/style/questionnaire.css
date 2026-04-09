@@ -1,0 +1,71 @@
+/* QUESTIONNAIRE SECTION */
+.questionnaire-container{
+  max-width:900px;
+  margin:60px auto;
+  background:white;
+  padding:40px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  animation:fadeUp 0.8s ease forwards;
+  font-size:18px; /* bigger font for readability */
+}
+
+.questionnaire-container h2{
+  color:#7a0000;
+  margin-bottom:15px;
+  font-size:24px; /* bigger part titles */
+}
+
+.question{
+  margin-bottom:25px;
+}
+
+.question p{
+  font-weight:600;
+  margin-bottom:10px;
+  font-size:18px;
+}
+
+.options label{
+  display:block;
+  margin-bottom:8px;
+  cursor:pointer;
+  padding:10px 12px;
+  border-radius:6px;
+  font-size:16px; /* larger option text */
+}
+
+.options label:hover{
+  background:#f3d4d4;
+}
+
+.options input{
+  margin-right:10px;
+}
+
+.quiz-btn{
+  margin-top:20px;
+  background:#b31313;
+  color:white;
+  border:none;
+  padding:14px 22px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:18px;
+}
+
+.quiz-btn:hover{
+  background:#8a0f0f;
+}
+
+.result-box{
+  margin-top:30px;
+  padding:20px;
+  border-radius:8px;
+  background:#fff4f4;
+  display:none;
+  text-align:center;
+  font-weight:bold;
+  font-size:18px;
+}
