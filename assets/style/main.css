@@ -39,6 +39,11 @@ nav .nav-left {
   gap: 15px;
 }
 
+nav .nav-right {
+  display: flex;
+  align-items: center;
+}
+
 nav ul {
   display: flex;
   list-style: none;
@@ -657,6 +662,34 @@ footer {
   background: #5a359a;
 }
 
+/* THEME OVERRIDES FOR DROPDOWN */
+.theme-dark .dropdown {
+  background: #333;
+  border: 1px solid #555;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .dropdown a {
+  color: #e0e0e0;
+}
+
+.theme-dark .dropdown a:hover {
+  background: #444;
+}
+
+.theme-dark .sidebar .dropdown {
+  background: #333;
+  border: 1px solid #555;
+}
+
+.theme-dark .sidebar .dropdown a {
+  color: #e0e0e0;
+}
+
+.theme-dark .sidebar .dropdown a:hover {
+  background: #444;
+}
+
 /* ACCESSIBILITY STYLES */
 .high-contrast {
   background: white !important;
@@ -791,6 +824,33 @@ footer {
   filter: none !important;
 }
 
+
+.high-contrast .dropdown {
+  background: white !important;
+  border: 3px solid black !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.high-contrast .dropdown a {
+  color: black !important;
+}
+
+.high-contrast .dropdown a:hover {
+  background: #f0f0f0 !important;
+}
+
+.high-contrast .sidebar .dropdown {
+  background: white !important;
+  border: 3px solid black !important;
+}
+
+.high-contrast .sidebar .dropdown a {
+  color: black !important;
+}
+
+.high-contrast .sidebar .dropdown a:hover {
+  background: #f0f0f0 !important;
+}
 
 /* High Contrast Dark Mode */
 .theme-dark.high-contrast {
@@ -945,6 +1005,33 @@ footer {
 .theme-dark.high-contrast .cta-btn:hover {
   background: black !important;
   color: yellow !important;
+}
+
+.theme-dark.high-contrast .dropdown {
+  background: black !important;
+  border: 3px solid yellow !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8) !important;
+}
+
+.theme-dark.high-contrast .dropdown a {
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .dropdown a:hover {
+  background: #333 !important;
+}
+
+.theme-dark.high-contrast .sidebar .dropdown {
+  background: black !important;
+  border: 3px solid yellow !important;
+}
+
+.theme-dark.high-contrast .sidebar .dropdown a {
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .sidebar .dropdown a:hover {
+  background: #333 !important;
 }
 
 .reduce-motion * {
