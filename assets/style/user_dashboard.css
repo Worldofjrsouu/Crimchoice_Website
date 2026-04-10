@@ -9,12 +9,19 @@
 body {
   background: #f4f6f8;
   color: #222;
+  transition: margin-left 0.3s ease;
+}
+
+/* SIDEBAR SHOW ADJUSTMENT */
+.sidebar.show ~ .dashboard {
+  margin-left: 280px;
 }
 
 /* DASHBOARD WRAPPER */
 .dashboard {
-  margin-left: 270px;
+  margin-left: 0;
   padding: 30px;
+  transition: margin-left 0.3s ease;
 }
 
 /* HEADER */
@@ -192,4 +199,105 @@ body {
   .dashboard {
     margin-left: 0;
   }
+}
+
+/* THEME SUPPORT */
+.theme-dark {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.theme-dark .card {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.theme-dark .card:hover {
+  border-color: #b31313;
+}
+
+.theme-dark .panel {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.theme-dark .activity {
+  border-bottom-color: #444;
+}
+
+.theme-dark .course {
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.theme-dark .course:hover {
+  border-color: #b31313;
+  background: #333;
+}
+
+.theme-dark .profile-box {
+  border-top-color: #444;
+}
+
+.theme-dark .profile-box p {
+  color: #ccc;
+}
+
+/* HIGH CONTRAST */
+.high-contrast {
+  background: white !important;
+  color: black !important;
+}
+
+.high-contrast .card,
+.high-contrast .panel {
+  background: white !important;
+  border: 2px solid black !important;
+  color: black !important;
+}
+
+.high-contrast .activity,
+.high-contrast .course {
+  border-color: black !important;
+}
+
+.high-contrast .profile-box {
+  border-top-color: black !important;
+}
+
+/* DARK HIGH CONTRAST */
+.theme-dark.high-contrast {
+  background: black !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .card,
+.theme-dark.high-contrast .panel {
+  background: black !important;
+  border: 2px solid yellow !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .activity {
+  border-bottom-color: yellow !important;
+}
+
+.theme-dark.high-contrast .course {
+  border-color: yellow !important;
+  color: yellow !important;
+}
+
+.theme-dark.high-contrast .course:hover {
+  border-color: yellow !important;
+  background: #222 !important;
+}
+
+.theme-dark.high-contrast .profile-box {
+  border-top-color: yellow !important;
+}
+
+.theme-dark.high-contrast .profile-box p {
+  color: yellow !important;
 }
