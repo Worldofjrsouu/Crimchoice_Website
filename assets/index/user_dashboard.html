@@ -166,6 +166,63 @@
 
   </section>
 
+  <!-- NOTIFICATIONS -->
+  <section class="grid-1">
+    <div class="panel">
+      <h2>Notifications</h2>
+      <div class="notification-settings">
+        <div class="notification-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="emailNotifications" checked>
+            <span class="checkmark"></span>
+            Email Notifications
+          </label>
+          <p>Get personalized course suggestions via email</p>
+        </div>
+        <div class="notification-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="pushNotifications">
+            <span class="checkmark"></span>
+            Push Notifications
+          </label>
+          <p>Receive in-app notifications for updates</p>
+        </div>
+        <div class="notification-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="weeklyReports" checked>
+            <span class="checkmark"></span>
+            Weekly Progress Reports
+          </label>
+          <p>Weekly summaries of your learning progress</p>
+        </div>
+      </div>
+      <div class="recent-notifications">
+        <h3>Recent Notifications</h3>
+        <div class="notification">
+          <span class="notification-icon">🔔</span>
+          <div class="notification-content">
+            <p>New course recommendation available!</p>
+            <small>2 hours ago</small>
+          </div>
+        </div>
+        <div class="notification">
+          <span class="notification-icon">📊</span>
+          <div class="notification-content">
+            <p>Your quiz completion is at 85%</p>
+            <small>1 day ago</small>
+          </div>
+        </div>
+        <div class="notification">
+          <span class="notification-icon">🎯</span>
+          <div class="notification-content">
+            <p>Career match score updated to 92%</p>
+            <small>3 days ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- JS -->
@@ -209,7 +266,32 @@ function applyUserSettings() {
 // Apply settings on page load
 document.addEventListener('DOMContentLoaded', function() {
   applyUserSettings();
+  loadNotificationSettings();
 });
+
+// ... existing code ...
+
+// Notification settings
+function loadNotificationSettings() {
+  const notificationData = JSON.parse(localStorage.getItem('pathly_notifications') || '{}');
+  document.getElementById('emailNotifications').checked = notificationData.emailNotifications !== false;
+  document.getElementById('pushNotifications').checked = notificationData.pushNotifications || false;
+  document.getElementById('weeklyReports').checked = notificationData.weeklyReports !== false;
+}
+
+function saveNotificationSettings() {
+  const notificationData = {
+    emailNotifications: document.getElementById('emailNotifications').checked,
+    pushNotifications: document.getElementById('pushNotifications').checked,
+    weeklyReports: document.getElementById('weeklyReports').checked
+  };
+  localStorage.setItem('pathly_notifications', JSON.stringify(notificationData));
+}
+
+// Event listeners for notification toggles
+document.getElementById('emailNotifications').addEventListener('change', saveNotificationSettings);
+document.getElementById('pushNotifications').addEventListener('change', saveNotificationSettings);
+document.getElementById('weeklyReports').addEventListener('change', saveNotificationSettings);
 
 // Sidebar toggle functionality
 const sidebarToggle = document.getElementById('sidebarToggle');
