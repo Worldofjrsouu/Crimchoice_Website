@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Dashboard | Pathly</title>
+
+<link rel="stylesheet" href="../style/main.css">
+<link rel="stylesheet" href="../style/user_dashboard.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar show" id="sidebar">
+
+  <div class="sidebar-brand">
+    <a href="../pages/main.html">
+      <img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" class="logo" alt="Logo">
+    </a>
+  </div>
+
+  <ul>
+    <li><a href="../index/main.html">Home</a></li>
+    <li><a href="#">Programs</a></li>
+    <li><a href="../pages/help-support.html">Help & Support</a></li>
+    <li><a href="../index/settings.html">Settings</a></li>
+    <li><a href="#" class="active">Dashboard</a></li>
+  </ul>
+
+  <button class="nav-btn">Take Quiz</button>
+
+  <div class="profile-box">
+    <img src="../images/profile.jpg" alt="profile">
+    <div>
+      <h4>Student User</h4>
+      <p>View Profile</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- MAIN DASHBOARD -->
+<main class="dashboard">
+
+  <!-- HEADER -->
+  <section class="top-header">
+    <h1>Dashboard Overview</h1>
+    <p>Your learning progress and course recommendations</p>
+  </section>
+
+  <!-- STATS CARDS -->
+  <section class="grid-4">
+
+    <div class="card">
+      <h3>Quiz Completion</h3>
+      <div class="percent">85%</div>
+      <div class="bar"><div style="width:85%"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Career Match Score</h3>
+      <div class="percent">92%</div>
+      <div class="bar"><div style="width:92%"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Course Fit Accuracy</h3>
+      <div class="percent">78%</div>
+      <div class="bar"><div style="width:78%"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Profile Completion</h3>
+      <div class="percent">64%</div>
+      <div class="bar"><div style="width:64%"></div></div>
+    </div>
+
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="grid-2">
+
+    <!-- LEFT -->
+    <div class="panel">
+
+      <h2>Recent Activity</h2>
+
+      <div class="activity">
+        <span>✔</span> Completed Career Assessment
+      </div>
+
+      <div class="activity">
+        <span>✔</span> Viewed BS Computer Science
+      </div>
+
+      <div class="activity">
+        <span>✔</span> Saved 3 Courses
+      </div>
+
+      <div class="activity">
+        <span>✔</span> Updated Profile Interests
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="panel">
+
+      <h2>Top Recommendations</h2>
+
+      <div class="course">
+        <h3>BS Computer Science</h3>
+        <div class="mini-bar"><div style="width:90%"></div></div>
+        <p>Match Strength: 90%</p>
+      </div>
+
+      <div class="course">
+        <h3>BS Information Technology</h3>
+        <div class="mini-bar"><div style="width:82%"></div></div>
+        <p>Match Strength: 82%</p>
+      </div>
+
+      <div class="course">
+        <h3>BS Psychology</h3>
+        <div class="mini-bar"><div style="width:74%"></div></div>
+        <p>Match Strength: 74%</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+</body>
+</html>
