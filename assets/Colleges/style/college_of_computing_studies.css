@@ -14,13 +14,13 @@ background-size:400% 400%;
 animation:gradientMove 12s ease infinite;
 }
 
-
 @keyframes gradientMove{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
 }
 
+/* BACKGROUND BLUR EFFECTS */
 
 .background-blur::before,
 .background-blur::after{
@@ -46,6 +46,7 @@ right:-100px;
 }
 
 /* CONTAINER */
+
 .container{
 display:flex;
 min-height:100vh;
@@ -54,6 +55,7 @@ gap:40px;
 }
 
 /* LEFT INFO */
+
 .info{
 flex:1;
 display:flex;
@@ -81,6 +83,7 @@ margin-bottom:30px;
 color:#ecfdf5;
 }
 
+/* HIGHLIGHT BOXES */
 
 .highlights{
 display:flex;
@@ -104,6 +107,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 /* GALLERY */
+
 .gallery{
 flex:1.2;
 display:grid;
@@ -114,6 +118,7 @@ border-radius:20px;
 }
 
 /* IMAGE CARD */
+
 .card{
 overflow:hidden;
 position:relative;
@@ -143,7 +148,35 @@ transform:scale(1.12);
 opacity:1;
 }
 
+/* GO BACK BUTTON */
+
+.back-container{
+position:absolute;
+top:30px;
+left:40px;
+z-index:10;
+}
+
+.back-btn{
+text-decoration:none;
+padding:10px 20px;
+border-radius:12px;
+background:rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+font-weight:600;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#22c55e;
+transform:translateY(-2px) scale(1.05);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
 /* RESPONSIVE */
+
 @media(max-width:900px){
 
 .container{

@@ -143,6 +143,33 @@ transform:scale(1.12);
 opacity:1;
 }
 
+/* GO BACK BUTTON */
+
+.back-container{
+position:absolute;
+top:30px;
+left:40px;
+z-index:10;
+}
+
+.back-btn{
+text-decoration:none;
+padding:10px 20px;
+border-radius:12px;
+background:rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+font-weight:600;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#ef4444;
+transform:translateY(-2px) scale(1.05);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
 /* RESPONSIVE */
 @media(max-width:900px){
 
