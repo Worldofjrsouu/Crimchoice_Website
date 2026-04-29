@@ -21,34 +21,67 @@
 
 <form action="../index/main.html">
 
-<input type="text" placeholder="First Name" required>
-<input type="text" placeholder="Middle Name">
-<input type="text" placeholder="Last Name" required>
+<div class="form-group">
+    <label for="firstName">First Name</label>
+    <input id="firstName" type="text" placeholder="Enter your first name" required>
+</div>
 
-<select>
-    <option value="">Suffix (Optional)</option>
-    <option>Jr.</option>
-    <option>Sr.</option>
-    <option>II</option>
-    <option>III</option>
-</select>
+<div class="form-group">
+    <label for="middleName">Middle Name</label>
+    <input id="middleName" type="text" placeholder="Enter your middle name">
+</div>
 
-<input type="date" required>
+<div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input id="lastName" type="text" placeholder="Enter your last name" required>
+</div>
 
-<input type="email" placeholder="Email" required>
-<input type="text" placeholder="Username" required>
-<input type="password" placeholder="Password" required>
-<input type="password" placeholder="Confirm Password" required>
+<div class="form-group">
+    <label for="suffix">Suffix (Optional)</label>
+    <select id="suffix">
+        <option value="">Select suffix</option>
+        <option>Jr.</option>
+        <option>Sr.</option>
+        <option>II</option>
+        <option>III</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="birthDate">Birth Date</label>
+    <input id="birthDate" type="date" required>
+</div>
+
+<div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+    <label for="username">Username</label>
+    <input id="username" type="text" placeholder="Choose a username" required>
+</div>
+
+<div class="form-group">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Create a password" required>
+</div>
+
+<div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" placeholder="Confirm your password" required>
+</div>
 
 <div class="checkbox">
-<input type="checkbox" required>
-<label>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+    <input type="checkbox" id="terms" required>
+    <label for="terms">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
 </div>
 
 <button type="submit">Submit</button>
 
-<br><br>
-<a href="../index/loginforms.html">Already Have an Account?</a>
+<p class="form-links">
+    <a href="../index/loginforms.html">Already Have an Account?</a>
+</p>
 
 </form>
 
