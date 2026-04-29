@@ -11,24 +11,25 @@
 
 body {
     font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    overflow: hidden;
+    min-height: 100vh;
+    margin: 0;
+    background: #f4f2f0;
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .login-side {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     background: linear-gradient(870deg, #abaaaa, #a10303f5);
+    padding: 40px 32px;
 }
 
 .login-side::before {
@@ -71,13 +72,38 @@ h1 {
 
 input {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 14px 12px;
+    margin: 6px 0 16px;
     border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 7px;
-    background: rgba(255,255,255,0.5);
+    border-radius: 9px;
+    background: rgba(255,255,255,0.8);
     color: #000;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
     font-size: 14px;
+    color: #4d0000;
+}
+
+.form-links {
+    margin-top: 18px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-links a {
+    color: #8b0000;
 }
 
 button {
@@ -106,9 +132,21 @@ a:hover {
 }
 
 .slideshow-side {
-    flex: 1;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .login-side,
+    .slideshow-side {
+        min-height: 50vh;
+    }
+    .login-side {
+        padding: 28px 20px;
+    }
 }
 
 .bg-slide {
@@ -149,15 +187,20 @@ a:hover {
         <div class="login-box">
             <h1>Pathly</h1>
             <p class="subtitle">Course Recommendation System</p>
-            <form action="../index/main.html">
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+                    <form action="../index/main.html">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="Enter your password" required>
+                </div>
                 <button type="submit">Login</button>
-                <br><br>
-                <a href = "forgot_password.html">
-                <a href="../index/forgot_password.html">Forgot Password?</a><br>
-                </a>
-                <a href="../index/signup.html">Create Account</a>
+                <p class="form-links">
+                    <a href="../index/forgot_password.html">Forgot Password?</a>
+                    <a href="../index/signup.html">Create Account</a>
+                </p>
             </form>
         </div>
     </div>
