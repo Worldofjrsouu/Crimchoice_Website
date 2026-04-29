@@ -5,35 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Course Recommendation Questionnaire</title>
 
-<!-- Main theme CSS -->
-<link rel="stylesheet" href="../style/questionnaire.css">
-<!-- Questionnaire-specific CSS -->
+<!-- Main questionnaire CSS -->
 <link rel="stylesheet" href="../style/questionnaire.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav>
-  <div class="nav-left">
-    <button class="sidebar-toggle" onclick="toggleSidebar()">
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-      <div class="hamburger-line"></div>
-    </button>
-    <div class="logo-container">
-      <img src="#" class="logo" alt="Logo">
-    </div>
+  <div class="logo-container">
+    <a href="./main.html"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" class="logo" alt="Pathly Logo"></a>
   </div>
 
   <ul>
-    <li><a href="">Home</a></li>
-    <li><a href="course-questionnaire.html" class="active">Questionnaire</a></li>
+    <li><a href="./main.html">Home</a></li>
+    <li><a href="./questionnaire.html" class="active">Questionnaire</a></li>
   </ul>
+
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+      <span>Dark / Light</span>
+    </button>
+  </div>
 </nav>
+
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
 
 <!-- QUESTIONNAIRE -->
 <div class="questionnaire-container">
-  <h1>Course Recommendation Questionnaire</h1>
+  <div class="questionnaire-header">
+    <div>
+      <h1>Course Recommendation Questionnaire</h1>
+      <p>Answer these quick questions to help us match you with the right course path. The questionnaire is short, clear, and designed to reflect your learning style.</p>
+    </div>
+  </div>
 
   <form id="quizForm">
 
@@ -173,6 +180,49 @@ function showResult() {
   resultBox.style.display = 'block';
   resultBox.innerHTML = `Based on your answers, we recommend: <strong>${recommendation}</strong>`;
 }
+
+function applyUserSettings() {
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  const logoImgs = document.querySelectorAll('.logo');
+  logoImgs.forEach((logoImg) => {
+    logoImg.src = appearanceData.theme === 'dark'
+      ? '../images/Pathly_FullLogo_White_NoBG_PNG.png'
+      : '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+  });
+}
+
+function updateThemeButton() {
+  const isDark = document.body.classList.contains('theme-dark');
+  document.querySelectorAll('.theme-icon').forEach(el => {
+    el.textContent = isDark ? '☀️' : '🌙';
+  });
+}
+
+function toggleTheme() {
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+  const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+  appearanceData.theme = nextTheme;
+  localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+  applyUserSettings();
+  updateThemeButton();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyUserSettings();
+  updateThemeButton();
+
+  const themeToggle = document.getElementById('themeToggle');
+  const themeToggleFixed = document.getElementById('themeToggleFixed');
+
+  themeToggle?.addEventListener('click', toggleTheme);
+  themeToggleFixed?.addEventListener('click', toggleTheme);
+});
 </script>
 
 </body>
