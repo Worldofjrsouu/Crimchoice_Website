@@ -803,7 +803,7 @@ footer {
 }
 
 .theme-dark .hero {
-  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('../images/wmsu(1)jpg.jpg');
+  background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('../images/university.jpg');
 }
 
 .theme-dark .hero-content h1,
@@ -812,7 +812,7 @@ footer {
 }
 
 .theme-dark .settings-hero {
-  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('../images/wmsu(1)jpg.jpg');
+  background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.6)), url('../images/university.jpg');
 }
 
 .theme-dark .settings-hero-content h1,
@@ -821,7 +821,7 @@ footer {
 }
 
 .theme-dark .help-hero {
-  background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('../images/wmsu(1)jpg.jpg');
+  background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('../images/university.jpg');
 }
 
 .theme-dark .help-hero-content h1,
