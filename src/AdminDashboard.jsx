@@ -1,4 +1,5 @@
  import './Dashboard.css';
+ import { Link } from "react-router-dom";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid,
   BarChart, Bar, PieChart, Pie, Cell
@@ -28,26 +29,26 @@ const pieData = [
 export default function AdminDashboard() {
   return (
     <div className="dashboard-container">
-      
-      {/* Sidebar */}
+
+      {/* Sidebar */} 
       <div className="sidebar">
-        <h1 className="sidebar-title">Pathly</h1>
+         <h1 className="sidebar-title">Pathly</h1> 
 
-        <ul className="sidebar-menu">
-          <li className="active">Dashboard</li>
-          <li>Manage Courses</li>
-          <li>Quiz Questions</li>
-          <li>Users</li>
-          <li>Recommendations</li>
-          <li>Feedback</li>
-          <li>Settings</li>
-        </ul>
+         <ul className="sidebar-menu"> 
+            <li className="active"><Link to="/AdminDashboard">Dashboard</Link></li>
+            <li><Link to="/manageCourses">Manage Courses</Link></li>
+            <li>Quiz Questions</li>
+            <li>Users</li> 
+            <li>Recommendations</li> 
+            <li>Feedback</li> 
+            <li>Settings</li> 
+          </ul> 
       </div>
-
+      
       {/* Main */}
       <div className="main-content">
 
-        <h2 className="main-title">Admin Dashboard</h2>
+        <h2 className="main-title"> Welcome, Admin!</h2>
 
         {/* Top Charts */}
         <div className="charts-top">
