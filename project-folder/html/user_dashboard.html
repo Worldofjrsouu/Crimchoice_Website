@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/user_dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -128,6 +129,16 @@
       <div class="bar"><div style="width:64%"></div></div>
     </div>
 
+  </section>
+
+  <!-- PIE CHART SECTION -->
+  <section class="grid-1">
+    <div class="panel">
+      <h2>Course Recommendations Distribution</h2>
+      <div class="chart-container">
+        <canvas id="recommendationChart"></canvas>
+      </div>
+    </div>
   </section>
 
   <!-- MAIN CONTENT -->
@@ -311,10 +322,85 @@ function applyUserSettings() {
   });
 }
 
+// Initialize pie chart
+function initializeChart() {
+  const ctx = document.getElementById('recommendationChart');
+  if (!ctx) return;
+  
+  const isDarkMode = document.body.classList.contains('theme-dark');
+  const textColor = isDarkMode ? '#e6e6e6' : '#2d1f1f';
+  const bgColor = isDarkMode ? '#1f1f1f' : '#fff7f7';
+  
+  const chart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+        'Computing Studies',
+        'Engineering',
+        'Science & Mathematics',
+        'Criminology',
+        'Public Administration',
+        'Home Economics'
+      ],
+      datasets: [{
+        data: [18, 16, 15, 14, 22, 15],
+        backgroundColor: [
+          '#b31313',
+          '#d64545',
+          '#e85858',
+          '#f28080',
+          '#f9a8a8',
+          '#ffcccc'
+        ],
+        borderColor: bgColor,
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: textColor,
+            font: {
+              size: 13,
+              weight: '600'
+            },
+            padding: 15
+          }
+        },
+        tooltip: {
+          backgroundColor: isDarkMode ? '#2f2f2f' : '#fff',
+          titleColor: isDarkMode ? '#f2c6c6' : '#7a0000',
+          bodyColor: textColor,
+          borderColor: '#b31313',
+          borderWidth: 1,
+          padding: 10,
+          titleFont: {
+            size: 14,
+            weight: 'bold'
+          },
+          bodyFont: {
+            size: 13
+          },
+          callbacks: {
+            label: function(context) {
+              return context.label + ': ' + context.parsed + ' recommendations';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
 // Apply settings on page load
 document.addEventListener('DOMContentLoaded', function() {
   applyUserSettings();
   loadNotificationSettings();
+  initializeChart();
 });
 
 // ... existing code ...

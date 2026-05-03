@@ -471,3 +471,20 @@ body {
 .theme-dark.high-contrast .notification-content small {
   color: yellow !important;
 }
+
+/* PIE CHART STYLES */
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.theme-dark .chart-container {
+  background: transparent;
+}
+
+.panel .chart-container canvas {
+  max-width: 100%;
+}

@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Course Recommendation Questionnaire</title>
-
-<!-- Main questionnaire CSS -->
 <link rel="stylesheet" href="../css/questionnaire.css">
 </head>
 <body>
@@ -38,148 +36,802 @@
   <div class="questionnaire-header">
     <div>
       <h1>Course Recommendation Questionnaire</h1>
-      <p>Answer these quick questions to help us match you with the right course path. The questionnaire is short, clear, and designed to reflect your learning style.</p>
+      <p>Answer these questions to help us match you with the right course path. You'll see 10 questions at a time.</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-text" id="progressText">Page 1 of 6</p>
     </div>
   </div>
 
   <form id="quizForm">
+    <div id="questionsContainer"></div>
 
-    <div class="question">
-      <p>1. What type of subjects do you enjoy most?</p>
-      <div class="options">
-        <label><input type="radio" name="q1" value="Math & Science"> Math & Science</label>
-        <label><input type="radio" name="q1" value="Arts & Design"> Arts & Design</label>
-        <label><input type="radio" name="q1" value="Business & Management"> Business & Management</label>
-      </div>
+    <div class="button-group">
+      <button type="button" class="nav-btn prev-btn" id="prevBtn" style="display: none;">Previous</button>
+      <button type="button" class="nav-btn next-btn" id="nextBtn">Next</button>
+      <button type="button" class="nav-btn submit-btn" id="submitBtn" style="display: none;">Get Recommendations</button>
     </div>
 
-    <div class="question">
-      <p>2. Which learning style suits you best?</p>
-      <div class="options">
-        <label><input type="radio" name="q2" value="Hands-on"> Hands-on / Practical</label>
-        <label><input type="radio" name="q2" value="Theoretical"> Theoretical / Reading</label>
-        <label><input type="radio" name="q2" value="Visual"> Visual / Creative</label>
-      </div>
+    <div class="result-box" id="resultBox" style="display: none;">
+      <h2>Your Top 3 Recommendations</h2>
+      <div id="recommendationsList"></div>
     </div>
-
-    <div class="question">
-      <p>3. How do you prefer to work?</p>
-      <div class="options">
-        <label><input type="radio" name="q3" value="Teamwork"> In a team</label>
-        <label><input type="radio" name="q3" value="Independently"> Independently</label>
-        <label><input type="radio" name="q3" value="Flexible"> Either</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>4. What kind of career are you aiming for?</p>
-      <div class="options">
-        <label><input type="radio" name="q4" value="Technology"> Technology / Engineering</label>
-        <label><input type="radio" name="q4" value="Creative"> Creative / Arts</label>
-        <label><input type="radio" name="q4" value="Business"> Business / Entrepreneurship</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>5. Do you enjoy solving complex problems?</p>
-      <div class="options">
-        <label><input type="radio" name="q5" value="Yes"> Yes</label>
-        <label><input type="radio" name="q5" value="Sometimes"> Sometimes</label>
-        <label><input type="radio" name="q5" value="No"> No</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>6. Which environment motivates you most?</p>
-      <div class="options">
-        <label><input type="radio" name="q6" value="Structured"> Structured / Organized</label>
-        <label><input type="radio" name="q6" value="Flexible"> Flexible / Dynamic</label>
-        <label><input type="radio" name="q6" value="Creative"> Creative / Innovative</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>7. Are you comfortable with public speaking?</p>
-      <div class="options">
-        <label><input type="radio" name="q7" value="Yes"> Yes</label>
-        <label><input type="radio" name="q7" value="Sometimes"> Sometimes</label>
-        <label><input type="radio" name="q7" value="No"> No</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>8. Do you enjoy working with numbers and data?</p>
-      <div class="options">
-        <label><input type="radio" name="q8" value="Yes"> Yes</label>
-        <label><input type="radio" name="q8" value="Sometimes"> Sometimes</label>
-        <label><input type="radio" name="q8" value="No"> No</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>9. Which activity excites you more?</p>
-      <div class="options">
-        <label><input type="radio" name="q9" value="Designing"> Designing / Creating</label>
-        <label><input type="radio" name="q9" value="Analyzing"> Analyzing / Problem-solving</label>
-        <label><input type="radio" name="q9" value="Organizing"> Organizing / Managing</label>
-      </div>
-    </div>
-
-    <div class="question">
-      <p>10. What motivates you to study?</p>
-      <div class="options">
-        <label><input type="radio" name="q10" value="Passion"> Passion for knowledge</label>
-        <label><input type="radio" name="q10" value="Career"> Career opportunities</label>
-        <label><input type="radio" name="q10" value="Social"> Social recognition</label>
-      </div>
-    </div>
-
-    <button type="button" class="quiz-btn" onclick="showResult()">Submit</button>
-
-    <div class="result-box" id="resultBox"></div>
   </form>
 </div>
 
 <script>
-// Simple scoring example (you can map answers to courses)
-function showResult() {
-  const form = document.getElementById('quizForm');
-  const resultBox = document.getElementById('resultBox');
+const allQuestions = [
+  // SECTION 1: Interests & Subjects (Q1-Q10)
+  {
+    question: "1. Which subjects do you enjoy the most?",
+    type: "multiple",
+    options: [
+      { text: "Math / Logic", colleges: ["Computing", "Engineering", "Science"] },
+      { text: "Science", colleges: ["Science", "Engineering", "Medicine"] },
+      { text: "Writing / Communication", colleges: ["Public Administration", "Home Economics"] },
+      { text: "Arts / Design", colleges: ["Home Economics"] },
+      { text: "Technology", colleges: ["Computing", "Engineering"] }
+    ]
+  },
+  {
+    question: "2. What topics do you usually search online?",
+    type: "multiple",
+    options: [
+      { text: "Tech / Gadgets", colleges: ["Computing", "Engineering"] },
+      { text: "Business / Money", colleges: ["Public Administration"] },
+      { text: "Health / Science", colleges: ["Science", "Medicine"] },
+      { text: "Creative content (art, music, videos)", colleges: ["Home Economics"] },
+      { text: "Social issues / people", colleges: ["Public Administration", "Criminology"] }
+    ]
+  },
+  {
+    question: "3. What do you enjoy in your free time?",
+    type: "multiple",
+    options: [
+      { text: "Solving puzzles / games", colleges: ["Computing", "Engineering", "Science"] },
+      { text: "Creating (drawing, editing, writing)", colleges: ["Home Economics"] },
+      { text: "Watching educational content", colleges: ["Science", "Computing"] },
+      { text: "Socializing / helping others", colleges: ["Public Administration", "Criminology"] },
+      { text: "Building or fixing things", colleges: ["Engineering"] }
+    ]
+  },
+  {
+    question: "4. Which of these activities sounds most exciting to you?",
+    type: "multiple",
+    options: [
+      { text: "Running experiments in a lab", colleges: ["Science", "Engineering", "Medicine"] },
+      { text: "Writing code or building apps", colleges: ["Computing"] },
+      { text: "Managing a team or project", colleges: ["Public Administration"] },
+      { text: "Designing graphics or videos", colleges: ["Home Economics"] },
+      { text: "Teaching or tutoring others", colleges: ["Public Administration"] }
+    ]
+  },
+  {
+    question: "5. Which school subject do you find most useful for real life?",
+    type: "multiple",
+    options: [
+      { text: "Economics / Business", colleges: ["Public Administration"] },
+      { text: "Biology / Chemistry", colleges: ["Science", "Medicine"] },
+      { text: "Computer Science", colleges: ["Computing"] },
+      { text: "Psychology / Sociology", colleges: ["Criminology", "Public Administration"] },
+      { text: "Mathematics", colleges: ["Computing", "Engineering", "Science"] }
+    ]
+  },
+  {
+    question: "6. If you could attend a workshop, which would you choose?",
+    type: "multiple",
+    options: [
+      { text: "Robotics & AI", colleges: ["Computing", "Engineering"] },
+      { text: "Creative Writing", colleges: ["Home Economics"] },
+      { text: "Entrepreneurship", colleges: ["Public Administration"] },
+      { text: "Medical & Health Sciences", colleges: ["Medicine"] },
+      { text: "Environmental Studies", colleges: ["Science", "Engineering"] }
+    ]
+  },
+  {
+    question: "7. Which type of content do you enjoy creating?",
+    type: "multiple",
+    options: [
+      { text: "Code / software", colleges: ["Computing"] },
+      { text: "Essays or reports", colleges: ["Public Administration"] },
+      { text: "Visual designs or videos", colleges: ["Home Economics"] },
+      { text: "Data charts or analysis", colleges: ["Science", "Computing"] },
+      { text: "Social campaigns or presentations", colleges: ["Public Administration"] }
+    ]
+  },
+  {
+    question: "8. What kind of books or articles do you read for fun?",
+    type: "multiple",
+    options: [
+      { text: "Science & technology", colleges: ["Science", "Computing", "Engineering"] },
+      { text: "Business & finance", colleges: ["Public Administration"] },
+      { text: "History & culture", colleges: ["Public Administration"] },
+      { text: "Self-help & psychology", colleges: ["Criminology", "Public Administration"] },
+      { text: "Fiction & storytelling", colleges: ["Home Economics"] }
+    ]
+  },
+  {
+    question: "9. Which of these hobbies most appeals to you?",
+    type: "multiple",
+    options: [
+      { text: "Photography or filmmaking", colleges: ["Home Economics"] },
+      { text: "Programming or electronics", colleges: ["Computing", "Engineering"] },
+      { text: "Cooking or crafting", colleges: ["Home Economics"] },
+      { text: "Debating or public speaking", colleges: ["Public Administration", "Criminology"] },
+      { text: "Volunteering or community work", colleges: ["Public Administration"] }
+    ]
+  },
+  {
+    question: "10. Favorite type of project:",
+    type: "multiple",
+    options: [
+      { text: "Coding / building systems", colleges: ["Computing"] },
+      { text: "Writing / presentations", colleges: ["Public Administration"] },
+      { text: "Experiments / research", colleges: ["Science", "Engineering"] },
+      { text: "Art / design", colleges: ["Home Economics"] },
+      { text: "Business plans", colleges: ["Public Administration"] }
+    ]
+  },
 
-  // Count choices per category
-  let tech=0, creative=0, business=0;
+  // SECTION 2: Skills & Strengths (Q11-Q23)
+  {
+    question: "11. Rate your confidence in Math:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Computing", "Engineering", "Science"], low: ["Public Administration", "Home Economics"] }
+  },
+  {
+    question: "12. Rate your communication skills:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Public Administration", "Criminology"], low: ["Computing"] }
+  },
+  {
+    question: "13. Rate your creativity:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Home Economics"], low: ["Science", "Engineering"] }
+  },
+  {
+    question: "14. Rate your problem-solving ability:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Computing", "Engineering", "Science"], low: [] }
+  },
+  {
+    question: "15. Rate your teamwork skills:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Public Administration", "Engineering"], low: ["Computing"] }
+  },
+  {
+    question: "16. Rate your technical/computer skills:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Computing", "Engineering"], low: ["Public Administration", "Home Economics"] }
+  },
+  {
+    question: "17. Rate your leadership ability:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Public Administration"], low: ["Science"] }
+  },
+  {
+    question: "18. Rate your research and analytical skills:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Science", "Engineering", "Computing"], low: [] }
+  },
+  {
+    question: "19. Rate your ability to work independently:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Computing", "Science"], low: ["Public Administration"] }
+  },
+  {
+    question: "20. Which strength best describes you?",
+    type: "multiple",
+    options: [
+      { text: "I notice patterns and details others miss", colleges: ["Computing", "Science"] },
+      { text: "I come up with new ideas easily", colleges: ["Home Economics", "Engineering"] },
+      { text: "I explain things clearly to others", colleges: ["Public Administration"] },
+      { text: "I stay calm and organized under pressure", colleges: ["Engineering", "Criminology"] },
+      { text: "I build rapport and connect with people quickly", colleges: ["Public Administration", "Criminology"] }
+    ]
+  },
+  {
+    question: "21. Which do you struggle with most?",
+    type: "multiple",
+    options: [
+      { text: "Math", colleges: ["Public Administration", "Home Economics"] },
+      { text: "Writing", colleges: ["Engineering", "Science"] },
+      { text: "Science", colleges: ["Public Administration", "Home Economics"] },
+      { text: "Creativity", colleges: ["Science", "Engineering"] },
+      { text: "Social interaction", colleges: ["Computing"] }
+    ]
+  },
+  {
+    question: "22. What is hardest for you?",
+    type: "multiple",
+    options: [
+      { text: "Memorization", colleges: ["Computing"] },
+      { text: "Problem-solving", colleges: ["Public Administration", "Home Economics"] },
+      { text: "Time management", colleges: [] },
+      { text: "Communication", colleges: ["Engineering", "Science"] },
+      { text: "Focus", colleges: [] }
+    ]
+  },
+  {
+    question: "23. You avoid tasks that are:",
+    type: "multiple",
+    options: [
+      { text: "Too technical", colleges: ["Public Administration", "Home Economics", "Criminology"] },
+      { text: "Too creative", colleges: ["Engineering", "Science"] },
+      { text: "Too social", colleges: ["Computing"] },
+      { text: "Too complex", colleges: ["Home Economics"] },
+      { text: "Too repetitive", colleges: ["Home Economics", "Computing"] }
+    ]
+  },
 
-  const mapping = {
-    q1: {'Math & Science':'tech','Arts & Design':'creative','Business & Management':'business'},
-    q2: {'Hands-on':'tech','Theoretical':'tech','Visual':'creative'},
-    q3: {'Teamwork':'business','Independently':'tech','Flexible':'creative'},
-    q4: {'Technology':'tech','Creative':'creative','Business':'business'},
-    q5: {'Yes':'tech','Sometimes':'creative','No':'business'},
-    q6: {'Structured':'tech','Flexible':'business','Creative':'creative'},
-    q7: {'Yes':'business','Sometimes':'creative','No':'tech'},
-    q8: {'Yes':'tech','Sometimes':'creative','No':'business'},
-    q9: {'Designing':'creative','Analyzing':'tech','Organizing':'business'},
-    q10:{'Passion':'creative','Career':'business','Social':'tech'}
-  };
+  // SECTION 3: Learning Style (Q24-Q32)
+  {
+    question: "24. How do you learn best?",
+    type: "multiple",
+    options: [
+      { text: "Visual (videos, diagrams)", colleges: ["Engineering", "Science", "Home Economics"] },
+      { text: "Reading / writing", colleges: ["Science", "Public Administration"] },
+      { text: "Listening", colleges: ["Public Administration"] },
+      { text: "Hands-on", colleges: ["Engineering", "Home Economics"] },
+      { text: "Mixed", colleges: ["Computing"] }
+    ]
+  },
+  {
+    question: "25. Preferred learning environment:",
+    type: "multiple",
+    options: [
+      { text: "Structured", colleges: ["Engineering", "Science"] },
+      { text: "Flexible", colleges: ["Computing", "Home Economics"] },
+      { text: "Independent", colleges: ["Computing"] },
+      { text: "Group-based", colleges: ["Public Administration", "Criminology"] },
+      { text: "Fast-paced", colleges: ["Computing"] }
+    ]
+  },
+  {
+    question: "26. You prefer:",
+    type: "multiple",
+    options: [
+      { text: "Step-by-step instructions", colleges: ["Engineering"] },
+      { text: "Exploring on your own", colleges: ["Computing", "Science"] },
+      { text: "Guided practice", colleges: ["Public Administration"] },
+      { text: "Trial and error", colleges: ["Home Economics"] },
+      { text: "Discussion-based learning", colleges: ["Criminology"] }
+    ]
+  },
+  {
+    question: "27. When learning something new, you prefer:",
+    type: "multiple",
+    options: [
+      { text: "Watching someone demonstrate it first", colleges: ["Home Economics", "Engineering"] },
+      { text: "Reading a detailed explanation", colleges: ["Science"] },
+      { text: "Trying it yourself immediately", colleges: ["Computing"] },
+      { text: "Discussing it with others", colleges: ["Public Administration", "Criminology"] },
+      { text: "Taking structured notes and reviewing them", colleges: ["Science"] }
+    ]
+  },
+  {
+    question: "28. How do you usually remember information best?",
+    type: "multiple",
+    options: [
+      { text: "By making visual maps or diagrams", colleges: ["Engineering", "Home Economics"] },
+      { text: "By repeating it out loud or in writing", colleges: ["Science"] },
+      { text: "By applying it to a real situation", colleges: ["Engineering", "Computing"] },
+      { text: "By teaching it to someone else", colleges: ["Public Administration"] },
+      { text: "By linking it to something I already know", colleges: ["Science"] }
+    ]
+  },
+  {
+    question: "29. Which type of assignment do you perform best in?",
+    type: "multiple",
+    options: [
+      { text: "Multiple choice exams", colleges: ["Science"] },
+      { text: "Essay or written reports", colleges: ["Public Administration"] },
+      { text: "Practical / hands-on projects", colleges: ["Engineering", "Home Economics"] },
+      { text: "Group presentations", colleges: ["Criminology", "Public Administration"] },
+      { text: "Research papers", colleges: ["Science"] }
+    ]
+  },
+  {
+    question: "30. Do you enjoy practical activities?",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Engineering", "Home Economics"], low: ["Science", "Computing"] }
+  },
+  {
+    question: "31. How often do you lose focus while studying?",
+    type: "rating",
+    scale: 5,
+    mapping: { high: [], low: ["Engineering", "Science"] }
+  },
+  {
+    question: "32. How do you feel about online or self-paced learning?",
+    type: "multiple",
+    options: [
+      { text: "I love it - I prefer working at my own pace", colleges: ["Computing"] },
+      { text: "It's okay but I need some structure", colleges: ["Science"] },
+      { text: "I struggle without face-to-face interaction", colleges: ["Public Administration", "Criminology"] },
+      { text: "I like it only for topics I'm already interested in", colleges: ["Home Economics"] },
+      { text: "I haven't tried it much", colleges: [] }
+    ]
+  },
 
-  for(let i=1;i<=10;i++){
-    let ans = form['q'+i].value;
-    let cat = mapping['q'+i][ans];
-    if(cat==='tech') tech++;
-    else if(cat==='creative') creative++;
-    else if(cat==='business') business++;
+  // SECTION 4: Personality & Work Style (Q33-Q46)
+  {
+    question: "33. You are more:",
+    type: "multiple",
+    options: [
+      { text: "Introverted", colleges: ["Science", "Computing"] },
+      { text: "Slightly introverted", colleges: ["Engineering", "Science"] },
+      { text: "Balanced", colleges: ["Public Administration", "Criminology", "Home Economics"] },
+      { text: "Slightly extroverted", colleges: ["Public Administration"] },
+      { text: "Extroverted", colleges: ["Public Administration", "Criminology"] }
+    ]
+  },
+  {
+    question: "34. Do you receive more energy from:",
+    type: "multiple",
+    options: [
+      { text: "Analyzing details and solving problems logically", colleges: ["Computing", "Engineering", "Science"] },
+      { text: "Connecting with people's feelings and emotions", colleges: ["Public Administration", "Criminology"] }
+    ]
+  },
+  {
+    question: "35. Choose which is more natural and satisfying:",
+    type: "multiple",
+    options: [
+      { text: "More periods of quiet concentration by yourself", colleges: ["Computing", "Science"] },
+      { text: "Frequent socializing and interaction with others", colleges: ["Public Administration", "Criminology"] }
+    ]
+  },
+  {
+    question: "36. In group discussions you are typically more:",
+    type: "multiple",
+    options: [
+      { text: "Reserved but happy to share your opinion when asked", colleges: ["Science", "Engineering"] },
+      { text: "Eager to share your thoughts and actively contribute", colleges: ["Public Administration", "Criminology"] }
+    ]
+  },
+  {
+    question: "37. Decision style:",
+    type: "multiple",
+    options: [
+      { text: "Risk-taker", colleges: ["Computing", "Engineering"] },
+      { text: "Sometimes risky", colleges: ["Home Economics"] },
+      { text: "Balanced", colleges: ["Public Administration"] },
+      { text: "Careful", colleges: ["Science"] },
+      { text: "Very cautious", colleges: ["Criminology"] }
+    ]
+  },
+  {
+    question: "38. When starting a new task, you usually:",
+    type: "multiple",
+    options: [
+      { text: "Research and plan thoroughly before starting", colleges: ["Science", "Public Administration"] },
+      { text: "Jump in and figure it out as you go", colleges: ["Computing"] },
+      { text: "Ask someone experienced for guidance", colleges: ["Public Administration"] },
+      { text: "Look for templates or examples to follow", colleges: ["Home Economics"] },
+      { text: "Break it into small steps and tackle each one", colleges: ["Engineering"] }
+    ]
+  },
+  {
+    question: "39. Which sentence best describes you?",
+    type: "multiple",
+    options: [
+      { text: "I love finding the 'why' behind things", colleges: ["Science", "Engineering"] },
+      { text: "I prefer knowing exactly what steps to follow", colleges: ["Public Administration"] },
+      { text: "I enjoy experimenting, even if I fail", colleges: ["Computing", "Engineering"] },
+      { text: "I work best when I can see the big picture", colleges: ["Public Administration"] },
+      { text: "I focus on how things affect people", colleges: ["Criminology"] }
+    ]
+  },
+  {
+    question: "40. Which task do you prefer?",
+    type: "multiple",
+    options: [
+      { text: "Logical problem-solving", colleges: ["Computing", "Science", "Engineering"] },
+      { text: "Creative designing", colleges: ["Home Economics"] },
+      { text: "Communicating ideas", colleges: ["Public Administration"] },
+      { text: "Helping people", colleges: ["Criminology"] },
+      { text: "Organizing tasks", colleges: ["Public Administration"] }
+    ]
+  },
+  {
+    question: "41. You prefer working with:",
+    type: "multiple",
+    options: [
+      { text: "Numbers", colleges: ["Science", "Computing"] },
+      { text: "People", colleges: ["Public Administration", "Criminology"] },
+      { text: "Technology", colleges: ["Computing", "Engineering"] },
+      { text: "Ideas", colleges: ["Home Economics", "Engineering"] },
+      { text: "Physical objects", colleges: ["Engineering", "Home Economics"] }
+    ]
+  },
+  {
+    question: "42. What is more enjoyable for you?",
+    type: "multiple",
+    options: [
+      { text: "Completing a project", colleges: ["Engineering", "Science"] },
+      { text: "Creating a project", colleges: ["Home Economics", "Computing"] }
+    ]
+  },
+  {
+    question: "43. How do you handle feedback and criticism?",
+    type: "multiple",
+    options: [
+      { text: "I welcome it - it helps me improve", colleges: ["Science", "Engineering"] },
+      { text: "I accept it but need time to process", colleges: ["Computing", "Science"] },
+      { text: "I find it motivating when it's constructive", colleges: ["Public Administration"] },
+      { text: "I sometimes take it personally", colleges: ["Home Economics"] },
+      { text: "I find it difficult to receive", colleges: [] }
+    ]
+  },
+  {
+    question: "44. When facing deadlines, you:",
+    type: "multiple",
+    options: [
+      { text: "Work well under pressure", colleges: ["Engineering", "Public Administration"] },
+      { text: "Panic but finish", colleges: ["Home Economics"] },
+      { text: "Procrastinate", colleges: [] },
+      { text: "Need help", colleges: [] },
+      { text: "Avoid the task", colleges: [] }
+    ]
+  },
+  {
+    question: "45. Group work is:",
+    type: "multiple",
+    options: [
+      { text: "Easy", colleges: ["Public Administration", "Criminology"] },
+      { text: "Okay", colleges: ["Engineering", "Home Economics"] },
+      { text: "Difficult", colleges: ["Science"] },
+      { text: "Stressful", colleges: ["Computing"] },
+      { text: "Avoided", colleges: [] }
+    ]
+  },
+  {
+    question: "46. How comfortable are you with taking initiative at work?",
+    type: "multiple",
+    options: [
+      { text: "Very comfortable - I naturally take the lead", colleges: ["Public Administration"] },
+      { text: "Comfortable when I know the task well", colleges: ["Engineering", "Science"] },
+      { text: "Somewhat - I prefer guidance first", colleges: ["Home Economics"] },
+      { text: "I'm more comfortable following instructions", colleges: ["Computing"] },
+      { text: "I'm still developing this skill", colleges: [] }
+    ]
+  },
+
+  // SECTION 5 & 6: Career & Future Goals (Q47-Q60)
+  {
+    question: "47. Do you have a career in mind?",
+    type: "multiple",
+    options: [
+      { text: "Yes (clear)", colleges: [] },
+      { text: "Some idea", colleges: [] },
+      { text: "Not sure", colleges: [] },
+      { text: "Still exploring", colleges: [] },
+      { text: "No idea", colleges: [] }
+    ]
+  },
+  {
+    question: "48. What matters most in a career?",
+    type: "multiple",
+    options: [
+      { text: "Salary", colleges: ["Engineering", "Public Administration"] },
+      { text: "Passion", colleges: ["Home Economics", "Science"] },
+      { text: "Stability", colleges: ["Public Administration"] },
+      { text: "Flexibility", colleges: ["Computing", "Home Economics"] },
+      { text: "Impact / helping others", colleges: ["Criminology", "Public Administration"] }
+    ]
+  },
+  {
+    question: "49. Which best describes your financial goal?",
+    type: "multiple",
+    options: [
+      { text: "Earn as much as possible", colleges: ["Engineering", "Computing"] },
+      { text: "Earn enough to be comfortable", colleges: ["Public Administration"] },
+      { text: "Earn enough to pursue my passion", colleges: ["Home Economics", "Science"] },
+      { text: "I prioritize purpose over pay", colleges: ["Criminology"] },
+      { text: "I haven't thought about it yet", colleges: [] }
+    ]
+  },
+  {
+    question: "50. Which of these roles sounds most appealing?",
+    type: "multiple",
+    options: [
+      { text: "Engineer or developer", colleges: ["Engineering", "Computing"] },
+      { text: "Doctor or healthcare professional", colleges: ["Science"] },
+      { text: "Artist, designer, or filmmaker", colleges: ["Home Economics"] },
+      { text: "Entrepreneur or business owner", colleges: ["Public Administration"] },
+      { text: "Educator or social worker", colleges: ["Criminology", "Public Administration"] }
+    ]
+  },
+  {
+    question: "51. Which type of industry interests you most?",
+    type: "multiple",
+    options: [
+      { text: "Technology & innovation", colleges: ["Computing", "Engineering"] },
+      { text: "Healthcare & medicine", colleges: ["Science"] },
+      { text: "Media, arts & entertainment", colleges: ["Home Economics"] },
+      { text: "Finance & business", colleges: ["Public Administration"] },
+      { text: "Education & social services", colleges: ["Criminology", "Public Administration"] }
+    ]
+  },
+  {
+    question: "52. How do you feel about entrepreneurship (starting your own business)?",
+    type: "multiple",
+    options: [
+      { text: "It's my dream", colleges: ["Public Administration", "Computing"] },
+      { text: "I'm open to it someday", colleges: ["Engineering", "Home Economics"] },
+      { text: "I'd rather work for a company", colleges: ["Public Administration", "Science"] },
+      { text: "It seems too risky", colleges: ["Criminology"] },
+      { text: "I haven't thought about it", colleges: [] }
+    ]
+  },
+  {
+    question: "53. Are you interested in further education (university, postgraduate)?",
+    type: "multiple",
+    options: [
+      { text: "Definitely - I want advanced qualifications", colleges: ["Science", "Engineering", "Computing"] },
+      { text: "Probably - it depends on the career", colleges: ["Public Administration"] },
+      { text: "Maybe - I'm considering alternatives", colleges: ["Home Economics"] },
+      { text: "I prefer vocational/trade training", colleges: ["Engineering"] },
+      { text: "I'd rather gain experience first", colleges: ["Criminology"] }
+    ]
+  },
+  {
+    question: "54. Willingness to study for many years:",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Science", "Engineering", "Computing"], low: ["Public Administration", "Home Economics"] }
+  },
+  {
+    question: "55. Preferred work type:",
+    type: "multiple",
+    options: [
+      { text: "Office job", colleges: ["Public Administration", "Computing"] },
+      { text: "Fieldwork", colleges: ["Engineering", "Criminology"] },
+      { text: "Remote / online", colleges: ["Computing"] },
+      { text: "Creative studio", colleges: ["Home Economics"] },
+      { text: "Mixed", colleges: ["Engineering"] }
+    ]
+  },
+  {
+    question: "56. Work environment preference:",
+    type: "multiple",
+    options: [
+      { text: "Indoors", colleges: ["Computing", "Home Economics"] },
+      { text: "Outdoors", colleges: ["Engineering"] },
+      { text: "Both", colleges: ["Science", "Engineering"] },
+      { text: "Travel-based", colleges: ["Public Administration"] },
+      { text: "Flexible", colleges: ["Computing", "Home Economics"] }
+    ]
+  },
+  {
+    question: "57. Which environment would make you most productive?",
+    type: "multiple",
+    options: [
+      { text: "A quiet space with minimal distractions", colleges: ["Computing", "Science"] },
+      { text: "A busy, energetic workspace", colleges: ["Public Administration"] },
+      { text: "A collaborative open office", colleges: ["Engineering", "Criminology"] },
+      { text: "Working from home or remotely", colleges: ["Computing", "Home Economics"] },
+      { text: "Varies depending on the task", colleges: ["Home Economics"] }
+    ]
+  },
+  {
+    question: "58. Willing to relocate or travel for work?",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Engineering", "Public Administration"], low: ["Computing", "Home Economics"] }
+  },
+  {
+    question: "59. How important is work-life balance to you?",
+    type: "rating",
+    scale: 5,
+    mapping: { high: ["Home Economics", "Public Administration"], low: ["Engineering", "Science"] }
+  },
+  {
+    question: "60. When imagining your ideal career in 10 years, it involves:",
+    type: "multiple",
+    options: [
+      { text: "Leading a team or organization", colleges: ["Public Administration"] },
+      { text: "Creating or building something meaningful", colleges: ["Engineering", "Computing", "Home Economics"] },
+      { text: "Making a difference in people's lives", colleges: ["Criminology", "Public Administration"] },
+      { text: "Achieving financial independence", colleges: ["Engineering", "Computing"] },
+      { text: "Continuously learning and growing", colleges: ["Science", "Engineering"] }
+    ]
+  }
+];
+
+const colleges = {
+  "Computing": { name: "College of Computing Studies", link: "../Colleges/html-colleges/college_of_computing_studies.html" },
+  "Engineering": { name: "College of Engineering", link: "../Colleges/html-colleges/college_of_engineering.html" },
+  "Science": { name: "College of Science & Mathematics", link: "../Colleges/html-colleges/college_of_science_mathematics.html" },
+  "Criminology": { name: "College of Criminology", link: "../Colleges/html-colleges/college_of_criminology.html" },
+  "Public Administration": { name: "College of Public Administration", link: "../Colleges/html-colleges/college_of_public_administration.html" },
+  "Home Economics": { name: "College of Home Economics", link: "../Colleges/html-colleges/college_of_home_economics.html" }
+};
+
+let currentPage = 0;
+let userAnswers = {};
+
+function renderQuestions() {
+  const start = currentPage * 10;
+  const end = start + 10;
+  const questionsToShow = allQuestions.slice(start, end);
+  const container = document.getElementById('questionsContainer');
+  
+  container.innerHTML = '';
+  
+  questionsToShow.forEach((q, index) => {
+    const questionIndex = start + index;
+    const questionDiv = document.createElement('div');
+    questionDiv.className = 'question';
+    
+    let optionsHTML = '';
+    
+    if (q.type === 'multiple') {
+      optionsHTML = '<div class="options">';
+      q.options.forEach((option, idx) => {
+        const inputId = `q${questionIndex}_${idx}`;
+        const isChecked = userAnswers[questionIndex] === option.text ? 'checked' : '';
+        optionsHTML += `
+          <label>
+            <input type="radio" name="q${questionIndex}" value="${option.text}" ${isChecked}>
+            ${option.text}
+          </label>
+        `;
+      });
+      optionsHTML += '</div>';
+    } else if (q.type === 'rating') {
+      optionsHTML = '<div class="rating-options">';
+      for (let i = 1; i <= q.scale; i++) {
+        const isChecked = userAnswers[questionIndex] === i ? 'checked' : '';
+        optionsHTML += `
+          <label class="rating-label">
+            <input type="radio" name="q${questionIndex}" value="${i}" ${isChecked}>
+            ${i}
+          </label>
+        `;
+      }
+      optionsHTML += '</div>';
+    }
+    
+    questionDiv.innerHTML = `
+      <p>${q.question}</p>
+      ${optionsHTML}
+    `;
+    
+    container.appendChild(questionDiv);
+  });
+
+  const radioButtons = container.querySelectorAll('input[type="radio"]');
+  radioButtons.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      const questionIndex = parseInt(e.target.name.replace('q', ''));
+      userAnswers[questionIndex] = e.target.value;
+    });
+  });
+
+  updateNavigation();
+  updateProgress();
+}
+
+function updateNavigation() {
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  const totalPages = Math.ceil(allQuestions.length / 10);
+  
+  if (currentPage > 0) {
+    prevBtn.style.display = 'inline-block';
+  } else {
+    prevBtn.style.display = 'none';
+  }
+  
+  if (currentPage < totalPages - 1) {
+    nextBtn.style.display = 'inline-block';
+    submitBtn.style.display = 'none';
+  } else {
+    nextBtn.style.display = 'none';
+    submitBtn.style.display = 'inline-block';
+  }
+}
+
+function updateProgress() {
+  const totalPages = Math.ceil(allQuestions.length / 10);
+  const percentage = ((currentPage + 1) / totalPages) * 100;
+  document.getElementById('progressFill').style.width = percentage + '%';
+  document.getElementById('progressText').textContent = `Page ${currentPage + 1} of ${totalPages}`;
+}
+
+function showRecommendations() {
+  const scores = {};
+  Object.keys(colleges).forEach(college => {
+    scores[college] = 0;
+  });
+
+  for (let questionIndex in userAnswers) {
+    const answer = userAnswers[questionIndex];
+    const question = allQuestions[questionIndex];
+    
+    if (question.type === 'multiple') {
+      const selectedOption = question.options.find(opt => opt.text === answer);
+      if (selectedOption) {
+        selectedOption.colleges.forEach(college => {
+          scores[college] = (scores[college] || 0) + 1;
+        });
+      }
+    } else if (question.type === 'rating') {
+      const rating = parseInt(answer);
+      if (rating >= 4) {
+        if (question.mapping.high) {
+          question.mapping.high.forEach(college => {
+            scores[college] = (scores[college] || 0) + 1;
+          });
+        }
+      } else if (rating <= 2) {
+        if (question.mapping.low) {
+          question.mapping.low.forEach(college => {
+            scores[college] = (scores[college] || 0) + 1;
+          });
+        }
+      }
+    }
   }
 
-  // Determine recommendation
-  let max = Math.max(tech,creative,business);
-  let recommendation = '';
-  if(max===tech) recommendation='Technology / Engineering courses';
-  else if(max===creative) recommendation='Creative / Arts courses';
-  else recommendation='Business / Management courses';
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const top3 = sorted.slice(0, 3);
 
+  const resultBox = document.getElementById('resultBox');
+  const recommendationsList = document.getElementById('recommendationsList');
+  
+  let html = '';
+  top3.forEach((item, index) => {
+    const collegeName = item[0];
+    const score = item[1];
+    const collegeInfo = colleges[collegeName];
+    html += `
+      <div class="recommendation-item">
+        <h3>${index + 1}. ${collegeInfo.name}</h3>
+        <p>Match Score: ${score} points</p>
+        <a href="${collegeInfo.link}" class="recommendation-link">Learn More</a>
+      </div>
+    `;
+  });
+
+  recommendationsList.innerHTML = html;
   resultBox.style.display = 'block';
-  resultBox.innerHTML = `Based on your answers, we recommend: <strong>${recommendation}</strong>`;
+  document.getElementById('quizForm').scrollIntoView();
 }
+
+document.getElementById('nextBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  currentPage++;
+  renderQuestions();
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('prevBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  currentPage--;
+  renderQuestions();
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('submitBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  showRecommendations();
+});
 
 function applyUserSettings() {
   const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
@@ -216,6 +868,7 @@ function toggleTheme() {
 document.addEventListener('DOMContentLoaded', () => {
   applyUserSettings();
   updateThemeButton();
+  renderQuestions();
 
   const themeToggle = document.getElementById('themeToggle');
   const themeToggleFixed = document.getElementById('themeToggleFixed');
