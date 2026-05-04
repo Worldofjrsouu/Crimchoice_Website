@@ -12,6 +12,7 @@ const initialColleges = [
   { id: 1, name: "College of Computing Studies", code: "CCS", dean: "Dr. Maria Santos" },
   { id: 2, name: "College of Liberal Arts", code: "CLA", dean: "Dr. Jose Reyes" },
   { id: 3, name: "College of Nursing", code: "CON", dean: "Dr. Ana Lopez" },
+  { id: 4, name: "College of Education", code: "CON", dean: "Dr. Ana Lopez" },
 ];
 
 const initialDepartments = [
@@ -219,7 +220,9 @@ export default function ManageCourses() {
             <li><Link to="/AdminDashboard">Dashboard</Link></li>
             <li><Link to="/manageCourses">Manage Courses</Link></li>
             <li>Quiz Questions</li>
-            <li><Link to="/users">Users</Link></li> 
+            <li><Link to="/users">Users</Link></li>
+            <li>Recomendation</li>
+            <li>Feedback</li> 
             <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>  
           </ul> 
       </div>
