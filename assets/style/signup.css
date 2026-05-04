@@ -4,10 +4,12 @@ padding:0;
 box-sizing:border-box;
 }
 
+/* BODY */
 body{
 font-family:Arial, sans-serif;
-min-height:100vh;
+height:100vh;
 margin:0;
+overflow:hidden;
 background:#f4f2f0;
 }
 
@@ -16,7 +18,8 @@ background:#f4f2f0;
 display:grid;
 grid-template-columns:5fr 3fr;
 width:100%;
-min-height:100vh;
+height:100vh;
+overflow:hidden;
 }
 
 /* LEFT SIDE */
@@ -26,11 +29,12 @@ justify-content:center;
 align-items:center;
 position:relative;
 background:linear-gradient(870deg,#abaaaa,#a10303f5);
-padding:40px 32px;
+padding:90px 32px 40px;
 }
 
 /* WMSU LOGO */
 .login-side::before{
+content:"";
 content:"";
 position:absolute;
 top:10px;
@@ -42,11 +46,11 @@ background-size:contain;
 opacity:0.9;
 }
 
-/* LOGIN BOX (GLASS STYLE) */
+/* LOGIN BOX */
 .login-box{
-width:85%;
-max-width:420px;
-padding:40px;
+width:90%;
+max-width:680px;
+padding:28px;
 border-radius:15px;
 background:rgba(255,255,255,0.75);
 backdrop-filter:blur(5px);
@@ -58,42 +62,52 @@ z-index:1;
 /* TITLE */
 h1{
 color:#8b0000;
-margin-bottom:10px;
+margin-bottom:8px;
+font-size:30px;
 }
 
 .subtitle{
 color:#4d0000;
-font-size:14px;
-margin-bottom:20px;
+font-size:13px;
+margin-bottom:16px;
+}
+
+/* FORM GRID */
+form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+/* FULL WIDTH HEADINGS */
+h1,
+.subtitle{
+grid-column:1 / -1;
+text-align:center;
 }
 
 /* INPUTS */
-input, select{
+input,
+select{
 width:100%;
-padding:14px 12px;
-margin:6px 0 16px;
+padding:10px 12px;
+margin:4px 0 0;
 border:1px solid rgba(0,0,0,0.2);
 border-radius:9px;
 background:rgba(255,255,255,0.8);
-font-size:15px;
+font-size:14px;
 }
 
 .form-group{
-margin-bottom:18px;
+margin-bottom:0;
 text-align:left;
 }
 
 .form-group label{
 display:block;
-margin-bottom:6px;
-font-size:14px;
-color:#4d0000;
-}
-
-.form-links{
-margin-top:18px;
+margin-bottom:4px;
 font-size:13px;
-text-align:center;
+color:#4d0000;
 }
 
 /* CHECKBOX */
@@ -101,13 +115,15 @@ text-align:center;
 display:flex;
 align-items:center;
 gap:8px;
-font-size:12px;
-margin-top:10px;
+font-size:11px;
+margin-top:8px;
 text-align:left;
+grid-column:1 / -1;
 }
 
 .checkbox input{
 width:auto;
+margin:0;
 }
 
 /* BUTTON */
@@ -119,9 +135,10 @@ color:#fff;
 border:none;
 border-radius:7px;
 cursor:pointer;
-font-size:15px;
-margin-top:10px;
+font-size:14px;
+margin-top:8px;
 transition:0.3s;
+grid-column:1 / -1;
 }
 
 button:hover{
@@ -139,6 +156,13 @@ a:hover{
 text-decoration:underline;
 }
 
+.form-links{
+margin-top:12px;
+font-size:12px;
+text-align:center;
+grid-column:1 / -1;
+}
+
 /* RIGHT SLIDESHOW */
 .slideshow-side{
 position:relative;
@@ -154,18 +178,19 @@ height:100%;
 background-size:cover;
 background-position:center;
 opacity:0;
-animation:fade 25s infinite;
+animation:fade 15s infinite;
 }
 
+/* FASTER + SMOOTHER TIMING */
 .bg1{background-image:url('../images/wmsu(1).jpg');animation-delay:0s;}
-.bg2{background-image:url('../images/wmsu(2).jpg');animation-delay:2s;}
-.bg3{background-image:url('../images/wmsu(3).jpg');animation-delay:4s;}
-.bg4{background-image:url('../images/wmsu(4).jpg');animation-delay:6s;}
-.bg5{background-image:url('../images/wmsu(5).jpg');animation-delay:8s;}
-.bg6{background-image:url('../images/wmsu(6).jpg');animation-delay:10s;}
-.bg7{background-image:url('../images/wmsu(7).jpg');animation-delay:12s;}
-.bg8{background-image:url('../images/wmsu(8).jpg');animation-delay:14s;}
-.bg9{background-image:url('../images/wmsu(9).jpg');animation-delay:16s;}
+.bg2{background-image:url('../images/wmsu(2).jpg');animation-delay:1.5s;}
+.bg3{background-image:url('../images/wmsu(3).jpg');animation-delay:3s;}
+.bg4{background-image:url('../images/wmsu(4).jpg');animation-delay:4.5s;}
+.bg5{background-image:url('../images/wmsu(5).jpg');animation-delay:6s;}
+.bg6{background-image:url('../images/wmsu(6).jpg');animation-delay:7.5s;}
+.bg7{background-image:url('../images/wmsu(7).jpg');animation-delay:9s;}
+.bg8{background-image:url('../images/wmsu(8).jpg');animation-delay:10.5s;}
+.bg9{background-image:url('../images/wmsu(9).jpg');animation-delay:12s;}
 
 @keyframes fade{
 0%{opacity:0;}
@@ -179,6 +204,11 @@ animation:fade 25s infinite;
 @media(max-width:900px){
 .container{
 grid-template-columns:1fr;
+height:auto;
+}
+
+body{
+overflow:auto;
 }
 
 .slideshow-side,
@@ -187,11 +217,23 @@ min-height:50vh;
 }
 
 .login-side{
-padding:28px 20px;
+padding:100px 20px 30px;
 }
 
 .login-box{
-width:90%;
-padding:30px;
+width:95%;
+padding:28px;
+}
+
+/* BACK TO SINGLE COLUMN */
+form{
+grid-template-columns:1fr;
+}
+
+.login-side::before{
+width:100px;
+height:100px;
+top:15px;
+left:15px;
 }
 }
