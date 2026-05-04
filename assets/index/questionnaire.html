@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Recommendation Questionnaire</title>
+
+<!-- Main questionnaire CSS -->
+<link rel="stylesheet" href="../style/questionnaire.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo-container">
+    <a href="./main.html"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" class="logo" alt="Pathly Logo"></a>
+  </div>
+
+  <ul>
+    <li><a href="./main.html">Home</a></li>
+    <li><a href="./questionnaire.html" class="active">Questionnaire</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+      <span>Dark / Light</span>
+    </button>
+  </div>
+</nav>
+
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
+
+<!-- QUESTIONNAIRE -->
+<div class="questionnaire-container">
+  <div class="questionnaire-header">
+    <div>
+      <h1>Course Recommendation Questionnaire</h1>
+      <p>Answer these quick questions to help us match you with the right course path. The questionnaire is short, clear, and designed to reflect your learning style.</p>
+    </div>
+  </div>
+
+  <form id="quizForm">
+
+    <div class="question">
+      <p>1. What type of subjects do you enjoy most?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="Math & Science"> Math & Science</label>
+        <label><input type="radio" name="q1" value="Arts & Design"> Arts & Design</label>
+        <label><input type="radio" name="q1" value="Business & Management"> Business & Management</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2. Which learning style suits you best?</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="Hands-on"> Hands-on / Practical</label>
+        <label><input type="radio" name="q2" value="Theoretical"> Theoretical / Reading</label>
+        <label><input type="radio" name="q2" value="Visual"> Visual / Creative</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>3. How do you prefer to work?</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="Teamwork"> In a team</label>
+        <label><input type="radio" name="q3" value="Independently"> Independently</label>
+        <label><input type="radio" name="q3" value="Flexible"> Either</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>4. What kind of career are you aiming for?</p>
+      <div class="options">
+        <label><input type="radio" name="q4" value="Technology"> Technology / Engineering</label>
+        <label><input type="radio" name="q4" value="Creative"> Creative / Arts</label>
+        <label><input type="radio" name="q4" value="Business"> Business / Entrepreneurship</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>5. Do you enjoy solving complex problems?</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="Yes"> Yes</label>
+        <label><input type="radio" name="q5" value="Sometimes"> Sometimes</label>
+        <label><input type="radio" name="q5" value="No"> No</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>6. Which environment motivates you most?</p>
+      <div class="options">
+        <label><input type="radio" name="q6" value="Structured"> Structured / Organized</label>
+        <label><input type="radio" name="q6" value="Flexible"> Flexible / Dynamic</label>
+        <label><input type="radio" name="q6" value="Creative"> Creative / Innovative</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>7. Are you comfortable with public speaking?</p>
+      <div class="options">
+        <label><input type="radio" name="q7" value="Yes"> Yes</label>
+        <label><input type="radio" name="q7" value="Sometimes"> Sometimes</label>
+        <label><input type="radio" name="q7" value="No"> No</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>8. Do you enjoy working with numbers and data?</p>
+      <div class="options">
+        <label><input type="radio" name="q8" value="Yes"> Yes</label>
+        <label><input type="radio" name="q8" value="Sometimes"> Sometimes</label>
+        <label><input type="radio" name="q8" value="No"> No</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>9. Which activity excites you more?</p>
+      <div class="options">
+        <label><input type="radio" name="q9" value="Designing"> Designing / Creating</label>
+        <label><input type="radio" name="q9" value="Analyzing"> Analyzing / Problem-solving</label>
+        <label><input type="radio" name="q9" value="Organizing"> Organizing / Managing</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>10. What motivates you to study?</p>
+      <div class="options">
+        <label><input type="radio" name="q10" value="Passion"> Passion for knowledge</label>
+        <label><input type="radio" name="q10" value="Career"> Career opportunities</label>
+        <label><input type="radio" name="q10" value="Social"> Social recognition</label>
+      </div>
+    </div>
+
+    <button type="button" class="quiz-btn" onclick="showResult()">Submit</button>
+
+    <div class="result-box" id="resultBox"></div>
+  </form>
+</div>
+
+<script>
+// Simple scoring example (you can map answers to courses)
+function showResult() {
+  const form = document.getElementById('quizForm');
+  const resultBox = document.getElementById('resultBox');
+
+  // Count choices per category
+  let tech=0, creative=0, business=0;
+
+  const mapping = {
+    q1: {'Math & Science':'tech','Arts & Design':'creative','Business & Management':'business'},
+    q2: {'Hands-on':'tech','Theoretical':'tech','Visual':'creative'},
+    q3: {'Teamwork':'business','Independently':'tech','Flexible':'creative'},
+    q4: {'Technology':'tech','Creative':'creative','Business':'business'},
+    q5: {'Yes':'tech','Sometimes':'creative','No':'business'},
+    q6: {'Structured':'tech','Flexible':'business','Creative':'creative'},
+    q7: {'Yes':'business','Sometimes':'creative','No':'tech'},
+    q8: {'Yes':'tech','Sometimes':'creative','No':'business'},
+    q9: {'Designing':'creative','Analyzing':'tech','Organizing':'business'},
+    q10:{'Passion':'creative','Career':'business','Social':'tech'}
+  };
+
+  for(let i=1;i<=10;i++){
+    let ans = form['q'+i].value;
+    let cat = mapping['q'+i][ans];
+    if(cat==='tech') tech++;
+    else if(cat==='creative') creative++;
+    else if(cat==='business') business++;
+  }
+
+  // Determine recommendation
+  let max = Math.max(tech,creative,business);
+  let recommendation = '';
+  if(max===tech) recommendation='Technology / Engineering courses';
+  else if(max===creative) recommendation='Creative / Arts courses';
+  else recommendation='Business / Management courses';
+
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = `Based on your answers, we recommend: <strong>${recommendation}</strong>`;
+}
+
+function applyUserSettings() {
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  const logoImgs = document.querySelectorAll('.logo');
+  logoImgs.forEach((logoImg) => {
+    logoImg.src = appearanceData.theme === 'dark'
+      ? '../images/Pathly_FullLogo_White_NoBG_PNG.png'
+      : '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+  });
+}
+
+function updateThemeButton() {
+  const isDark = document.body.classList.contains('theme-dark');
+  document.querySelectorAll('.theme-icon').forEach(el => {
+    el.textContent = isDark ? '☀️' : '🌙';
+  });
+}
+
+function toggleTheme() {
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+  const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+  appearanceData.theme = nextTheme;
+  localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+  applyUserSettings();
+  updateThemeButton();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyUserSettings();
+  updateThemeButton();
+
+  const themeToggle = document.getElementById('themeToggle');
+  const themeToggleFixed = document.getElementById('themeToggleFixed');
+
+  themeToggle?.addEventListener('click', toggleTheme);
+  themeToggleFixed?.addEventListener('click', toggleTheme);
+});
+</script>
+
+</body>
+</html>

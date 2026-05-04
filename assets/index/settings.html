@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathly - Settings</title>
+  <link rel="stylesheet" href="../style/main.css">
+  <link rel="stylesheet" href="../style/settings.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <a href="/">
+      <div class="logo-container">
+        <img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo">
+      </div>
+    </a>
+  </div>
+  <ul>
+    <li><a href="./main.html">Home</a></li>
+    <li><a href="#">Programs</a></li>
+    <li><a href="./user_dashboard.html">User Dashboard</a></li>
+    <li><a href="./help-support.html">Help & Support</a></li>
+    <li><a href="./settings.html">Settings</a></li>
+  </ul>
+  <button class="nav-btn">Get Recommendations</button>
+
+  <div class="sidebar-footer">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+      <span>Dark / Light</span>
+    </button>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="profile-container sidebar-profile" id="profileNavSidebar">
+    <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImgSidebar">
+    <div id="dropdownMenuSidebar" class="dropdown">
+      <a href="./settings.html">Settings</a>
+      <a href="./help-support.html">Help & Support</a>
+      <a href="#">Display & Accessibility</a>
+      <a href="loginforms.html" id="logoutBtnSidebar">Log out</a>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-left">
+    <button class="sidebar-toggle" id="sidebarToggle">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <a href="/"><div class="logo-container"><img src="../images/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
+  </div>
+  <div class="nav-right">
+    <!-- NOTIFICATIONS -->
+    <div class="notification-container" id="notificationNav">
+      <button class="notification-btn" id="notificationBtn">
+        <span class="notification-icon">🔔</span>
+        <span class="notification-badge" id="notificationBadge" style="display: none;"></span>
+      </button>
+      <div id="notificationDropdown" class="notification-dropdown">
+        <div class="notification-header">
+          <h4>Notifications</h4>
+          <button class="mark-all-read" id="markAllRead">Mark all as read</button>
+        </div>
+        <div class="notification-list" id="notificationList">
+          <!-- Notifications will be populated here -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- PROFILE -->
+    <div class="profile-container" id="profileNav">
+      <img src="../images/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
+      <div id="dropdownMenu" class="dropdown">
+        <a href="./settings.html">Settings</a>
+        <a href="./help-support.html">Help & Support</a>
+        <a href="#">Display & Accessibility</a>
+        <a href="loginforms.html" id="logoutBtn">Log out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- SETTINGS HERO SECTION -->
+<section class="settings-hero">
+  <div class="hero::before"></div>
+  <div class="settings-hero-content">
+    <h1>Account Settings</h1>
+    <p>Customize your experience and manage your account preferences.</p>
+  </div>
+</section>
+
+<!-- SETTINGS CONTENT -->
+<section class="settings-content">
+  <div class="settings-container">
+
+    <!-- PROFILE SETTINGS -->
+    <div class="settings-section">
+      <h2>Profile Information</h2>
+      <p>Update your personal information and account details.</p>
+
+      <form class="settings-form" id="profileForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="familyName">Family/Surname *</label>
+            <input type="text" id="familyName" name="familyName" required>
+            <span class="form-error" id="familyNameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="givenName">Given/First Name *</label>
+            <input type="text" id="givenName" name="givenName" required>
+            <span class="form-error" id="givenNameError"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="middleName">Maiden/Middle Name</label>
+            <input type="text" id="middleName" name="middleName">
+          </div>
+          <div class="form-group">
+            <label for="suffix">Suffix</label>
+            <select id="suffix" name="suffix">
+              <option value="">None</option>
+              <option>Jr.</option>
+              <option>Sr.</option>
+              <option>II</option>
+              <option>III</option>
+              <option>IV</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+          <span class="form-error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+        </div>
+
+        <button type="submit" class="btn-settings">Save Profile Changes</button>
+        <div class="form-success" id="profileSuccess"></div>
+      </form>
+    </div>
+
+    <!-- APPEARANCE SETTINGS -->
+    <div class="settings-section">
+      <h2>Appearance</h2>
+      <p>Customize how Pathly looks and feels.</p>
+
+      <form class="settings-form" id="appearanceForm">
+        <div class="form-group">
+          <label for="theme">Theme</label>
+          <select id="theme" name="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="auto">Auto (System)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fontSize">Font Size</label>
+          <select id="fontSize" name="fontSize">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="extra-large">Extra Large</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="colorScheme">Color Scheme</label>
+          <select id="colorScheme" name="colorScheme">
+            <option value="default">Default (Red)</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="purple">Purple</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-settings">Apply Appearance Changes</button>
+        <div class="form-success" id="appearanceSuccess"></div>
+      </form>
+    </div>
+
+    <!-- ACCESSIBILITY SETTINGS -->
+    <div class="settings-section">
+      <h2>Accessibility</h2>
+      <p>Make Pathly more accessible to your needs.</p>
+
+      <form class="settings-form" id="accessibilityForm">
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="highContrast" name="highContrast">
+            <span class="checkmark"></span>
+            High Contrast Mode
+          </label>
+          <p class="field-description">Increase contrast for better visibility</p>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="reduceMotion" name="reduceMotion">
+            <span class="checkmark"></span>
+            Reduce Motion
+          </label>
+          <p class="field-description">Minimize animations and transitions</p>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="screenReader" name="screenReader">
+            <span class="checkmark"></span>
+            Screen Reader Support
+          </label>
+          <p class="field-description">Enhanced support for screen readers</p>
+        </div>
+
+        <div class="form-group">
+          <label for="language">Language</label>
+          <select id="language" name="language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-settings">Save Accessibility Settings</button>
+        <div class="form-success" id="accessibilitySuccess"></div>
+      </form>
+    </div>
+
+    <!-- NOTIFICATION SETTINGS -->
+    <div class="settings-section">
+      <h2>Notifications</h2>
+      <p>Control how and when you receive notifications.</p>
+
+      <form class="settings-form" id="notificationForm">
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+            <span class="checkmark"></span>
+            Email Notifications
+          </label>
+          <p class="field-description">Receive updates via email</p>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="courseRecommendations" name="courseRecommendations" checked>
+            <span class="checkmark"></span>
+            Course Recommendations
+          </label>
+          <p class="field-description">Get personalized course suggestions</p>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="systemUpdates" name="systemUpdates">
+            <span class="checkmark"></span>
+            System Updates
+          </label>
+          <p class="field-description">Important system and feature updates</p>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="marketingEmails" name="marketingEmails">
+            <span class="checkmark"></span>
+            Marketing Communications
+          </label>
+          <p class="field-description">Promotional offers and newsletters</p>
+        </div>
+
+        <button type="submit" class="btn-settings">Save Notification Preferences</button>
+        <div class="form-success" id="notificationSuccess"></div>
+      </form>
+    </div>
+
+    <!-- PRIVACY SETTINGS -->
+    <div class="settings-section">
+      <h2>Privacy & Security</h2>
+      <p>Manage your privacy and account security settings.</p>
+
+      <form class="settings-form" id="privacyForm">
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="dataSharing" name="dataSharing">
+            <span class="checkmark"></span>
+            Data Sharing for Improvements
+          </label>
+          <p class="field-description">Help improve Pathly by sharing anonymized usage data</p>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="profileVisibility" name="profileVisibility" checked>
+            <span class="checkmark"></span>
+            Profile Visibility
+          </label>
+          <p class="field-description">Allow others to see your profile information</p>
+        </div>
+
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" name="currentPassword">
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newPassword" name="newPassword">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword">
+          <span class="form-error" id="passwordError"></span>
+        </div>
+
+        <button type="submit" class="btn-settings">Update Privacy Settings</button>
+        <div class="form-success" id="privacySuccess"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<script>
+// Load saved settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+  loadSettings();
+
+  // Profile dropdown functionality
+  const profileNav = document.getElementById('profileNav');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+  profileNav.addEventListener('click', function() {
+    dropdownMenu.classList.toggle('show');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!profileNav.contains(event.target)) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+
+  // Form submissions
+  document.getElementById('profileForm').addEventListener('submit', saveProfileSettings);
+  document.getElementById('appearanceForm').addEventListener('submit', saveAppearanceSettings);
+  document.getElementById('accessibilityForm').addEventListener('submit', saveAccessibilitySettings);
+  document.getElementById('notificationForm').addEventListener('submit', saveNotificationSettings);
+  document.getElementById('privacyForm').addEventListener('submit', savePrivacySettings);
+});
+
+function loadSettings() {
+  // Load profile settings
+  const profileData = JSON.parse(localStorage.getItem('pathly_profile') || '{}');
+  document.getElementById('familyName').value = profileData.familyName || '';
+  document.getElementById('givenName').value = profileData.givenName || '';
+  document.getElementById('middleName').value = profileData.middleName || '';
+  document.getElementById('suffix').value = profileData.suffix || '';
+  document.getElementById('email').value = profileData.email || '';
+  document.getElementById('phone').value = profileData.phone || '';
+
+  // Load appearance settings
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+  document.getElementById('theme').value = appearanceData.theme || 'light';
+  document.getElementById('fontSize').value = appearanceData.fontSize || 'medium';
+  document.getElementById('colorScheme').value = appearanceData.colorScheme || 'default';
+
+  // Load accessibility settings
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+  document.getElementById('highContrast').checked = accessibilityData.highContrast || false;
+  document.getElementById('reduceMotion').checked = accessibilityData.reduceMotion || false;
+  document.getElementById('screenReader').checked = accessibilityData.screenReader || false;
+  document.getElementById('language').value = accessibilityData.language || 'en';
+
+  // Load notification settings
+  const notificationData = JSON.parse(localStorage.getItem('pathly_notifications') || '{}');
+  document.getElementById('emailNotifications').checked = notificationData.emailNotifications !== false;
+  document.getElementById('courseRecommendations').checked = notificationData.courseRecommendations !== false;
+  document.getElementById('systemUpdates').checked = notificationData.systemUpdates || false;
+  document.getElementById('marketingEmails').checked = notificationData.marketingEmails || false;
+
+  // Load privacy settings
+  const privacyData = JSON.parse(localStorage.getItem('pathly_privacy') || '{}');
+  document.getElementById('dataSharing').checked = privacyData.dataSharing || false;
+  document.getElementById('profileVisibility').checked = privacyData.profileVisibility !== false;
+
+  // Apply current settings to the page
+  applyAppearanceSettings();
+  applyAccessibilitySettings();
+}
+
+function saveProfileSettings(event) {
+  event.preventDefault();
+
+  const familyName = document.getElementById('familyName').value.trim();
+  const givenName = document.getElementById('givenName').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  // Clear previous errors
+  clearErrors();
+
+  // Validation
+  let hasErrors = false;
+
+  if (!familyName) {
+    showError('familyNameError', 'Family/Surname is required');
+    hasErrors = true;
+  }
+
+  if (!givenName) {
+    showError('givenNameError', 'Given/First Name is required');
+    hasErrors = true;
+  }
+
+  if (!email) {
+    showError('emailError', 'Email is required');
+    hasErrors = true;
+  } else if (!isValidEmail(email)) {
+    showError('emailError', 'Please enter a valid email address');
+    hasErrors = true;
+  }
+
+  if (hasErrors) return;
+
+  // Save to localStorage
+  const profileData = {
+    familyName,
+    givenName,
+    middleName: document.getElementById('middleName').value.trim(),
+    suffix: document.getElementById('suffix').value,
+    email,
+    phone: document.getElementById('phone').value.trim()
+  };
+
+  localStorage.setItem('pathly_profile', JSON.stringify(profileData));
+
+  // Show success message
+  showSuccess('profileSuccess', 'Profile settings saved successfully!');
+
+  // Update navbar profile if name changed
+  updateNavbarProfile();
+}
+
+function saveAppearanceSettings(event) {
+  event.preventDefault();
+
+  const appearanceData = {
+    theme: document.getElementById('theme').value,
+    fontSize: document.getElementById('fontSize').value,
+    colorScheme: document.getElementById('colorScheme').value
+  };
+
+  localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+
+  // Apply changes immediately
+  applyAppearanceSettings();
+
+  showSuccess('appearanceSuccess', 'Appearance settings applied successfully!');
+}
+
+function saveAccessibilitySettings(event) {
+  event.preventDefault();
+
+  const accessibilityData = {
+    highContrast: document.getElementById('highContrast').checked,
+    reduceMotion: document.getElementById('reduceMotion').checked,
+    screenReader: document.getElementById('screenReader').checked,
+    language: document.getElementById('language').value
+  };
+
+  localStorage.setItem('pathly_accessibility', JSON.stringify(accessibilityData));
+
+  // Apply changes immediately
+  applyAccessibilitySettings();
+
+  showSuccess('accessibilitySuccess', 'Accessibility settings saved successfully!');
+}
+
+function saveNotificationSettings(event) {
+  event.preventDefault();
+
+  const notificationData = {
+    emailNotifications: document.getElementById('emailNotifications').checked,
+    courseRecommendations: document.getElementById('courseRecommendations').checked,
+    systemUpdates: document.getElementById('systemUpdates').checked,
+    marketingEmails: document.getElementById('marketingEmails').checked
+  };
+
+  localStorage.setItem('pathly_notifications', JSON.stringify(notificationData));
+
+  showSuccess('notificationSuccess', 'Notification preferences saved successfully!');
+}
+
+function savePrivacySettings(event) {
+  event.preventDefault();
+
+  const currentPassword = document.getElementById('currentPassword').value;
+  const newPassword = document.getElementById('newPassword').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  // Clear previous errors
+  document.getElementById('passwordError').textContent = '';
+
+  // Password validation
+  if (newPassword || confirmPassword) {
+    if (newPassword !== confirmPassword) {
+      showError('passwordError', 'Passwords do not match');
+      return;
+    }
+    if (newPassword.length < 8) {
+      showError('passwordError', 'Password must be at least 8 characters long');
+      return;
+    }
+  }
+
+  const privacyData = {
+    dataSharing: document.getElementById('dataSharing').checked,
+    profileVisibility: document.getElementById('profileVisibility').checked
+  };
+
+  localStorage.setItem('pathly_privacy', JSON.stringify(privacyData));
+
+  // Clear password fields
+  document.getElementById('currentPassword').value = '';
+  document.getElementById('newPassword').value = '';
+  document.getElementById('confirmPassword').value = '';
+
+  showSuccess('privacySuccess', 'Privacy settings updated successfully!');
+}
+
+function applyAppearanceSettings() {
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  // Apply theme
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  // Update all logo images based on theme
+  const logoImgs = document.querySelectorAll('.logo');
+  logoImgs.forEach((logoImg) => {
+    if (appearanceData.theme === 'dark') {
+      logoImg.src = '../images/Pathly_FullLogo_White_NoBG_PNG.png';
+    } else {
+      logoImg.src = '../images/Pathly_FullLogo_Black_NoBG_PNG.png';
+    }
+  });
+
+  // Apply font size
+  document.body.className = document.body.className.replace(/font-size-\w+/g, '');
+  if (appearanceData.fontSize && appearanceData.fontSize !== 'medium') {
+    document.body.classList.add(`font-size-${appearanceData.fontSize}`);
+  }
+
+  // Apply color scheme
+  document.body.className = document.body.className.replace(/color-scheme-\w+/g, '');
+  if (appearanceData.colorScheme && appearanceData.colorScheme !== 'default') {
+    document.body.classList.add(`color-scheme-${appearanceData.colorScheme}`);
+  }
+}
+
+function applyAccessibilitySettings() {
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+
+  // Apply high contrast
+  if (accessibilityData.highContrast) {
+    document.body.classList.add('high-contrast');
+  } else {
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Apply reduced motion
+  if (accessibilityData.reduceMotion) {
+    document.body.classList.add('reduce-motion');
+  } else {
+    document.body.classList.remove('reduce-motion');
+  }
+}
+
+function updateNavbarProfile() {
+  const profileData = JSON.parse(localStorage.getItem('pathly_profile') || '{}');
+  const displayName = profileData.givenName || 'User';
+
+  // Update profile display name if there's an element for it
+  const profileNameElement = document.querySelector('.profile-name');
+  if (profileNameElement) {
+    profileNameElement.textContent = displayName;
+  }
+}
+
+function showError(elementId, message) {
+  const element = document.getElementById(elementId);
+  element.textContent = message;
+  element.style.display = 'block';
+}
+
+function showSuccess(elementId, message) {
+  const element = document.getElementById(elementId);
+  element.textContent = message;
+  element.style.display = 'block';
+  setTimeout(() => {
+    element.style.display = 'none';
+  }, 3000);
+}
+
+function clearErrors() {
+  const errors = document.querySelectorAll('.form-error');
+  errors.forEach(error => error.textContent = '');
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Sidebar toggle functionality
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebar = document.getElementById('sidebar');
+
+sidebarToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('show');
+});
+
+// Close sidebar when clicking outside
+document.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+    sidebar.classList.remove('show');
+  }
+});
+
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleFixed = document.getElementById('themeToggleFixed');
+
+function updateThemeButton() {
+  const isDark = document.body.classList.contains('theme-dark');
+  document.querySelectorAll('.theme-icon').forEach(el => {
+    el.textContent = isDark ? '☀️' : '🌙';
+  });
+}
+
+function toggleTheme() {
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+  const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+  appearanceData.theme = nextTheme;
+  localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+  applyAppearanceSettings();
+  updateThemeButton();
+}
+
+themeToggle?.addEventListener('click', toggleTheme);
+themeToggleFixed?.addEventListener('click', toggleTheme);
+
+document.addEventListener('DOMContentLoaded', updateThemeButton);
+
+// Notification System
+class NotificationSystem {
+  constructor() {
+    this.notifications = [];
+    this.toastContainer = document.getElementById('toastContainer');
+    this.notificationBtn = document.getElementById('notificationBtn');
+    this.notificationDropdown = document.getElementById('notificationDropdown');
+    this.notificationBadge = document.getElementById('notificationBadge');
+    this.notificationList = document.getElementById('notificationList');
+    this.markAllReadBtn = document.getElementById('markAllRead');
+    
+    this.init();
+    this.loadNotifications();
+  }
+
+  init() {
+    // Toggle notification dropdown
+    this.notificationBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.toggleDropdown();
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!this.notificationBtn.contains(e.target) && !this.notificationDropdown.contains(e.target)) {
+        this.closeDropdown();
+      }
+    });
+
+    // Mark all as read
+    this.markAllReadBtn.addEventListener('click', () => {
+      this.markAllAsRead();
+    });
+  }
+
+  toggleDropdown() {
+    this.notificationDropdown.classList.toggle('show');
+  }
+
+  closeDropdown() {
+    this.notificationDropdown.classList.remove('show');
+  }
+
+  addNotification(notification) {
+    const newNotification = {
+      id: Date.now(),
+      title: notification.title || 'Notification',
+      message: notification.message,
+      type: notification.type || 'info',
+      timestamp: new Date(),
+      read: false,
+      ...notification
+    };
+
+    this.notifications.unshift(newNotification);
+    this.updateBadge();
+    this.renderNotifications();
+    this.saveNotifications();
+    
+    // Show toast if specified
+    if (notification.showToast !== false) {
+      this.showToast(newNotification);
+    }
+  }
+
+  showToast(notification) {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${notification.type}`;
+    toast.innerHTML = `
+      <button class="toast-close" onclick="notificationSystem.removeToast(this.parentElement)">
+        <span>&times;</span>
+      </button>
+      <div class="toast-content">
+        <div class="toast-title">${notification.title}</div>
+        <div class="toast-message">${notification.message}</div>
+      </div>
+    `;
+
+    this.toastContainer.appendChild(toast);
+
+    // Auto remove after 8 seconds
+    setTimeout(() => {
+      if (toast.parentElement) {
+        this.removeToast(toast);
+      }
+    }, 8000);
+  }
+
+  removeToast(toast) {
+    toast.classList.add('toast-hide');
+    setTimeout(() => {
+      if (toast.parentElement) {
+        toast.parentElement.removeChild(toast);
+      }
+    }, 300);
+  }
+
+  markAsRead(id) {
+    const notification = this.notifications.find(n => n.id === id);
+    if (notification) {
+      notification.read = true;
+      this.updateBadge();
+      this.renderNotifications();
+      this.saveNotifications();
+    }
+  }
+
+  markAllAsRead() {
+    this.notifications.forEach(n => n.read = true);
+    this.updateBadge();
+    this.renderNotifications();
+    this.saveNotifications();
+  }
+
+  removeNotification(id) {
+    this.notifications = this.notifications.filter(n => n.id !== id);
+    this.updateBadge();
+    this.renderNotifications();
+    this.saveNotifications();
+  }
+
+  updateBadge() {
+    const unreadCount = this.notifications.filter(n => !n.read).length;
+    if (unreadCount > 0) {
+      this.notificationBadge.textContent = unreadCount > 99 ? '99+' : unreadCount;
+      this.notificationBadge.style.display = 'block';
+    } else {
+      this.notificationBadge.style.display = 'none';
+    }
+  }
+
+  renderNotifications() {
+    this.notificationList.innerHTML = '';
+    
+    if (this.notifications.length === 0) {
+      this.notificationList.innerHTML = '<div class="no-notifications">No notifications</div>';
+      return;
+    }
+
+    this.notifications.forEach(notification => {
+      const notificationEl = document.createElement('div');
+      notificationEl.className = `notification-item ${notification.read ? 'read' : 'unread'}`;
+      notificationEl.innerHTML = `
+        <div class="notification-content">
+          <div class="notification-title">${notification.title}</div>
+          <div class="notification-message">${notification.message}</div>
+          <div class="notification-time">${this.formatTime(notification.timestamp)}</div>
+        </div>
+        <button class="notification-remove" onclick="notificationSystem.removeNotification(${notification.id})">
+          <span>&times;</span>
+        </button>
+      `;
+
+      notificationEl.addEventListener('click', (e) => {
+        if (!e.target.closest('.notification-remove')) {
+          this.markAsRead(notification.id);
+        }
+      });
+
+      this.notificationList.appendChild(notificationEl);
+    });
+  }
+
+  formatTime(timestamp) {
+    const now = new Date();
+    const diff = now - timestamp;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+
+    if (minutes < 1) return 'Just now';
+    if (minutes < 60) return `${minutes}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${days}d ago`;
+  }
+
+  saveNotifications() {
+    localStorage.setItem('pathly_notifications', JSON.stringify(this.notifications));
+  }
+
+  loadNotifications() {
+    const saved = localStorage.getItem('pathly_notifications');
+    if (saved) {
+      this.notifications = JSON.parse(saved).map(n => ({
+        ...n,
+        timestamp: new Date(n.timestamp)
+      }));
+      this.updateBadge();
+      this.renderNotifications();
+    }
+  }
+}
+
+// Initialize notification system
+const notificationSystem = new NotificationSystem();
+</script>
+
+<!-- TOAST NOTIFICATIONS -->
+<div class="toast-container" id="toastContainer"></div>
+
+</body>
+</html>

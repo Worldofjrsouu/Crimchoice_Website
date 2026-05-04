@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathly</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/main-page.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <a href="/">
+      <div class="logo-container">
+        <img src="../assets/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo">
+      </div>
+    </a>
+  </div>
+  <ul>
+    <li><a href="./main.html" class="active">Home</a></li>
+    <li><a href="#">Programs</a></li>
+    <li><a href="./user_dashboard.html">User Dashboard</a></li>
+    <li><a href="./help-support.html">Help & Support</a></li>
+    <li><a href="./settings.html">Settings</a></li>
+  </ul>
+  <button class="nav-btn">Get Recommendations</button>
+  
+  <div class="sidebar-footer">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+      <span>Dark / Light</span>
+    </button>
+  </div>
+  
+  <!-- PROFILE -->
+  <div class="profile-container sidebar-profile" id="profileNavSidebar">
+    <img src="../assets/profile.jpg" class="profile-img" alt="Profile" id="profileImgSidebar">
+    <div id="dropdownMenuSidebar" class="dropdown">
+      <a href="./settings.html">Settings</a>
+      <a href="./help-support.html">Help & Support</a>
+      <a href="#">Display & Accessibility</a>
+      <a href="loginforms.html" id="logoutBtnSidebar">Log out</a>
+    </div>
+  </div>
+</div>
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-left">
+    <button class="sidebar-toggle" id="sidebarToggle">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <a href="/"><div class="logo-container"><img src="../assets/Pathly_FullLogo_Black_NoBG_PNG.png" alt="Pathly Logo" class="logo"></div></a>
+  </div>
+  <div class="nav-right">
+    <!-- NOTIFICATIONS -->
+    <div class="notification-container" id="notificationNav">
+      <button class="notification-btn" id="notificationBtn">
+        <span class="notification-icon">🔔</span>
+        <span class="notification-badge" id="notificationBadge" style="display: none;"></span>
+      </button>
+      <div id="notificationDropdown" class="notification-dropdown">
+        <div class="notification-header">
+          <h4>Notifications</h4>
+          <button class="mark-all-read" id="markAllRead">Mark all as read</button>
+        </div>
+        <div class="notification-list" id="notificationList">
+          <!-- Notifications will be populated here -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- PROFILE -->
+    <div class="profile-container" id="profileNav">
+      <img src="../assets/profile.jpg" class="profile-img" alt="Profile" id="profileImg">
+      <div id="dropdownMenu" class="dropdown">
+        <a href="#">Saved Courses</a>
+        <a href="#">Quiz Results</a>
+        <a href="loginforms.html" id="logoutBtn">Log out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Unlock your Future with</h1>
+    <a href="/"><img src="../assets/Pathly_FullLogo_White_NoBG_PNG.png" alt="Pathly Logo" class="hero-logo"></a>
+    <p>Personalized course recommendations designed to help you rise above and stand out.</p>
+    <a href ="questionnaire.html">
+    <button class="start-btn">Start Now</button>
+    </a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="works">
+  <h2>How It Works</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Tell us about you</h3>
+      <p>Fill out forms and a quick quiz about your interests and career goals.</p>
+    </div>
+    <div class="card">
+      <h3>Get Personalized Matches</h3>
+      <p>Our system recommends courses tailored to your profile.</p>
+    </div>
+    <div class="card">
+      <h3>Learn more about your course</h3>
+      <p>Explore more details about each recommended course.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED COLLEGES -->
+<section class="featured">
+  <h2>Featured Colleges</h2>
+  <p>Select a College to view available courses</p>
+  <div class="college-grid">
+    <a href="../Colleges/html-colleges/college_of_computing_studies.html">
+      <button class="college">College of Computing Studies</button>
+    </a>
+    <a href = "../Colleges/html-colleges/college_of_engineering.html">
+    <button class="college">College of Engineering</button>
+    </a>
+    <a href="../Colleges/html-colleges/college_of_science_mathematics.html">
+    <button class="college">College of Science and Mathematics</button>
+    </a>
+    <a href="../Colleges/html-colleges/college_of_criminology.html">
+    <button class="college">College of Criminology</button>
+    </a>
+    <a href="../Colleges/html-colleges/college_of_public_administration.html">
+    <button class="college">College of Public Administration</button>
+    </a>
+    
+    <button class="college">College of Education</button>
+    <button class="college">College of Home Economics</button>
+    <button class="college">College of Liberal Arts</button>
+    <button class="college">College of Nursing</button>
+    <button class="college">College of Architecture</button>
+    <button class="college">College of Islamic Studies</button>
+    <button class="college">College of Sports Science and Physical Education</button>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>What Students are Saying</h2>
+  <div class="testimonial-grid" id="testimonialGrid">
+    <div class="testimonial">
+      <p>“CrimChoice helped me realize that Computer Science is the perfect course for me.”</p>
+      <img src="../assets/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Lowell Antonio S. Malinis</span>
+    </div>
+    <div class="testimonial">
+      <p>"I saved so much time compared to searching on my own."</p>
+      <img src="../assets/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Mary Grace D. Cabato</span>
+    </div>
+    <div class="testimonial">
+      <p>"The recommendation system made choosing a course easier."</p>
+      <img src="../assets/profile.jpg" alt="Profile" class="author-image">
+      <span class="author-name">Arsenio S. Serito</span>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ --> 
+  <section class="quiz" id="target-quiz">
+    <h2>Our Quiz Preview</h2>
+    <div class="quiz-box">
+      <p><b>What type of activities do you enjoy the most?</b></p>
+      <label><input type="checkbox"> Solving technical problems</label><br>
+      <label><input type="checkbox"> Investigating crimes</label><br>
+      <label><input type="checkbox"> Managing businesses</label><br>
+      <label><input type="checkbox"> Teaching others</label><br><br>
+      <button class="quiz-btn">Submit Answer</button>
+    </div>
+  </section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact Section</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <p>Have questions about the system?</p>
+      <p>Email: crimchoice@email.com</p>
+      <p>Developed by BSCS Students Academic Project</p>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Last Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="ctaSection">
+  <h2>Ready to find your ideal course?</h2>
+  <a href="signup.html"><button class="cta-btn">Sign Up For Free</button></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <h3>Pathly</h3>
+    <p>© 2026 Pathly. All rights reserved.</p>
+  </div>
+  <div class="footer-right">
+    <p>Email: Pathly@email.com</p>
+    <p>Location: Zamboanga City, Philippines</p>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+// Apply user settings from localStorage
+function applyUserSettings() {
+  // Apply appearance settings
+  const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+
+  // Apply theme
+  document.body.className = document.body.className.replace(/theme-\w+/g, '');
+  if (appearanceData.theme === 'dark') {
+    document.body.classList.add('theme-dark');
+  }
+
+  // Update all logo images based on theme
+  const logoImgs = document.querySelectorAll('.logo');
+  logoImgs.forEach((logoImg) => {
+    if (appearanceData.theme === 'dark') {
+      logoImg.src = '../assets/Pathly_FullLogo_White_NoBG_PNG.png';
+    } else {
+      logoImg.src = '../assets/Pathly_FullLogo_Black_NoBG_PNG.png';
+    }
+  });
+
+  // Apply font size
+  document.body.className = document.body.className.replace(/font-size-\w+/g, '');
+  if (appearanceData.fontSize && appearanceData.fontSize !== 'medium') {
+    document.body.classList.add(`font-size-${appearanceData.fontSize}`);
+  }
+
+  // Apply color scheme
+  document.body.className = document.body.className.replace(/color-scheme-\w+/g, '');
+  if (appearanceData.colorScheme && appearanceData.colorScheme !== 'default') {
+    document.body.classList.add(`color-scheme-${appearanceData.colorScheme}`);
+  }
+
+  // Apply accessibility settings
+  const accessibilityData = JSON.parse(localStorage.getItem('pathly_accessibility') || '{}');
+
+  // Apply high contrast
+  if (accessibilityData.highContrast) {
+    document.body.classList.add('high-contrast');
+  } else {
+    document.body.classList.remove('high-contrast');
+  }
+
+  // Apply reduced motion
+  if (accessibilityData.reduceMotion) {
+    document.body.classList.add('reduce-motion');
+  } else {
+    document.body.classList.remove('reduce-motion');
+  }
+}
+
+// Apply settings on page load
+document.addEventListener('DOMContentLoaded', function() {
+  applyUserSettings();
+});
+
+  // Profile dropdown functionality
+  const loggedIn = true; // Change to false if user not logged in
+  const ctaSection = document.getElementById('ctaSection');
+  const profileNav = document.getElementById('profileNav');
+  const dropdown = document.getElementById('dropdownMenu');
+  const profileImg = document.getElementById('profileImg');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  if (loggedIn) {
+    ctaSection.style.display = 'none';
+    profileNav.style.display = 'flex';
+  } else {
+    ctaSection.style.display = 'block';
+    profileNav.style.display = 'none';
+  }
+
+  profileImg.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+
+  window.addEventListener('click', () => {
+    dropdown.classList.remove('show');
+  });
+
+  logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'login.html';
+  });
+
+  // Testimonials rotation functionality
+  const testimonialSets = [
+    [
+      {
+        text: '"CrimChoice helped me realize that Computer Science is the perfect course for me."',
+        author: 'Lowell Antonio S. Malinis',
+        image: '../assets/profile1.jpg'
+      },
+      {
+        text: '"I saved so much time compared to searching on my own."',
+        author: 'Mary Grace D. Cabato',
+        image: '../assets/profile2.jpg'
+      },
+      {
+        text: '"The recommendation system made choosing a course easier."',
+        author: 'Arsenio S. Serito',
+        image: '../assets/profile3.jpg'
+      }
+    ],
+    [
+      {
+        text: '"I am so grateful I found this platform! It made my decision so much easier."',
+        author: 'Alexis B. Jumani',
+        image: '../assets/profile4.jpg'
+      },
+      {
+        text: '"I found a course in WMSU that matched my interests. Highly recommend!"',
+        author: 'Abdul Kareem S. Ajijul',
+        image: '../assets/profile5.jpg'
+      },
+      {
+        text: '"Best decision I made was using this system for guidance."',
+        author: 'Michael C. Rodriguez',
+        image: '../assets/profile6.jpg'
+      }
+    ],
+    [
+      {
+        text: '"Great stuff! It made me choose a course that I am really passionate about."',
+        author: 'Thomas Francis B. Catulad',
+        image: '../assets/profile7.jpg'
+      },
+      {
+        text: '"I was about to enroll into Architecture but this system showed me that Computer Science is a better fit for me."',
+        author: 'Datu Abdullah M. Sinsuat',
+        image: '../assets/profile8.jpg'
+      },
+      {
+        text: '"I am an artist at heart. This system helped me find a course that allows me to express myself creatively."',
+        author: 'Chadwick P. Perez',
+        image: '../assets/profile9.jpg'
+      }
+    ]
+  ];
+
+  let currentSetIndex = 0;
+  const testimonialGrid = document.getElementById('testimonialGrid');
+  const transitionDuration = 5000; // Duration between testimonial changes in ms
+  let isTransitioning = false;
+  
+  console.log('Testimonials setup - testimonialGrid element:', testimonialGrid);
+
+  function updateTestimonials(setIndex) {
+    const testimonials = testimonialSets[setIndex];
+    const testimonialCards = testimonialGrid.querySelectorAll('.testimonial');
+    
+    console.log('Updating to set:', setIndex, 'Cards found:', testimonialCards.length);
+    
+    testimonialCards.forEach((card, index) => {
+      card.querySelector('p').textContent = testimonials[index].text;
+      card.querySelector('.author-name').textContent = testimonials[index].author;
+      card.querySelector('.author-image').src = testimonials[index].image;
+    });
+  }
+
+  function rotateTestimonials() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    console.log('Rotating testimonials - current index before:', currentSetIndex);
+
+    // Fade out (1 second)
+    testimonialGrid.classList.add('fade-out');
+    console.log('Added fade-out class, opacity should be transitioning');
+    
+    // After fade-out completes, update and fade in
+    setTimeout(() => {
+      // Update testimonials while invisible
+      currentSetIndex = (currentSetIndex + 1) % testimonialSets.length;
+      console.log('Current index after increment:', currentSetIndex);
+      updateTestimonials(currentSetIndex);
+      
+      // Fade back in
+      testimonialGrid.classList.remove('fade-out');
+      console.log('Removed fade-out class, should fade in now');
+      
+      // Schedule next rotation after fade-in (1s) + display duration (5s) = 6s from now
+      setTimeout(() => {
+        isTransitioning = false;
+        console.log('Rotation cycle complete, starting next');
+        rotateTestimonials();
+      }, transitionDuration + 1000); // 5s display + 1s fade-in = 6s
+      
+    }, 1000); // Wait for fade-out (1s)
+  }
+
+  // Start testimonial rotation after initial delay
+  setTimeout(() => {
+    console.log('3 seconds passed - starting testimonial carousel');
+    // Set initial testimonials to match the first set
+    updateTestimonials(0);
+    rotateTestimonials();
+  }, 3000); // Wait 3 seconds before first rotation
+
+  // Sidebar toggle functionality
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('sidebar');
+  const themeToggle = document.getElementById('themeToggle');
+  const themeToggleFixed = document.getElementById('themeToggleFixed');
+
+  sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('show');
+  });
+
+  // Close sidebar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+      sidebar.classList.remove('show');
+    }
+  });
+
+  function updateThemeButton() {
+    const isDark = document.body.classList.contains('theme-dark');
+    document.querySelectorAll('.theme-icon').forEach(el => {
+      el.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+
+  function toggleTheme() {
+    const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+    const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+    appearanceData.theme = nextTheme;
+    localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+    applyUserSettings();
+    updateThemeButton();
+  }
+
+  themeToggle?.addEventListener('click', toggleTheme);
+  themeToggleFixed?.addEventListener('click', toggleTheme);
+  document.addEventListener('DOMContentLoaded', updateThemeButton);
+
+  // Notification System
+  class NotificationSystem {
+    constructor() {
+      this.notifications = [];
+      this.toastContainer = document.getElementById('toastContainer');
+      this.notificationBtn = document.getElementById('notificationBtn');
+      this.notificationDropdown = document.getElementById('notificationDropdown');
+      this.notificationBadge = document.getElementById('notificationBadge');
+      this.notificationList = document.getElementById('notificationList');
+      this.markAllReadBtn = document.getElementById('markAllRead');
+      
+      this.init();
+      this.loadNotifications();
+      this.showWelcomeNotification();
+    }
+
+    init() {
+      // Toggle notification dropdown
+      this.notificationBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleDropdown();
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!this.notificationBtn.contains(e.target) && !this.notificationDropdown.contains(e.target)) {
+          this.closeDropdown();
+        }
+      });
+
+      // Mark all as read
+      this.markAllReadBtn.addEventListener('click', () => {
+        this.markAllAsRead();
+      });
+    }
+
+    toggleDropdown() {
+      this.notificationDropdown.classList.toggle('show');
+    }
+
+    closeDropdown() {
+      this.notificationDropdown.classList.remove('show');
+    }
+
+    addNotification(notification) {
+      const newNotification = {
+        id: Date.now(),
+        title: notification.title || 'Notification',
+        message: notification.message,
+        type: notification.type || 'info',
+        timestamp: new Date(),
+        read: false,
+        ...notification
+      };
+
+      this.notifications.unshift(newNotification);
+      this.updateBadge();
+      this.renderNotifications();
+      this.saveNotifications();
+      
+      // Show toast if specified
+      if (notification.showToast !== false) {
+        this.showToast(newNotification);
+      }
+    }
+
+    showToast(notification) {
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${notification.type}`;
+      toast.innerHTML = `
+        <button class="toast-close" onclick="notificationSystem.removeToast(this.parentElement)">
+          <span>&times;</span>
+        </button>
+        <div class="toast-content">
+          <div class="toast-title">${notification.title}</div>
+          <div class="toast-message">${notification.message}</div>
+        </div>
+      `;
+
+      this.toastContainer.appendChild(toast);
+
+      // Auto remove after 8 seconds
+      setTimeout(() => {
+        if (toast.parentElement) {
+          this.removeToast(toast);
+        }
+      }, 8000);
+    }
+
+    removeToast(toast) {
+      toast.classList.add('toast-hide');
+      setTimeout(() => {
+        if (toast.parentElement) {
+          toast.parentElement.removeChild(toast);
+        }
+      }, 300);
+    }
+
+    markAsRead(id) {
+      const notification = this.notifications.find(n => n.id === id);
+      if (notification) {
+        notification.read = true;
+        this.updateBadge();
+        this.renderNotifications();
+        this.saveNotifications();
+      }
+    }
+
+    markAllAsRead() {
+      this.notifications.forEach(n => n.read = true);
+      this.updateBadge();
+      this.renderNotifications();
+      this.saveNotifications();
+    }
+
+    removeNotification(id) {
+      this.notifications = this.notifications.filter(n => n.id !== id);
+      this.updateBadge();
+      this.renderNotifications();
+      this.saveNotifications();
+    }
+
+    updateBadge() {
+      const unreadCount = this.notifications.filter(n => !n.read).length;
+      if (unreadCount > 0) {
+        this.notificationBadge.textContent = unreadCount > 99 ? '99+' : unreadCount;
+        this.notificationBadge.style.display = 'block';
+      } else {
+        this.notificationBadge.style.display = 'none';
+      }
+    }
+
+    renderNotifications() {
+      this.notificationList.innerHTML = '';
+      
+      if (this.notifications.length === 0) {
+        this.notificationList.innerHTML = '<div class="no-notifications">No notifications</div>';
+        return;
+      }
+
+      this.notifications.forEach(notification => {
+        const notificationEl = document.createElement('div');
+        notificationEl.className = `notification-item ${notification.read ? 'read' : 'unread'}`;
+        notificationEl.innerHTML = `
+          <div class="notification-content">
+            <div class="notification-title">${notification.title}</div>
+            <div class="notification-message">${notification.message}</div>
+            <div class="notification-time">${this.formatTime(notification.timestamp)}</div>
+          </div>
+          <button class="notification-remove" onclick="notificationSystem.removeNotification(${notification.id})">
+            <span>&times;</span>
+          </button>
+        `;
+
+        notificationEl.addEventListener('click', (e) => {
+          if (!e.target.closest('.notification-remove')) {
+            this.markAsRead(notification.id);
+          }
+        });
+
+        this.notificationList.appendChild(notificationEl);
+      });
+    }
+
+    formatTime(timestamp) {
+      const now = new Date();
+      const diff = now - timestamp;
+      const minutes = Math.floor(diff / 60000);
+      const hours = Math.floor(diff / 3600000);
+      const days = Math.floor(diff / 86400000);
+
+      if (minutes < 1) return 'Just now';
+      if (minutes < 60) return `${minutes}m ago`;
+      if (hours < 24) return `${hours}h ago`;
+      return `${days}d ago`;
+    }
+
+    saveNotifications() {
+      localStorage.setItem('pathly_notifications', JSON.stringify(this.notifications));
+    }
+
+    loadNotifications() {
+      const saved = localStorage.getItem('pathly_notifications');
+      if (saved) {
+        this.notifications = JSON.parse(saved).map(n => ({
+          ...n,
+          timestamp: new Date(n.timestamp)
+        }));
+        this.updateBadge();
+        this.renderNotifications();
+      }
+    }
+
+    showWelcomeNotification() {
+      // Check if welcome notification was already shown
+      const welcomeShown = localStorage.getItem('pathly_welcome_shown');
+      if (!welcomeShown) {
+        this.addNotification({
+          title: 'Welcome to Pathly!',
+          message: 'Hello there! Thank you for choosing us! We hope that your experiences with our services are to your satisfaction. If you have any questions, visit us on our Help & Support section and file your query there! Welcome to Pathly!',
+          type: 'welcome',
+          showToast: true
+        });
+        localStorage.setItem('pathly_welcome_shown', 'true');
+      }
+    }
+  }
+
+  // Initialize notification system
+  const notificationSystem = new NotificationSystem();
+</script>
+
+<!-- TOAST NOTIFICATIONS -->
+<div class="toast-container" id="toastContainer"></div>
+
+</body>
+</html>

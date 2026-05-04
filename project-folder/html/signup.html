@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pathly - Sign Up</title>
+
+<link rel="stylesheet" href="../css/signup.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LEFT SIDE -->
+<div class="login-side">
+
+<div class="login-box">
+
+<h1>Pathly</h1>
+<p class="subtitle">Create an Account</p>
+
+<form action="main.html">
+
+<div class="form-group">
+    <label for="firstName">First Name</label>
+    <input id="firstName" type="text" placeholder="Enter your first name" required>
+</div>
+
+<div class="form-group">
+    <label for="middleName">Middle Name</label>
+    <input id="middleName" type="text" placeholder="Enter your middle name">
+</div>
+
+<div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input id="lastName" type="text" placeholder="Enter your last name" required>
+</div>
+
+<div class="form-group">
+    <label for="suffix">Suffix (Optional)</label>
+    <select id="suffix">
+        <option value="">Select suffix</option>
+        <option>Jr.</option>
+        <option>Sr.</option>
+        <option>II</option>
+        <option>III</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="birthDate">Birth Date</label>
+    <input id="birthDate" type="date" required>
+</div>
+
+<div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+    <label for="username">Username</label>
+    <input id="username" type="text" placeholder="Choose a username" required>
+</div>
+
+<div class="form-group">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Create a password" required>
+</div>
+
+<div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" placeholder="Confirm your password" required>
+</div>
+
+<div class="checkbox">
+    <input type="checkbox" id="terms" required>
+    <label for="terms">I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+</div>
+
+<button type="submit">Submit</button>
+
+<p class="form-links">
+    <a href="loginforms.html">Already Have an Account?</a>
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE SLIDESHOW -->
+<div class="slideshow-side">
+
+<div class="bg-slide bg1"></div>
+<div class="bg-slide bg2"></div>
+<div class="bg-slide bg3"></div>
+<div class="bg-slide bg4"></div>
+<div class="bg-slide bg5"></div>
+<div class="bg-slide bg6"></div>
+<div class="bg-slide bg7"></div>
+<div class="bg-slide bg8"></div>
+<div class="bg-slide bg9"></div>
+
+</div>
+
+</div>
+
+<!-- THEME TOGGLE BUTTON -->
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
+
+<script>
+  // Apply user settings from localStorage
+  function applyUserSettings() {
+    const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+    document.body.className = document.body.className.replace(/theme-\w+/g, '');
+    if (appearanceData.theme === 'dark') {
+      document.body.classList.add('theme-dark');
+    }
+  }
+
+  function updateThemeButton() {
+    const isDark = document.body.classList.contains('theme-dark');
+    const themeIcon = document.querySelector('.theme-icon');
+    if (themeIcon) {
+      themeIcon.textContent = isDark ? '☀️' : '🌙';
+    }
+  }
+
+  function toggleTheme() {
+    const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+    const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+    appearanceData.theme = nextTheme;
+    localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+    applyUserSettings();
+    updateThemeButton();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    applyUserSettings();
+    updateThemeButton();
+    const themeToggleFixed = document.getElementById('themeToggleFixed');
+    themeToggleFixed?.addEventListener('click', toggleTheme);
+  });
+</script>
+
+</body>
+</html>
