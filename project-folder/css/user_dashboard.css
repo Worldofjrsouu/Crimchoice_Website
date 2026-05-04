@@ -475,10 +475,10 @@ body {
 /* PIE CHART STYLES */
 .chart-container {
   position: relative;
-  height: 400px;
+  height: 350px;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }
 
 .theme-dark .chart-container {
@@ -487,4 +487,5 @@ body {
 
 .panel .chart-container canvas {
   max-width: 100%;
+  display: block !important;
 }

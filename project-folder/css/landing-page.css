@@ -59,3 +59,52 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid #b31313;
+  color: #b31313;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
+
+.theme-toggle:hover {
+  background: #b31313;
+  color: white;
+  transform: scale(1.05);
+}
+
+.theme-icon {
+  font-size: 18px;
+  display: inline-block;
+}
+
+.theme-toggle-fixed {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #b31313;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(179, 19, 19, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}\n\n.theme-toggle-fixed:hover {
+  background: #7a0000;\n  transform: scale(1.1);\n  box-shadow: 0 8px 20px rgba(179, 19, 19, 0.4);\n}\n\n/* DARK MODE STYLES */\nbody.theme-dark .navbar {\n  background: #101010;\n  border-bottom: 1px solid #2a2a2a;\n}\n\nbody.theme-dark .buttons a {\n  color: #ff8a8a;\n  border-color: #ff8a8a;\n}\n\nbody.theme-dark .buttons a:hover {\n  background: rgba(255, 138, 138, 0.1);\n}\n\nbody.theme-dark .theme-toggle {\n  border-color: #ff8a8a;\n  color: #ff8a8a;\n}\n\nbody.theme-dark .theme-toggle:hover {\n  background: #ff8a8a;\n  color: #101010;\n}\n\nbody.theme-dark .theme-toggle-fixed {\n  background: #c33;\n  box-shadow: 0 4px 12px rgba(255, 138, 138, 0.3);\n}\n\nbody.theme-dark .theme-toggle-fixed:hover {\n  background: #9f1212;\n  box-shadow: 0 8px 20px rgba(255, 138, 138, 0.4);\n}

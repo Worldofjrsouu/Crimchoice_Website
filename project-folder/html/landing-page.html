@@ -15,10 +15,17 @@
   <nav class="navbar">
     <img src="Pathly_FullLogo_White_NoBG_PNG.png" alt="Pathly Logo" class="logo">
     <div class="buttons">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon">🌙</span>
+        <span>Dark</span>
+      </button>
       <a href="loginforms.html" class="login">Login</a>
       <a href="signup.html" class="signup">Sign Up</a>
     </div>
   </nav>
+  <button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+    <span class="theme-icon">🌙</span>
+  </button>
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
@@ -204,9 +211,32 @@
       }
     }
 
+    function updateThemeButton() {
+      const isDark = document.body.classList.contains('theme-dark');
+      document.querySelectorAll('.theme-icon').forEach(el => {
+        el.textContent = isDark ? '☀️' : '🌙';
+      });
+    }
+
+    function toggleTheme() {
+      const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+      const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+      appearanceData.theme = nextTheme;
+      localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+      applyUserSettings();
+      updateThemeButton();
+    }
+
     // Apply settings on page load
     document.addEventListener('DOMContentLoaded', function () {
       applyUserSettings();
+      updateThemeButton();
+
+      const themeToggle = document.getElementById('themeToggle');
+      const themeToggleFixed = document.getElementById('themeToggleFixed');
+
+      themeToggle?.addEventListener('click', toggleTheme);
+      themeToggleFixed?.addEventListener('click', toggleTheme);
     });
 
     // Profile dropdown functionality

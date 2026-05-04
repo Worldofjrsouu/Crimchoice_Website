@@ -660,6 +660,39 @@ const colleges = {
   "Home Economics": { name: "College of Home Economics", link: "../Colleges/html-colleges/college_of_home_economics.html" }
 };
 
+const courseMapping = {
+  "Computing": [
+    { name: "Bachelor of Science in Computer Science", code: "BS CS" },
+    { name: "Bachelor of Science in Information Technology", code: "BS IT" },
+    { name: "Bachelor of Science in Information Systems", code: "BS IS" }
+  ],
+  "Engineering": [
+    { name: "Bachelor of Science in Civil Engineering", code: "BS CvE" },
+    { name: "Bachelor of Science in Electrical Engineering", code: "BS EE" },
+    { name: "Bachelor of Science in Mechanical Engineering", code: "BS ME" }
+  ],
+  "Science": [
+    { name: "Bachelor of Science in Biology", code: "BS BIO" },
+    { name: "Bachelor of Science in Chemistry", code: "BS CHEM" },
+    { name: "Bachelor of Science in Mathematics", code: "BS MATH" }
+  ],
+  "Criminology": [
+    { name: "Bachelor of Science in Criminology", code: "BS CRIM" },
+    { name: "Bachelor of Science in Criminal Justice", code: "BS CJ" },
+    { name: "Bachelor of Science in Forensic Science", code: "BS FS" }
+  ],
+  "Public Administration": [
+    { name: "Bachelor of Science in Public Administration", code: "BS PA" },
+    { name: "Bachelor of Science in Business Administration", code: "BS BA" },
+    { name: "Bachelor of Science in Management", code: "BS MGT" }
+  ],
+  "Home Economics": [
+    { name: "Bachelor of Science in Home Economics", code: "BS HE" },
+    { name: "Bachelor of Science in Hospitality Management", code: "BS HM" },
+    { name: "Bachelor of Science in Interior Design", code: "BS ID" }
+  ]
+};
+
 let currentPage = 0;
 let userAnswers = {};
 
@@ -790,23 +823,31 @@ function showRecommendations() {
   }
 
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
-  const top3 = sorted.slice(0, 3);
+  const top3Colleges = sorted.slice(0, 3);
 
   const resultBox = document.getElementById('resultBox');
   const recommendationsList = document.getElementById('recommendationsList');
   
   let html = '';
-  top3.forEach((item, index) => {
+  top3Colleges.forEach((item, collegeIndex) => {
     const collegeName = item[0];
     const score = item[1];
     const collegeInfo = colleges[collegeName];
-    html += `
-      <div class="recommendation-item">
-        <h3>${index + 1}. ${collegeInfo.name}</h3>
-        <p>Match Score: ${score} points</p>
-        <a href="${collegeInfo.link}" class="recommendation-link">Learn More</a>
-      </div>
-    `;
+    const courses = courseMapping[collegeName] || [];
+    
+    // Show top 3 courses from each college
+    courses.slice(0, 3).forEach((course, courseIndex) => {
+      const overallRank = (collegeIndex * 3) + courseIndex + 1;
+      html += `
+        <div class="recommendation-item">
+          <h3>${overallRank}. ${course.name}</h3>
+          <p class="course-code"><strong>Course Code:</strong> ${course.code}</p>
+          <p class="college-match"><strong>${collegeInfo.name}</strong></p>
+          <p>Match Score: ${score} points</p>
+          <a href="${collegeInfo.link}" class="recommendation-link">Learn More</a>
+        </div>
+      `;
+    });
   });
 
   recommendationsList.innerHTML = html;

@@ -195,3 +195,89 @@ width:90%;
 padding:30px;
 }
 }
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle-fixed {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #b31313;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(179, 19, 19, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle-fixed:hover {
+  background: #7a0000;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(179, 19, 19, 0.4);
+}
+
+/* DARK MODE STYLES */
+body.theme-dark {
+  background: #101010;
+}
+
+body.theme-dark .login-side {
+  background: linear-gradient(870deg, #2a2a2a, #4a0505);
+}
+
+body.theme-dark .login-box {
+  background: rgba(31, 31, 31, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark h1 {
+  color: #ff8a8a;
+}
+
+body.theme-dark .subtitle {
+  color: #b3b3b3;
+}
+
+body.theme-dark input,
+body.theme-dark select {
+  background: rgba(60, 60, 60, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e6e6e6;
+}
+
+body.theme-dark input::placeholder {
+  color: #888;
+}
+
+body.theme-dark .form-group label {
+  color: #b3b3b3;
+}
+
+body.theme-dark button {
+  background: #c33;
+}
+
+body.theme-dark button:hover {
+  background: #9f1212;
+}
+
+body.theme-dark a {
+  color: #ff8a8a;
+}
+
+body.theme-dark .theme-toggle-fixed {
+  background: #c33;
+  box-shadow: 0 4px 12px rgba(255, 138, 138, 0.3);
+}
+
+body.theme-dark .theme-toggle-fixed:hover {
+  background: #9f1212;
+  box-shadow: 0 8px 20px rgba(255, 138, 138, 0.4);
+}

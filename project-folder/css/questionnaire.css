@@ -417,12 +417,17 @@ body.theme-dark .progress-text {
   display: none;
 }
 
-.rating-label input:checked + * {
-  display: none;
+.rating-label:has(input:checked) {
+  background: #b31313;
+  color: white;
+  border-color: #b31313;
+  transform: scale(1.1);
 }
 
-.rating-label input:checked ~ * {
-  display: block;
+body.theme-dark .rating-label:has(input:checked) {
+  background: #c33;
+  color: white;
+  border-color: #c33;
 }
 
 body.theme-dark .rating-label {
@@ -555,9 +560,22 @@ body.theme-dark .submit-btn:hover {
 }
 
 .recommendation-item p {
-  margin: 0 0 16px;
+  margin: 0 0 8px;
   color: #544040;
   font-size: 14px;
+}
+
+.recommendation-item .course-code {
+  font-weight: 600;
+  color: #b31313;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.recommendation-item .college-match {
+  font-style: italic;
+  color: #7a0000;
+  margin-bottom: 12px;
 }
 
 .recommendation-link {
@@ -601,6 +619,14 @@ body.theme-dark .recommendation-item h3 {
 
 body.theme-dark .recommendation-item p {
   color: #c9c9c9;
+}
+
+body.theme-dark .recommendation-item .course-code {
+  color: #ff8a8a;
+}
+
+body.theme-dark .recommendation-item .college-match {
+  color: #f2c6c6;
 }
 
 body.theme-dark .recommendation-link {

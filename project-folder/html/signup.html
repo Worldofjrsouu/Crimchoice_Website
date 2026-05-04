@@ -106,5 +106,45 @@
 
 </div>
 
+<!-- THEME TOGGLE BUTTON -->
+<button class="theme-toggle-fixed" id="themeToggleFixed" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+</button>
+
+<script>
+  // Apply user settings from localStorage
+  function applyUserSettings() {
+    const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+    document.body.className = document.body.className.replace(/theme-\w+/g, '');
+    if (appearanceData.theme === 'dark') {
+      document.body.classList.add('theme-dark');
+    }
+  }
+
+  function updateThemeButton() {
+    const isDark = document.body.classList.contains('theme-dark');
+    const themeIcon = document.querySelector('.theme-icon');
+    if (themeIcon) {
+      themeIcon.textContent = isDark ? '☀️' : '🌙';
+    }
+  }
+
+  function toggleTheme() {
+    const appearanceData = JSON.parse(localStorage.getItem('pathly_appearance') || '{}');
+    const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+    appearanceData.theme = nextTheme;
+    localStorage.setItem('pathly_appearance', JSON.stringify(appearanceData));
+    applyUserSettings();
+    updateThemeButton();
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    applyUserSettings();
+    updateThemeButton();
+    const themeToggleFixed = document.getElementById('themeToggleFixed');
+    themeToggleFixed?.addEventListener('click', toggleTheme);
+  });
+</script>
+
 </body>
 </html>
