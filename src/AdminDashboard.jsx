@@ -35,13 +35,11 @@ export default function AdminDashboard() {
          <h1 className="sidebar-title">Pathly</h1> 
 
          <ul className="sidebar-menu"> 
-            <li className="active"><Link to="/AdminDashboard">Dashboard</Link></li>
+            <li><Link to="/AdminDashboard">Dashboard</Link></li>
             <li><Link to="/manageCourses">Manage Courses</Link></li>
             <li>Quiz Questions</li>
-            <li>Users</li> 
-            <li>Recommendations</li> 
-            <li>Feedback</li> 
-            <li>Settings</li> 
+            <li><Link to="/users">Users</Link></li> 
+            <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>  
           </ul> 
       </div>
       
