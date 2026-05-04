@@ -219,7 +219,7 @@ export default function ManageCourses() {
          <ul className="sidebar-menu"> 
             <li><Link to="/AdminDashboard">Dashboard</Link></li>
             <li><Link to="/manageCourses">Manage Courses</Link></li>
-            <li>Quiz Questions</li>
+            <li><Link to="/quiz">Quiz Questions</Link></li>
             <li><Link to="/users">Users</Link></li>
             <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>  
           </ul> 

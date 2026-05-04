@@ -45,7 +45,7 @@ export default function AdminDashboard() {
         <ul className="sidebar-menu">
           <li><Link to="/AdminDashboard">Dashboard</Link></li>
           <li><Link to="/manageCourses">Manage Courses</Link></li>
-          <li>Quiz Questions</li>
+          <li><Link to="/quiz">Quiz Questions</Link></li>
           <li><Link to="/users">Users</Link></li>
           <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>
           </ul>
@@ -105,34 +105,19 @@ export default function AdminDashboard() {
             </div>
 
             <PieChart width={200} height={150}>
-              <Pie
-                data={totalCoursesData}
-                cx="50%"
-                cy="50%"
-                innerRadius={40}
-                outerRadius={60}
-                dataKey="value"
-                stroke="none"
-              >
-                <Cell fill="#ef4444" />   {/* progress */}
-                <Cell fill="#fecaca" />   {/* remaining */}
-              </Pie>
-
-              {/* Center number */}
-              <text
-                x="50%"
-                y="50%"
-                textAnchor="middle"
-                dominantBaseline="middle"
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                  fill: "#b91c1c"
-                }}
-              >
-                {totalCourses}
-              </text>
-            </PieChart>
+  <Pie
+    data={totalCoursesData}
+    cx="50%"
+    cy="50%"
+    innerRadius={40}
+    outerRadius={60}
+    dataKey="value"
+    stroke="none"
+  >
+    <Cell fill="#ef4444" />   {/* progress */}
+    <Cell fill="#fecaca" />   {/* remaining */}
+  </Pie>
+</PieChart>
           </div>
 
           {/* Recommendation */}
