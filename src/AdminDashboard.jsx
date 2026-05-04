@@ -1,5 +1,5 @@
- import './Dashboard.css';
- import { Link } from "react-router-dom";
+import './Dashboard.css';
+import { Link } from "react-router-dom";
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid,
   BarChart, Bar, PieChart, Pie, Cell
@@ -21,87 +21,121 @@ const courseData = [
   { name: "Apr", value: 80 },
 ];
 
-const pieData = [
-  { name: "Correct", value: 70 },
-  { name: "Wrong", value: 30 },
+// ✅ Donut progress: 4 out of 100
+const totalCourses = 4;
+const totalMax = 100;
+
+const totalCoursesData = [
+  { value: totalCourses },
+  { value: totalMax - totalCourses },
 ];
 
 export default function AdminDashboard() {
+
+  const lastUser = userData[userData.length - 1].users;
+  const lastCourse = courseData[courseData.length - 1].value;
+
   return (
     <div className="dashboard-container">
 
-      {/* Sidebar */} 
+      {/* Sidebar */}
       <div className="sidebar">
-         <h1 className="sidebar-title">Pathly</h1> 
+        <h1 className="sidebar-title">Pathly</h1>
 
-         <ul className="sidebar-menu"> 
-            <li><Link to="/AdminDashboard">Dashboard</Link></li>
-            <li><Link to="/manageCourses">Manage Courses</Link></li>
-            <li>Quiz Questions</li>
-            <li><Link to="/users">Users</Link></li>
-            <li>Feedback</li>
-            <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>  
-          </ul> 
+        <ul className="sidebar-menu">
+          <li><Link to="/AdminDashboard">Dashboard</Link></li>
+          <li><Link to="/manageCourses">Manage Courses</Link></li>
+          <li>Quiz Questions</li>
+          <li><Link to="/users">Users</Link></li>
+          <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>
+          </ul>
       </div>
-      
+
       {/* Main */}
       <div className="main-content">
 
-        <h2 className="main-title"> Welcome, Admin!</h2>
+        <h2 className="main-title">Welcome, Admin!</h2>
 
         {/* Top Charts */}
         <div className="charts-top">
 
           {/* User Growth */}
           <div className="chart-card">
-            <h3>User Growth</h3>
+            <h3>User Growth ({lastUser})</h3>
             <LineChart width={350} height={250} data={userData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              <Line type="monotone" dataKey="users" stroke="#ef4444" />
+              <Line
+                type="monotone"
+                dataKey="users"
+                stroke="#ef4444"
+                label={{ position: "top" }}
+              />
             </LineChart>
           </div>
 
-          {/* Course Enrollments */}
+          {/* Quiz Attempts */}
           <div className="chart-card">
-            <h3>Quiz Attempts</h3>
+            <h3>Quiz Attempts ({lastCourse})</h3>
             <BarChart width={350} height={250} data={courseData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="value" fill="#f87171" />
+              <Bar
+                dataKey="value"
+                fill="#f87171"
+                label={{ position: "top" }}
+              />
             </BarChart>
           </div>
+
         </div>
 
         {/* Bottom Section */}
         <div className="charts-bottom">
 
-          {/* Quiz Attempts */}
+          {/* ✅ Total Courses Donut */}
           <div className="bottom-card">
             <div>
               <h3>Total Courses</h3>
-              <p className="stat-number">28</p>
+              <p className="stat-number">{totalCourses}</p>
             </div>
-            <PieChart width={350} height={150}>
+
+            <PieChart width={200} height={150}>
               <Pie
-                data={pieData}
+                data={totalCoursesData}
                 cx="50%"
                 cy="50%"
                 innerRadius={40}
                 outerRadius={60}
                 dataKey="value"
+                stroke="none"
               >
-                <Cell fill="#ef4444" />
-                <Cell fill="#fecaca" />
+                <Cell fill="#ef4444" />   {/* progress */}
+                <Cell fill="#fecaca" />   {/* remaining */}
               </Pie>
+
+              {/* Center number */}
+              <text
+                x="50%"
+                y="50%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                  fill: "#b91c1c"
+                }}
+              >
+                {totalCourses}
+              </text>
             </PieChart>
           </div>
 
-          {/* Recommendation Clicks */}
+          {/* Recommendation */}
           <div className="bottom-card">
             <div>
               <h3>Recommendation</h3>
