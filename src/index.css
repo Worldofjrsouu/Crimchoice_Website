@@ -1,4 +1,16 @@
 * {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* remove underline from ALL links (including Link) */
+a {
+  text-decoration: none;
+  color: white;
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
