@@ -94,7 +94,7 @@ export default function ManageUsers() {
             <li><Link to="/manageCourses">Manage Courses</Link></li>
             <li>Quiz Questions</li>
             <li><Link to="/users">Users</Link></li>
-            <li><a href="http://127.0.0.1:3000/project-folder/html/loginforms.html?vscode-livepreview=true://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li> 
+            <li><a href="http://127.0.0.1:3000/project-folder/html/loginforms.html?vscode-livepreview=true">Logout</a></li> 
           </ul> 
       </div>
 
