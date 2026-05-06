@@ -47,7 +47,7 @@ export default function AdminDashboard() {
           <li><Link to="/manageCourses">Manage Courses</Link></li>
           <li><Link to="/quiz">Quiz Questions</Link></li>
           <li><Link to="/users">Users</Link></li>
-          <li><a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">Logout</a></li>
+          <li><a href="http://127.0.0.1:3000/Websitehttp://127.0.0.1:3000/project-folder/html/loginforms.html?vscode-livepreview=true/index/loginforms.html?vscode-livepreview=true">Logout</a></li>
           </ul>
       </div>
 

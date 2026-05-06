@@ -73,7 +73,7 @@ export default function QuizQuestions() {
           <li className="active">Quiz Questions</li>
           <li><Link to="/users">Users</Link></li>
           <li>
-            <a href="http://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">
+            <a href="http://127.0.0.1:3000/project-folder/html/loginforms.html?vscode-livepreview=truettp://127.0.0.1:3000/Website/index/loginforms.html?vscode-livepreview=true">
               Logout
             </a>
           </li>
