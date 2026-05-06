@@ -46,6 +46,34 @@ bottom:-100px;
 right:-100px;
 }
 
+/* GO BACK BUTTON */
+.back-container{
+position:fixed;
+top:20px;
+left:20px;
+z-index:999;
+}
+
+.back-btn{
+text-decoration:none;
+padding:10px 18px;
+border-radius:25px;
+
+background:rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+
+color:#fff;
+font-weight:500;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:#f97316;
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
 /* CONTAINER */
 .container{
 display:flex;
